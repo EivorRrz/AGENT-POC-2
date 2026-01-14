@@ -235,7 +235,5 @@ Ref: order.customer_id > customer.id
 **Issues**: https://github.com/EivorRrz/AGENT-POC-2/issues
 
 <div align="center">
-
-[⬆ Back to Top](#-agent-02-ai-powered-data-model-generator)
-
+  
 </div>
