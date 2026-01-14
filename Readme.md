@@ -234,17 +234,7 @@ Ref: order.customer_id > customer.id
 **Repository**: https://github.com/EivorRrz/AGENT-POC-2  
 **Issues**: https://github.com/EivorRrz/AGENT-POC-2/issues
 
-
-
 <div align="center">
-
-## 🎯 Project Status Summary
-
-**✅ COMPLETED**: Logical Model Generation (DBML + ERD Pictures)  
-**⏳ REMAINING**: Physical Model Generation (SQL DDL)  
-**📊 PROGRESS**: 85% Complete  
-
-**Built with ❤️ by Amit Mishra**
 
 [⬆ Back to Top](#-agent-02-ai-powered-data-model-generator)
 
