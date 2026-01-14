@@ -144,16 +144,6 @@ PUPPETEER_EXECUTABLE_PATH=C:\Program Files (x86)\Microsoft\Edge\Application\msed
 
 ---
 
-## 🛠️ Tech Stack
-
-**Backend**: Node.js, Express.js, Multer, Pino  
-**Parsing**: SheetJS (XLSX), csv-parse  
-**AI/ML**: Ollama, DeepSeek-R1:7B  
-**Generation**: @dbml/core, Mermaid.js, Puppeteer, MS Edge  
-**Storage**: File System (JSON)
-
----
-
 ## 📊 Performance
 
 | File Type | Size | Tables | Columns | Processing Time |
