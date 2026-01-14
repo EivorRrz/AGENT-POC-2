@@ -228,9 +228,6 @@ Ref: order.customer_id > customer.id
 ## 👥 Team & Support
 
 **Developer**: Amit Mishra  
-**Team**: EY POC Innovation Team  
-**Organization**: Ernst & Young  
-
 **Repository**: https://github.com/EivorRrz/AGENT-POC-2  
 **Issues**: https://github.com/EivorRrz/AGENT-POC-2/issues
 
