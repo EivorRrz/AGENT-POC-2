@@ -8,6 +8,7 @@ import { existsSync } from "fs";
 import logger from "./utils/logger.js";
 import config from "./config/index.js";
 import uploadRouter from "./middleware/upload.js";
+import generateRouter from "./routes/generate.js";//for generating the artifacts..!
 import { Initializellm, getLLMStatus } from "./llm/index.js";
 
 
@@ -30,6 +31,7 @@ app.get("/health", (req, res) => {
 
 //Routes..!
 app.use('/upload', uploadRouter);
+app.use('/generate', generateRouter);//for generating artifacts..!
 
 
 //Error-Handling-Middleware..!
