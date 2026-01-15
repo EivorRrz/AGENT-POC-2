@@ -1,0 +1,20 @@
+# Phase-2: MySQL Physical Model Generator
+# Production Dependencies
+
+# Core
+python-dotenv>=1.0.0
+
+# Data validation
+pydantic>=2.5.0
+
+# CLI
+click>=8.1.7
+rich>=13.7.0
+
+# ERD rendering
+pyppeteer>=1.0.2
+Pillow>=10.1.0
+
+# File handling
+pathlib>=1.0.1
+
