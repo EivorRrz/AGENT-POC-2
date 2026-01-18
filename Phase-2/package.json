@@ -1,0 +1,32 @@
+{
+  "name": "phase2-mysql-physical-model-production",
+  "version": "2.0.0",
+  "description": "MySQL Physical Model Generator - Production Ready (Complete Full Generation)",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "generate": "node generate-complete.js"
+  },
+  "keywords": [
+    "mysql",
+    "ddl",
+    "erd",
+    "physical-model",
+    "complete",
+    "production"
+  ],
+  "author": "EY POC Team - Amit Mishra",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
