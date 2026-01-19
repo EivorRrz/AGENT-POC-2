@@ -24,6 +24,25 @@ const app = express();
 app.use(express.json({ limit: '50mb' }));//parse all the json data..!
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
+// Increase request timeout for file uploads (5 minutes)
+app.use((req, res, next) => {
+    req.setTimeout(300000); // 5 minutes
+    res.setTimeout(300000); // 5 minutes
+    
+    // Log all requests for debugging
+    if (req.path.includes('/upload')) {
+        logger.info({
+            method: req.method,
+            path: req.path,
+            contentType: req.headers['content-type'] || 'none',
+            contentLength: req.headers['content-length'] || 'none',
+            hasBody: !!req.body
+        }, 'Request received');
+    }
+    
+    next();
+});
+
 // Serve artifacts directory
 const artifactsDir = path.join(__dirname, '..', 'artifacts');
 app.use('/artifacts', express.static(artifactsDir));
@@ -44,6 +63,41 @@ app.use('/generate', generateRouter);//for generating artifacts..!
 
 //Error-Handling-Middleware..!
 app.use((err, req, res, next) => {
+    // Suppress ECONNRESET errors in console - they're handled gracefully
+    if (err.code === 'ECONNRESET' || err.message?.includes('ECONNRESET')) {
+        // Log silently without stack trace
+        logger.warn({
+            code: err.code,
+            path: req.path,
+            contentType: req.headers['content-type'] || 'none'
+        }, 'Connection reset - handled gracefully');
+        
+        if (!res.headersSent) {
+            return res.status(400).json({
+                error: "Connection-Error",
+                message: "Connection was reset during upload.",
+                solution: "Try using the alternative upload endpoint: POST /upload/simple",
+                hints: [
+                    "1. Use POST /upload/simple endpoint (simpler, more reliable)",
+                    "2. Or check Postman: Body → form-data → Key: file → Type: File",
+                    "3. Ensure file is actually selected (filename appears, not 'undefined')",
+                    "4. Try a smaller file first"
+                ],
+                alternativeEndpoint: {
+                    method: "POST",
+                    url: "http://localhost:3000/upload/simple",
+                    headers: { "x-api-key": "test" },
+                    body: {
+                        type: "form-data",
+                        key: "file",
+                        typeDropdown: "File"
+                    }
+                }
+            });
+        }
+        return; // Don't log error if response already sent
+    }
+    
     logger.error({
         err,
         path: req.path,

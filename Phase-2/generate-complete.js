@@ -11,7 +11,10 @@ import { Metadata, Table, Column } from './src/models/Metadata.js';
 import { MySQLGenerator } from './src/generators/MySQLGenerator.js';
 import { InteractiveHTMLGenerator } from './src/generators/InteractiveHTML.js';
 import { ExecutiveReportGenerator } from './src/generators/ExecutiveReport.js';
+import { generatePhysicalERDDiagrams } from './src/generators/PhysicalERDGenerator.js';
+import { enhancePhysicalModelWithLLM } from './src/generators/LLMPhysicalEnhancer.js';
 import { ensureFolders } from './src/utils/folderOrganizer.js';
+import { generatePhysicalGraphArtifacts } from './src/utils/graphAnalysis.js';
 import config from './src/config.js';
 import logger from './src/utils/logger.js';
 import fs from 'fs';
@@ -45,10 +48,14 @@ function progress(step, total, msg) {
 }
 
 async function loadMetadata(fileId) {
-    const metadataPath = path.join(config.phase1ArtifactsDir, fileId, 'metadata.json');
+    // Try new organized path first (json/metadata.json), then fallback to old path
+    const newMetadataPath = path.join(config.phase1ArtifactsDir, fileId, 'json', 'metadata.json');
+    const oldMetadataPath = path.join(config.phase1ArtifactsDir, fileId, 'metadata.json');
+    
+    const metadataPath = fs.existsSync(newMetadataPath) ? newMetadataPath : oldMetadataPath;
     
     if (!fs.existsSync(metadataPath)) {
-        throw new Error(`Metadata not found: ${metadataPath}`);
+        throw new Error(`Metadata not found. Tried:\n  - ${newMetadataPath}\n  - ${oldMetadataPath}`);
     }
     
     const rawData = await readJSON(metadataPath);
@@ -95,9 +102,19 @@ async function generateComplete(fileId) {
     
     try {
         // Step 1: Load metadata
-        progress(1, 4, 'Loading metadata...');
-        const metadata = await loadMetadata(fileId);
+        progress(1, 6, 'Loading metadata...');
+        let metadata = await loadMetadata(fileId);
         success(`Loaded: ${metadata.tableCount} tables, ${metadata.totalColumns} columns`);
+        
+        // Step 1.5: Enhance with LLM for physical model details
+        progress(2, 6, 'Enhancing with LLM for exact SQL types, constraints, defaults...');
+        try {
+            metadata = await enhancePhysicalModelWithLLM(metadata);
+            success('LLM enhancements applied');
+        } catch (err) {
+            log(`   ${COLORS.YELLOW}⚠${COLORS.RESET} LLM enhancement failed: ${err.message} - using heuristics`);
+        }
+        console.log();
         
         const isLarge = metadata.tableCount > 15 || metadata.totalColumns > 300;
         if (isLarge) {
@@ -105,8 +122,8 @@ async function generateComplete(fileId) {
         }
         console.log();
         
-        // Step 2: Generate MySQL DDL (in physical/ folder) - Skip if exists
-        progress(2, 4, 'Generating MySQL DDL...');
+        // Step 3: Generate MySQL DDL (in physical/ folder) - Skip if exists
+        progress(3, 6, 'Generating MySQL DDL with LLM-enhanced types...');
         try {
             const sqlPath = path.join(paths.physical, 'mysql.sql');
             if (fs.existsSync(sqlPath)) {
@@ -124,8 +141,43 @@ async function generateComplete(fileId) {
         }
         console.log();
         
-        // Step 3: Generate Interactive HTML (in executive/ folder) - Skip if exists
-        progress(3, 4, 'Generating Interactive HTML viewer...');
+        // Step 4: Generate Physical ERD Diagrams (PNG + SVG) - Skip if exists
+        progress(4, 6, 'Generating Physical ERD diagrams (PNG + SVG)...');
+        try {
+            const pngPath = path.join(paths.physical, 'erd.png');
+            const svgPath = path.join(paths.physical, 'erd.svg');
+            
+            if (fs.existsSync(pngPath) && fs.existsSync(svgPath)) {
+                log(`   ${COLORS.YELLOW}⚠${COLORS.RESET} Physical ERD diagrams already exist, skipping`);
+                results.files.push({ name: 'erd.png', type: 'Physical ERD PNG (exists)', size: fs.statSync(pngPath).size });
+                results.files.push({ name: 'erd.svg', type: 'Physical ERD SVG (exists)', size: fs.statSync(svgPath).size });
+            } else {
+                const erdResults = await generatePhysicalERDDiagrams(metadata, paths.physical);
+                
+                if (erdResults.png && fs.existsSync(erdResults.png)) {
+                    results.files.push({ name: 'erd.png', type: `Physical ERD PNG (${erdResults.generator})`, size: fs.statSync(erdResults.png).size });
+                    success(`erd.png (${erdResults.generator})`);
+                }
+                
+                if (erdResults.svg && fs.existsSync(erdResults.svg)) {
+                    results.files.push({ name: 'erd.svg', type: `Physical ERD SVG (${erdResults.generator})`, size: fs.statSync(erdResults.svg).size });
+                    success(`erd.svg (${erdResults.generator})`);
+                }
+                
+                if (erdResults.errors.length > 0) {
+                    erdResults.errors.forEach(e => {
+                        results.errors.push({ step: 'ERD', error: `${e.generator}: ${e.error}` });
+                    });
+                }
+            }
+        } catch (err) {
+            error(`Physical ERD generation failed: ${err.message}`);
+            results.errors.push({ step: 'ERD', error: err.message });
+        }
+        console.log();
+        
+        // Step 5: Generate Interactive HTML (in executive/ folder) - Skip if exists
+        progress(5, 7, 'Generating Interactive HTML viewer...');
         try {
             const htmlPath = path.join(paths.executive, 'erd_INTERACTIVE.html');
             if (fs.existsSync(htmlPath)) {
@@ -143,8 +195,8 @@ async function generateComplete(fileId) {
         }
         console.log();
         
-        // Step 4: Generate Executive Report (in executive/ folder) - Skip if exists
-        progress(4, 4, 'Generating Executive Report (for EY leadership)...');
+        // Step 6: Generate Executive Report (in executive/ folder) - Skip if exists
+        progress(6, 7, 'Generating Executive Report (for EY leadership)...');
         try {
             const execPath = path.join(paths.executive, 'EXECUTIVE_REPORT.html');
             if (fs.existsSync(execPath)) {
@@ -162,8 +214,22 @@ async function generateComplete(fileId) {
         }
         console.log();
         
+        // Step 7: Generate graph analysis artifacts (lineage, impact, insights)
+        progress(7, 7, 'Generating graph analysis (lineage, impact, insights)...');
+        try {
+            const graphResults = await generatePhysicalGraphArtifacts(metadata, paths);
+            results.files.push(...graphResults.files);
+            if (graphResults.errors.length > 0) {
+                results.errors.push(...graphResults.errors);
+            }
+        } catch (err) {
+            error(`Graph analysis failed: ${err.message}`);
+            results.errors.push({ step: 'graph_analysis', error: err.message });
+        }
+        console.log();
+        
         // Note: ERD diagrams are generated by Phase-1 using DBML (higher quality)
-        // Phase-2 focuses on physical model (SQL) and executive outputs only
+        // Phase-2 focuses on physical model (SQL), graph analysis, and executive outputs only
         
         // Generate verification report
         const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);

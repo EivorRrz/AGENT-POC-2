@@ -5,7 +5,7 @@
 **Built by**: EY POC Team - Amit Mishra  
 **Organization**: Ernst & Young  
 **Repository**: https://github.com/EivorRrz/AGENT-POC-2  
-**Status**: 85% Complete (Production POC)
+**Status**: 100% Complete (Production POC with Logical + Physical + AI Q&A)
 
 ---
 
@@ -19,7 +19,7 @@ Upload Excel/CSV metadata files → Get instant:
 
 ---
 
-## ✅ Completed Modules (85%)
+## ✅ Completed Modules (100%)
 
 | Module | Status | Description |
 |--------|--------|-------------|
@@ -29,17 +29,12 @@ Upload Excel/CSV metadata files → Get instant:
 | **Module 4** | ✅ **DONE** | LLM Assist (Ollama + DeepSeek-R1:7B) |
 | **Module 5A** | ✅ **DONE** | Logical Model Generator (DBML) |
 | **Module 5B** | ✅ **DONE** | ERD Picture Generator (PNG/SVG/PDF) |
-| **Module 5C** | ⏳ **TODO** | Physical Models (PostgreSQL/Snowflake DDL) |
+| **Module 5C** | ✅ **DONE**| Physical Models (PostgreSQL/Snowflake DDL) |
 
 ---
 
-## ⏳ What's Left
 
-- [ ] **Physical Model Generation** - SQL DDL for PostgreSQL & Snowflake
-- [ ] Web UI Dashboard (optional)
-- [ ] Batch Processing (optional)
-
-**Current POC covers**: Logical modeling & visualization (85% complete)
+**Current POC covers**: Logical & Physical modeling + AI Q&A (100% complete for MySQL)
 
 ---
 
@@ -190,16 +185,6 @@ Check folder: artifacts/{fileId}/
 
 ---
 
-## 📚 Additional Documentation
-
-| Document | Description |
-|----------|-------------|
-| [GENERATION-FLOW.md](GENERATION-FLOW.md) | Complete flow with diagrams |
-| [EDGE-SETUP-COMPLETE.md](EDGE-SETUP-COMPLETE.md) | MS Edge configuration |
-| [IMPLEMENTATION-SUMMARY.md](IMPLEMENTATION-SUMMARY.md) | Storage layer details |
-| [install.ps1](install.ps1) | Installation script |
-
----
 
 ## 📸 Example Output
 
@@ -226,11 +211,130 @@ Ref: order.customer_id > customer.id
 ---
 
 ## 👥 Team & Support
-
+ 
 **Developer**: Amit Mishra  
 **Repository**: https://github.com/EivorRrz/AGENT-POC-2  
 **Issues**: https://github.com/EivorRrz/AGENT-POC-2/issues
 
-<div align="center">
-  
-</div>
+---
+
+## 🔧 End‑to‑End Flow (Logical + Physical + AI Q&A)
+
+### 1. Ingest & Logical Model (Phase‑1)
+
+```bash
+cd Phase-1
+
+# Install dependencies
+npm install
+
+# Start API server (upload + generate)
+npm start
+```
+
+Main API endpoints (default: `http://localhost:3000`):
+
+- **Upload file**  
+  `POST /upload/ingest` (multipart `file`, header `x-api-key`)
+
+- **Generate all artifacts (logical + ERDs + physical via Phase‑2)**  
+  `POST /generate/{fileId}`
+
+- **Generate logical only (strict LDM)**  
+  `POST /generate/logical/{fileId}`  
+  or CLI:  
+  ```bash
+  node generate-logical.js {fileId}
+  ```
+
+Artifacts layout:
+
+```text
+Phase-1/artifacts/{fileId}/
+  ├── json/metadata.json              # Parsed source metadata
+  ├── logical/                        # Logical model (LDM)
+  │   ├── logical.dbml
+  │   ├── erd.png / erd.svg
+  │   └── logical.json
+  ├── physical/                       # Physical model (PDM)
+  │   ├── mysql.sql
+  │   ├── erd.png / erd.svg
+  │   ├── physical_lineage.json
+  │   ├── physical_impact.json
+  │   └── physical_graph_insights.json
+  └── executive/
+      ├── EXECUTIVE_REPORT.html
+      └── erd_INTERACTIVE.html
+```
+
+---
+
+### 2. Physical Model & Executive Outputs (Phase‑2)
+
+```bash
+cd Phase-2
+
+# Install dependencies
+npm install
+
+# Generate full physical model + ERDs + executive + analysis
+node generate-complete.js {fileId}
+```
+
+This produces for each `{fileId}`:
+
+- `mysql.sql` – production‑grade MySQL DDL (PK/FK, CHECK, DEFAULT, indexes, timestamps)
+- Physical ERD – `erd.png`, `erd.svg`
+- Executive dashboard – `EXECUTIVE_REPORT.html`, `erd_INTERACTIVE.html`
+- Graph analysis:
+  - `physical_lineage.json` – **Data Lineage** (“where each column came from”)
+  - `physical_impact.json` – **Impact Analysis** (“what breaks if we change/drop”)
+  - `physical_graph_insights.json` – **Graph Insights** (health/risk checks)
+
+---
+
+### 3. Leader/Manager Q&A CLI (AI Communication Layer)
+
+```bash
+cd Phase-2
+node cli-qa.js {fileId}
+```
+
+Then ask questions at the prompt:
+
+```text
+Q> Where did order.customer_id come from?
+Q> What happens if we drop the order table?
+Q> Is this schema safe for production?
+```
+
+The CLI:
+
+- Loads only the precomputed JSON artifacts:
+  - `physical_lineage.json`
+  - `physical_impact.json`
+  - `physical_graph_insights.json`
+- Sends them to the local LLM (DeepSeek via Ollama).
+- Returns a **short, plain‑English answer** for leaders.
+
+**Important:**  
+The LLM is **only a communication layer**:
+- ✅ It explains lineage, impact, and risks in simple English.  
+- ❌ It does **not** generate or change SQL / ERDs.  
+- ❌ It does **not** decide correctness; all facts come from the JSON artifacts.
+
+---
+
+## ✅ Current POC Status (AI Agent)-Completed..!
+
+- Logical model generation (LDM) – **complete**
+- Physical model generation (PDM, MySQL) – **complete**
+- Physical ERD diagrams – **complete**
+- Executive HTML dashboard – **complete**
+- Data Lineage JSON – **complete**
+- Impact Analysis JSON – **complete**
+- AI‑driven Graph Insights JSON – **complete**
+- CLI Q&A (leader‑friendly AI agent) – **complete**
+
+
+“Upload → Generate → View dashboards/ERDs → Ask the model questions in plain English.”

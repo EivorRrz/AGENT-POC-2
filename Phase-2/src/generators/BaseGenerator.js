@@ -44,8 +44,13 @@ export class BaseGenerator {
         //generation of indexs..!   
         for (const table of this.metadata.tables.values()) {
             const indexs = this.generateIndexes(table);
-            if (indexs.length > 0) {
-                parts.push(indexs);
+            if (indexs && indexs.length > 0) {
+                // If indexes is an array, join with newlines
+                if (Array.isArray(indexs)) {
+                    parts.push(indexs.join('\n'));
+                } else {
+                    parts.push(indexs);
+                }
                 parts.push('');
             }
         }

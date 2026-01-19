@@ -16,7 +16,6 @@ import { getInferenceStats } from '../heuristics/index.js';
 import { getLLMStatus } from '../llm/index.js';
 import { saveMetadata, getArtifactStatus } from '../storage/fileStorage.js';
 import { generateDBML, saveDBML } from '../generators/dbmlGenerator.js';
-import { generateDBMLDiagrams } from '../generators/dbmlDiagramGenerator.js';
 
 
 //logic..!
@@ -97,22 +96,30 @@ async function generateAllModels(fileId, metadataDocument) {
         }
         
         try {
-            // Generate Logical ERD using DBML (high quality)
+            // Generate Logical ERD using Production Diagram Generator (Graphviz → DBML fallback)
             // DBML is saved in dbml/ folder, diagrams go to logical/ folder
             const dbmlPath = path.join(config.storage.artifactsDir, fileId, 'dbml', 'schema.dbml');
             
             // Check if DBML exists before generating diagrams
             if (existsSync(dbmlPath)) {
-                const diagramResults = await generateDBMLDiagrams(fileId, dbmlPath);
+                // Use production diagram generator (Graphviz primary, DBML CLI fallback)
+                const { generateProductionDiagrams } = await import('../generators/productionDiagramGenerator.js');
+                const diagramResults = await generateProductionDiagrams(fileId, dbmlPath);
                 artifacts.logical.images = {
                     png: diagramResults.png,
                     svg: diagramResults.svg,
                     pdf: diagramResults.pdf
                 };
+                artifacts.logical.generator = diagramResults.generator;
+                artifacts.logical.schemaSize = diagramResults.schemaSize;
                 if (diagramResults.errors.length > 0) {
                     artifacts.errors.push(...diagramResults.errors);
                 }
-                logger.info({ fileId }, '✅ Logical ERD generated (DBML)');
+                logger.info({ 
+                    fileId, 
+                    generator: diagramResults.generator,
+                    schemaSize: diagramResults.schemaSize 
+                }, '✅ Logical ERD generated');
             } else {
                 logger.warn({ fileId }, '⚠️ DBML not found, skipping diagram generation');
             }
@@ -331,20 +338,37 @@ const handleMulterError = (err, req, res, next) => {
                   'Check that Content-Type is multipart/form-data and field name is "file"'
         });
     } else if (err) {
-        logger.error({ error: err.message, stack: err.stack }, 'Upload error');
+        logger.error({ 
+            error: err.message, 
+            code: err.code,
+            stack: err.stack 
+        }, 'Upload error');
         
         // Handle connection reset errors
-        if (err.code === 'ECONNRESET' || err.message.includes('ECONNRESET')) {
+        if (err.code === 'ECONNRESET' || err.message?.includes('ECONNRESET')) {
             return res.status(400).json({
                 error: 'Connection-Error',
-                message: 'Connection was reset. This usually means:',
+                message: 'Connection was reset during upload. This usually means:',
                 hints: [
-                    '1. Check that Content-Type header is set to: multipart/form-data',
-                    '2. Ensure field name in Postman is exactly: "file" (not "file: undefined")',
-                    '3. Verify file is actually selected in Postman',
-                    '4. Check query parameter: use ?full=true (not ?full===true)',
-                    '5. Try reducing file size if it\'s very large'
-                ]
+                    '1. Postman Body tab → Select "form-data" (NOT raw, NOT x-www-form-urlencoded)',
+                    '2. Key name must be exactly: "file" (lowercase, no extra text)',
+                    '3. Change dropdown from "Text" to "File"',
+                    '4. Actually select a file (should show filename, not "undefined")',
+                    '5. Content-Type should be multipart/form-data (Postman sets this automatically)',
+                    '6. Try a smaller file first to test',
+                    '7. Check server is running and accessible'
+                ],
+                postmanConfig: {
+                    method: 'POST',
+                    url: 'http://localhost:3000/upload/ingest',
+                    headers: { 'x-api-key': 'test' },
+                    body: {
+                        type: 'form-data',
+                        key: 'file',
+                        typeDropdown: 'File (NOT Text)',
+                        value: '[Your filename should appear here, not "undefined"]'
+                    }
+                }
             });
         }
         
@@ -358,26 +382,125 @@ const handleMulterError = (err, req, res, next) => {
 };
 
 router.post('/ingest', validateApiKey, (req, res, next) => {
+    // Set longer timeout for file uploads (5 minutes)
+    req.setTimeout(300000);
+    res.setTimeout(300000);
+    
     // Log request details for debugging
+    const contentType = req.headers['content-type'] || '';
+    const contentLength = req.headers['content-length'];
+    
     logger.info({ 
-        contentType: req.headers['content-type'],
+        contentType,
+        contentLength,
         hasBody: !!req.body,
         query: req.query,
         method: req.method,
-        url: req.url
+        url: req.url,
+        headers: Object.keys(req.headers)
     }, 'Upload request received');
     
     // Early validation - check Content-Type
-    const contentType = req.headers['content-type'] || '';
+    if (!contentType) {
+        logger.warn({ headers: req.headers }, 'Missing Content-Type header');
+        return res.status(400).json({
+            error: 'Bad-Request',
+            message: 'Content-Type header is missing. This means Postman is not sending the file correctly.',
+            diagnostic: {
+                receivedHeaders: Object.keys(req.headers),
+                contentType: contentType || 'MISSING',
+                contentLength: contentLength || 'MISSING'
+            },
+            fix: {
+                step1: 'Open Postman Body tab',
+                step2: 'Select "form-data" (NOT raw, NOT x-www-form-urlencoded)',
+                step3: 'Add key: "file"',
+                step4: 'Change dropdown from "Text" to "File"',
+                step5: 'Click "Select Files" and choose your file',
+                step6: 'Verify filename appears in Value column (NOT "undefined")',
+                note: 'Postman will automatically set Content-Type to multipart/form-data when you use form-data'
+            }
+        });
+    }
+    
     if (!contentType.includes('multipart/form-data')) {
-        logger.warn({ contentType }, 'Invalid Content-Type');
+        logger.warn({ contentType, contentLength }, 'Invalid Content-Type');
         return res.status(400).json({
             error: 'Bad-Request',
             message: 'Content-Type must be multipart/form-data',
             received: contentType,
-            hint: 'In Postman: Body → form-data (Postman sets Content-Type automatically)'
+            hint: 'In Postman: Body → form-data (Postman sets Content-Type automatically)',
+            fix: {
+                step1: 'Go to Body tab',
+                step2: 'Select "form-data"',
+                step3: 'Do NOT manually set Content-Type header - Postman does this automatically',
+                step4: 'Add file field and select your file'
+            }
         });
     }
+    
+    // Check if content-length is present (indicates file is being sent)
+    if (!contentLength || contentLength === '0') {
+        logger.warn({ contentType, contentLength }, 'No content-length or zero length');
+        return res.status(400).json({
+            error: 'Bad-Request',
+            message: 'No file data detected. File is not being sent.',
+            diagnostic: {
+                contentType,
+                contentLength: contentLength || 'MISSING'
+            },
+            fix: {
+                step1: 'In Postman Body tab → form-data',
+                step2: 'Ensure key name is exactly: "file"',
+                step3: 'Change dropdown to "File" (NOT Text)',
+                step4: 'Actually select a file - filename should appear',
+                step5: 'If you see "undefined", the file is not selected'
+            }
+        });
+    }
+    
+    // Handle connection errors BEFORE multer processes (silently)
+    req.on('error', (err) => {
+        // Suppress ECONNRESET console errors - handle gracefully
+        if (err.code === 'ECONNRESET' && !res.headersSent) {
+            logger.warn({
+                code: err.code,
+                contentType: req.headers['content-type'] || 'none',
+                contentLength: req.headers['content-length'] || 'none'
+            }, 'Connection reset - handled gracefully');
+            
+            return res.status(400).json({
+                error: 'Connection-Error',
+                message: 'Connection was reset. Try the alternative endpoint.',
+                alternativeEndpoint: 'POST /upload/simple',
+                hints: [
+                    'Use POST /upload/simple for more reliable uploads',
+                    'Or check: Body → form-data → Key: file → Type: File',
+                    'Ensure file is selected (filename appears)'
+                ]
+            });
+        }
+        
+        // Only log non-ECONNRESET errors
+        if (err.code !== 'ECONNRESET') {
+            logger.error({ 
+                error: err.message, 
+                code: err.code
+            }, 'Request error');
+        }
+    });
+    
+    // Handle premature connection close (silently)
+    req.on('close', () => {
+        if (!req.complete && !res.headersSent) {
+            // Silent - don't log as error
+        }
+    });
+    
+    // Handle aborted requests (silently)
+    req.on('aborted', () => {
+        // Silent - don't log as error
+    });
     
     uploadSingle(req, res, (err) => {
         if (err) {
@@ -477,9 +600,10 @@ router.post('/ingest', validateApiKey, (req, res, next) => {
         await saveMetadata(fileId, metadataDocument);
         logger.info({ fileId, tables: Object.keys(tablesMap).length }, 'Metadata saved to artifacts folder');
         
-        // AUTO-GENERATE ALL MODELS (Logical + Physical + Executive)
-        logger.info({ fileId }, '🚀 Starting automatic model generation...');
-        const generatedArtifacts = await generateAllModels(fileId, metadataDocument);
+        // UPLOAD ONLY - No auto-generation
+        // Use separate endpoints to generate:
+        // - POST /generate/logical/:fileId - Generate logical model (DBML + ERD diagrams)
+        // - POST /generate/physical/:fileId - Generate physical model (MySQL SQL)
         
         const includeFullMetadata = req.query.full === 'true' || req.query.full === '1';
 
@@ -504,46 +628,23 @@ router.post('/ingest', validateApiKey, (req, res, next) => {
                 }
             },
             llmStatus: getLLMStatus(),
-            artifacts: {
-                // Logical Model (Phase-1) - Organized in folders
-                logical: {
-                    dbml: generatedArtifacts.logical.dbml ? `artifacts/${fileId}/dbml/schema.dbml` : null,
-                    erd_png: generatedArtifacts.logical.images?.png ? `artifacts/${fileId}/logical/erd.png` : null,
-                    erd_svg: generatedArtifacts.logical.images?.svg ? `artifacts/${fileId}/logical/erd.svg` : null,
-                    erd_pdf: generatedArtifacts.logical.images?.pdf ? `artifacts/${fileId}/logical/erd.pdf` : null,
-                },
-                // Physical Model (Phase-2) - Organized in folders
-                physical: {
-                    mysql_sql: generatedArtifacts.physical.mysql_sql || null,
-                },
-                // Executive Outputs - Organized in folders
-                executive: {
-                    report: generatedArtifacts.executive.report || null,
-                    interactive: generatedArtifacts.executive.interactive || null,
-                },
-                metadataPath: `artifacts/${fileId}/json/metadata.json`,
-                ready: generatedArtifacts.errors.length === 0,
-            },
+            metadataPath: `artifacts/${fileId}/json/metadata.json`,
             preview: metadata.slice(0, 5),
+            nextSteps: {
+                logical: `POST /generate/logical/${fileId} - Generate logical model (DBML + ERD diagrams)`,
+                physical: `POST /generate/physical/${fileId} - Generate physical model (MySQL SQL)`,
+                all: `POST /generate/${fileId} - Generate all artifacts`
+            }
         };
 
         
         if (includeFullMetadata) {
             responseData.metadata.columns = metadata;  // Full array
         }
-        
-        // Include errors if any (non-critical)
-        if (generatedArtifacts.errors.length > 0) {
-            responseData.artifacts.warnings = generatedArtifacts.errors;
-        }
-
-        const statusMessage = generatedArtifacts.errors.length === 0 
-            ? "✅ Complete! Logical and Physical models generated automatically. All artifacts ready!"
-            : "⚠️ Models generated with some warnings. Check artifacts.warnings for details.";
 
         res.status(200).json({
             success: true,
-            message: statusMessage,
+            message: "✅ File uploaded and metadata extracted successfully! Use /generate endpoints to create artifacts.",
             data: responseData,
         });
 
@@ -596,9 +697,198 @@ router.get('/test', (req, res) => {
                 '7. Change dropdown from "Text" to "File"',
                 '8. Click "Select Files" and choose your file',
                 '9. Send request'
-            ]
+            ],
+            visualGuide: {
+                postmanBodyTab: {
+                    step1: 'Click "Body" tab in Postman',
+                    step2: 'You will see radio buttons: none | form-data | x-www-form-urlencoded | raw | binary | GraphQL',
+                    step3: 'Click "form-data" radio button',
+                    step4: 'You will see a table with columns: Key | Type | Value',
+                    step5: 'In Key column, type: file',
+                    step6: 'In Type column dropdown, change from "Text" to "File"',
+                    step7: 'In Value column, click "Select Files" button',
+                    step8: 'Choose your Excel/CSV file',
+                    step9: 'Verify filename appears in Value column (NOT "undefined")'
+                },
+                whatToLookFor: {
+                    correct: 'Value column shows: "yourfile.xlsx" or "data.csv"',
+                    incorrect: 'Value column shows: "undefined" or empty',
+                    fix: 'If you see "undefined", click "Select Files" again and choose your file'
+                }
+            },
+            troubleshooting: {
+                ifYouSeeECONNRESET: [
+                    '1. Check Body tab - is "form-data" selected?',
+                    '2. Check Type column - is it "File" or "Text"?',
+                    '3. Check Value column - does filename appear or "undefined"?',
+                    '4. Try deleting the request and creating a new one',
+                    '5. Use curl command below to test if server is working'
+                ],
+                curlTest: 'curl -X POST http://localhost:3000/upload/ingest -H "x-api-key: test" -F "file=@C:\\path\\to\\your\\file.xlsx"'
+            }
         }
     });
+});
+
+/**
+ * Simple test endpoint to verify server connectivity
+ * POST /upload/ping - Just returns success if server is reachable
+ */
+router.post('/ping', (req, res) => {
+    res.json({
+        success: true,
+        message: 'Server is reachable!',
+        receivedHeaders: Object.keys(req.headers),
+        contentType: req.headers['content-type'] || 'none',
+        timestamp: new Date().toISOString()
+    });
+});
+
+/**
+ * Alternative simpler upload endpoint - more reliable, suppresses console errors
+ * POST /upload/simple - Simplified upload with better error handling
+ */
+router.post('/simple', validateApiKey, (req, res, next) => {
+    // Set longer timeout
+    req.setTimeout(300000);
+    res.setTimeout(300000);
+    
+    logger.info({
+        method: req.method,
+        path: req.path,
+        contentType: req.headers['content-type'] || 'none',
+        contentLength: req.headers['content-length'] || 'none'
+    }, 'Simple upload endpoint called');
+    
+    // Handle connection errors silently (no console spam)
+    req.on('error', (err) => {
+        if (err.code === 'ECONNRESET' && !res.headersSent) {
+            // Silent warning - no console error spam
+            return res.status(400).json({
+                error: 'Connection-Error',
+                message: 'Connection was reset. Please try again.',
+                tip: 'Ensure file is properly selected in Postman (Type: File, not Text)'
+            });
+        }
+    });
+    
+    uploadSingle(req, res, (err) => {
+        if (err) {
+            // Suppress ECONNRESET errors in console
+            if (err.code === 'ECONNRESET') {
+                return res.status(400).json({
+                    error: 'Connection-Error',
+                    message: 'Connection was reset. File may not have been sent correctly.',
+                    solution: 'Check Postman: Body → form-data → Key: file → Type: File → Select file'
+                });
+            }
+            return handleMulterError(err, req, res, next);
+        }
+        next();
+    });
+}, async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({
+                error: "Bad-Request",
+                message: "No file uploaded.",
+                instructions: {
+                    step1: "Body tab → Select 'form-data'",
+                    step2: "Add key: 'file'",
+                    step3: "Change Type dropdown to 'File'",
+                    step4: "Click 'Select Files' and choose your file",
+                    step5: "Verify filename appears (not 'undefined')"
+                }
+            });
+        }
+        
+        const fileInfo = {
+            originalName: req.file.originalname,
+            fileName: req.file.filename,
+            path: req.file.path,
+            size: req.file.size,
+            mimetype: req.file.mimetype,
+            uploadAt: new Date().toISOString(),
+        };
+        
+        logger.info({ fileInfo }, "File-Uploaded-Successfully (Simple Endpoint)");
+        
+        const metadata = await parseMetadataFile(req.file.path, req.file.originalname);
+        const inference = getInferenceStats(metadata);
+        const fileId = req.file.filename.split('_&_')[0];
+        
+        // Transform metadata
+        const tablesMap = {};
+        metadata.forEach(col => {
+            if (!tablesMap[col.tableName]) {
+                tablesMap[col.tableName] = {
+                    tableName: col.tableName,
+                    columns: []
+                };
+            }
+            tablesMap[col.tableName].columns.push(col);
+        });
+        
+        // Prepare metadata document
+        const metadataDocument = {
+            fileId,
+            originalName: req.file.originalname,
+            uploadedAt: fileInfo.uploadAt,
+            fileSize: req.file.size,
+            filePath: req.file.path,
+            metadata: {
+                rowCount: metadata.length,
+                tableCount: Object.keys(tablesMap).length,
+                tables: tablesMap
+            },
+            inference,
+            llmStatus: getLLMStatus(),
+            createdAt: new Date().toISOString()
+        };
+        
+        await saveMetadata(fileId, metadataDocument);
+        
+        // Simple endpoint also only uploads - no auto-generation
+        res.status(200).json({
+            success: true,
+            message: "✅ File uploaded and metadata extracted successfully! Use /generate endpoints to create artifacts.",
+            fileId,
+            fileInfo: {
+                originalName: fileInfo.originalName,
+                size: fileInfo.size,
+                uploadedAt: fileInfo.uploadAt
+            },
+            metadata: {
+                rowCount: metadata.length,
+                tableCount: Object.keys(tablesMap).length,
+                tables: Object.keys(tablesMap)
+            },
+            inference: {
+                primaryKeys: {
+                    explicit: inference.explicitPK,
+                    inferred: inference.inferredPK,
+                },
+                foreignKeys: {
+                    explicit: inference.explicitFK,
+                    inferred: inference.inferredFK,
+                }
+            },
+            metadataPath: `artifacts/${fileId}/json/metadata.json`,
+            nextSteps: {
+                logical: `POST /generate/logical/${fileId} - Generate logical model (DBML + ERD diagrams)`,
+                physical: `POST /generate/physical/${fileId} - Generate physical model (MySQL SQL)`,
+                all: `POST /generate/${fileId} - Generate all artifacts`
+            }
+        });
+        
+    } catch (error) {
+        // Suppress error stack in console for cleaner output
+        logger.error({ error: error.message }, 'Simple upload failed');
+        return res.status(500).json({
+            error: "Internal-Server-Error",
+            message: error.message || "Failed to process file",
+        });
+    }
 });
 
 export default router;

@@ -10,7 +10,6 @@ import { fileURLToPath } from 'url';
 import logger from '../utils/logger.js';
 import { getMetadata } from '../storage/fileStorage.js';
 import { generateDBML, saveDBML } from '../generators/dbmlGenerator.js';
-import { generateDBMLDiagrams } from '../generators/dbmlDiagramGenerator.js';
 import config from '../config/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -64,8 +63,271 @@ async function generatePhysicalModels(fileId) {
 }
 
 /**
+ * POST /generate/logical/:fileId
+ * Generate logical model only (DBML + ERD diagrams)
+ */
+router.post('/logical/:fileId', async (req, res) => {
+    const { fileId } = req.params;
+    
+    try {
+        logger.info({ fileId }, 'Generating logical model (DBML + ERD diagrams)...');
+        
+        // Step 1: Load metadata
+        const metadata = await getMetadata(fileId);
+        
+        if (!metadata) {
+            return res.status(404).json({
+                error: 'Not-Found',
+                message: `No metadata found for fileId: ${fileId}. Upload file first using POST /upload/ingest`
+            });
+        }
+        
+        const results = {
+            fileId,
+            generated: {},
+            errors: []
+        };
+        
+        // Step 2: Generate DBML (with LLM enhancement)
+        try {
+            const dbmlPath = path.join(config.storage.artifactsDir, fileId, 'dbml', 'schema.dbml');
+            const { existsSync } = await import('fs');
+            
+            if (!existsSync(dbmlPath)) {
+                logger.info({ fileId }, 'Generating Logical DBML with LLM enhancement...');
+                const dbmlContent = await generateDBML(metadata, true); // Use LLM enhancement
+                const savedPath = await saveDBML(fileId, dbmlContent);
+                
+                results.generated.dbml = {
+                    path: savedPath,
+                    size: dbmlContent.length
+                };
+                
+                logger.info({ fileId }, '✅ DBML generated successfully');
+            } else {
+                logger.info({ fileId }, 'DBML already exists, skipping');
+                results.generated.dbml = { path: dbmlPath, exists: true };
+            }
+        } catch (error) {
+            logger.error({ error: error.message, fileId }, '❌ DBML generation failed');
+            results.errors.push({
+                type: 'dbml',
+                error: error.message
+            });
+        }
+        
+        // Step 3: Generate Production Diagrams (Graphviz → DBML CLI fallback)
+        try {
+            const dbmlPath = path.join(config.storage.artifactsDir, fileId, 'dbml', 'schema.dbml');
+            const { existsSync } = await import('fs');
+            
+            if (existsSync(dbmlPath)) {
+                logger.info({ fileId }, 'Generating ERD diagrams (Graphviz → DBML fallback)...');
+                const { generateProductionDiagrams } = await import('../generators/productionDiagramGenerator.js');
+                const diagramResults = await generateProductionDiagrams(fileId, dbmlPath);
+                
+                results.generated.images = {
+                    png: diagramResults.png,
+                    svg: diagramResults.svg,
+                    pdf: diagramResults.pdf
+                };
+                results.generated.generator = diagramResults.generator;
+                results.generated.schemaSize = diagramResults.schemaSize;
+                
+                if (diagramResults.errors.length > 0) {
+                    results.errors.push(...diagramResults.errors);
+                }
+                
+                logger.info({ 
+                    fileId, 
+                    generator: diagramResults.generator,
+                    schemaSize: diagramResults.schemaSize 
+                }, '✅ ERD diagrams generated successfully');
+            } else {
+                results.errors.push({
+                    type: 'images',
+                    error: 'DBML file not found. Generate DBML first.'
+                });
+            }
+        } catch (error) {
+            logger.error({ error: error.message, fileId }, '❌ Diagram generation failed');
+            results.errors.push({
+                type: 'images',
+                error: error.message
+            });
+        }
+        
+        // Return results
+        const status = results.errors.length === 0 ? 'success' : 'partial';
+        const statusCode = results.errors.length === 0 ? 200 : 207;
+        
+        logger.info({ fileId, status, errorCount: results.errors.length }, 'Logical model generation complete');
+        
+        res.status(statusCode).json({
+            status,
+            message: 'Logical model (DBML + ERD diagrams) generated',
+            fileId,
+            artifacts: {
+                logical: {
+                    dbml: results.generated.dbml?.path || null,
+                    erd_png: results.generated.images?.png || null,
+                    erd_svg: results.generated.images?.svg || null,
+                    erd_pdf: results.generated.images?.pdf || null,
+                    generator: results.generated.generator || null,
+                    schemaSize: results.generated.schemaSize || null
+                }
+            },
+            errors: results.errors.length > 0 ? results.errors : undefined
+        });
+        
+    } catch (error) {
+        logger.error({ error: error.message, stack: error.stack, fileId }, 'Logical model generation failed');
+        
+        res.status(500).json({
+            error: 'Internal-Server-Error',
+            message: error.message,
+            fileId
+        });
+    }
+});
+
+/**
+ * POST /generate/physical/:fileId
+ * Generate physical model only (MySQL SQL)
+ */
+router.post('/physical/:fileId', async (req, res) => {
+    const { fileId } = req.params;
+    
+    try {
+        logger.info({ fileId }, 'Generating physical model (MySQL SQL)...');
+        
+        // Step 1: Load metadata
+        const metadata = await getMetadata(fileId);
+        
+        if (!metadata) {
+            return res.status(404).json({
+                error: 'Not-Found',
+                message: `No metadata found for fileId: ${fileId}. Upload file first using POST /upload/ingest`
+            });
+        }
+        
+        const results = {
+            fileId,
+            generated: {},
+            errors: []
+        };
+        
+        // Step 2: Generate Physical Models (Phase-2)
+        try {
+            logger.info({ fileId }, 'Generating MySQL physical models (Phase-2)...');
+            const phase2Dir = path.join(__dirname, '..', '..', '..', 'Phase-2');
+            const phase2Script = path.join(phase2Dir, 'generate-complete.js');
+            
+            let stdout = '';
+            let stderr = '';
+            
+            await new Promise((resolve, reject) => {
+                const nodeProcess = spawn('node', [phase2Script, fileId], {
+                    cwd: phase2Dir,
+                    shell: true,
+                    stdio: 'pipe'
+                });
+                
+                nodeProcess.stdout.on('data', (data) => {
+                    stdout += data.toString();
+                });
+                
+                nodeProcess.stderr.on('data', (data) => {
+                    stderr += data.toString();
+                });
+                
+                nodeProcess.on('close', (code) => {
+                    if (code === 0) {
+                        logger.info({ fileId, stdout: stdout.substring(0, 500) }, '✅ Physical models generated successfully');
+                        resolve();
+                    } else {
+                        logger.warn({ fileId, code, stderr: stderr.substring(0, 500) }, '⚠️ Physical model generation failed');
+                        reject(new Error(`Phase-2 failed with code ${code}: ${stderr.substring(0, 200)}`));
+                    }
+                });
+                
+                nodeProcess.on('error', (err) => {
+                    logger.error({ error: err.message, fileId }, '❌ Failed to spawn Phase-2');
+                    reject(err);
+                });
+            });
+            
+            // Verify files were actually created
+            const { existsSync } = await import('fs');
+            const physicalDir = path.join(config.storage.artifactsDir, fileId, 'physical');
+            const executiveDir = path.join(config.storage.artifactsDir, fileId, 'executive');
+            
+            const mysqlSqlPath = path.join(physicalDir, 'mysql.sql');
+            const erdPngPath = path.join(physicalDir, 'erd.png');
+            const erdSvgPath = path.join(physicalDir, 'erd.svg');
+            const execReportPath = path.join(executiveDir, 'EXECUTIVE_REPORT.html');
+            const interactivePath = path.join(executiveDir, 'erd_INTERACTIVE.html');
+            
+            const physicalFiles = {};
+            if (existsSync(mysqlSqlPath)) {
+                physicalFiles.mysql_sql = `artifacts/${fileId}/physical/mysql.sql`;
+            }
+            if (existsSync(erdPngPath)) {
+                physicalFiles.erd_png = `artifacts/${fileId}/physical/erd.png`;
+            }
+            if (existsSync(erdSvgPath)) {
+                physicalFiles.erd_svg = `artifacts/${fileId}/physical/erd.svg`;
+            }
+            if (existsSync(execReportPath)) {
+                physicalFiles.executive_report = `artifacts/${fileId}/executive/EXECUTIVE_REPORT.html`;
+            }
+            if (existsSync(interactivePath)) {
+                physicalFiles.interactive = `artifacts/${fileId}/executive/erd_INTERACTIVE.html`;
+            }
+            
+            if (Object.keys(physicalFiles).length === 0) {
+                throw new Error('No physical model files were generated. Check Phase-2 logs.');
+            }
+            
+            results.generated.physical = physicalFiles;
+        } catch (error) {
+            logger.warn({ error: error.message, fileId }, '⚠️ Physical model generation failed');
+            results.errors.push({
+                type: 'physical',
+                error: error.message
+            });
+        }
+        
+        // Return results
+        const status = results.errors.length === 0 ? 'success' : 'partial';
+        const statusCode = results.errors.length === 0 ? 200 : 207;
+        
+        logger.info({ fileId, status, errorCount: results.errors.length }, 'Physical model generation complete');
+        
+        res.status(statusCode).json({
+            status,
+            message: 'Physical model (MySQL SQL) generated',
+            fileId,
+            artifacts: {
+                physical: results.generated.physical || null
+            },
+            errors: results.errors.length > 0 ? results.errors : undefined
+        });
+        
+    } catch (error) {
+        logger.error({ error: error.message, stack: error.stack, fileId }, 'Physical model generation failed');
+        
+        res.status(500).json({
+            error: 'Internal-Server-Error',
+            message: error.message,
+            fileId
+        });
+    }
+});
+
+/**
  * POST /generate/:fileId
- * Automatically generate DBML and ERD images for uploaded file
+ * Generate all artifacts (logical + physical)
  */
 router.post('/:fileId', async (req, res) => {
     const { fileId } = req.params;
@@ -117,29 +379,36 @@ router.post('/:fileId', async (req, res) => {
             });
         }
         
-        // Step 3: Generate DBML Diagrams (PNG, SVG, PDF) - Only if not already generated
+        // Step 3: Generate Production Diagrams (Graphviz → DBML CLI fallback)
         try {
             const dbmlPath = path.join(config.storage.artifactsDir, fileId, 'dbml', 'schema.dbml');
             const { existsSync } = await import('fs');
             
             if (existsSync(dbmlPath)) {
-                logger.info({ fileId }, 'Generating DBML diagrams (PNG, SVG, PDF)...');
-                const diagramResults = await generateDBMLDiagrams(fileId, dbmlPath);
+                logger.info({ fileId }, 'Generating production diagrams (Graphviz → DBML fallback)...');
+                const { generateProductionDiagrams } = await import('../generators/productionDiagramGenerator.js');
+                const diagramResults = await generateProductionDiagrams(fileId, dbmlPath);
                 
                 results.generated.images = {
                     png: diagramResults.png,
                     svg: diagramResults.svg,
                     pdf: diagramResults.pdf
                 };
+                results.generated.generator = diagramResults.generator;
+                results.generated.schemaSize = diagramResults.schemaSize;
                 
                 if (diagramResults.errors.length > 0) {
                     results.errors.push(...diagramResults.errors);
                 }
                 
-                logger.info({ fileId }, '✅ DBML diagrams generated successfully');
+                logger.info({ 
+                    fileId, 
+                    generator: diagramResults.generator,
+                    schemaSize: diagramResults.schemaSize 
+                }, '✅ Production diagrams generated successfully');
             }
         } catch (error) {
-            logger.error({ error: error.message, fileId }, '❌ DBML diagram generation failed');
+            logger.error({ error: error.message, fileId }, '❌ Diagram generation failed');
             results.errors.push({
                 type: 'images',
                 error: error.message
@@ -152,6 +421,9 @@ router.post('/:fileId', async (req, res) => {
             const phase2Dir = path.join(__dirname, '..', '..', '..', 'Phase-2');
             const phase2Script = path.join(phase2Dir, 'generate-complete.js');
             
+            let stdout = '';
+            let stderr = '';
+            
             await new Promise((resolve, reject) => {
                 const nodeProcess = spawn('node', [phase2Script, fileId], {
                     cwd: phase2Dir,
@@ -159,27 +431,63 @@ router.post('/:fileId', async (req, res) => {
                     stdio: 'pipe'
                 });
                 
+                nodeProcess.stdout.on('data', (data) => {
+                    stdout += data.toString();
+                });
+                
+                nodeProcess.stderr.on('data', (data) => {
+                    stderr += data.toString();
+                });
+                
                 nodeProcess.on('close', (code) => {
                     if (code === 0) {
-                        logger.info({ fileId }, '✅ Physical models generated successfully');
+                        logger.info({ fileId, stdout: stdout.substring(0, 500) }, '✅ Physical models generated successfully');
                         resolve();
                     } else {
-                        logger.warn({ fileId, code }, '⚠️ Physical model generation failed (non-critical)');
-                        resolve(); // Non-critical
+                        logger.warn({ fileId, code, stderr: stderr.substring(0, 500) }, '⚠️ Physical model generation failed');
+                        reject(new Error(`Phase-2 failed with code ${code}: ${stderr.substring(0, 200)}`));
                     }
                 });
                 
                 nodeProcess.on('error', (err) => {
-                    logger.warn({ error: err.message, fileId }, '⚠️ Failed to spawn Phase-2');
-                    resolve(); // Non-critical
+                    logger.error({ error: err.message, fileId }, '❌ Failed to spawn Phase-2');
+                    reject(err);
                 });
             });
             
-            results.generated.physical = {
-                mysql_sql: `artifacts/${fileId}/physical/mysql.sql`,
-                executive_report: `artifacts/${fileId}/executive/EXECUTIVE_REPORT.html`,
-                interactive: `artifacts/${fileId}/executive/erd_INTERACTIVE.html`
-            };
+            // Verify files were actually created
+            const { existsSync } = await import('fs');
+            const physicalDir = path.join(config.storage.artifactsDir, fileId, 'physical');
+            const executiveDir = path.join(config.storage.artifactsDir, fileId, 'executive');
+            
+            const mysqlSqlPath = path.join(physicalDir, 'mysql.sql');
+            const erdPngPath = path.join(physicalDir, 'erd.png');
+            const erdSvgPath = path.join(physicalDir, 'erd.svg');
+            const execReportPath = path.join(executiveDir, 'EXECUTIVE_REPORT.html');
+            const interactivePath = path.join(executiveDir, 'erd_INTERACTIVE.html');
+            
+            const physicalFiles = {};
+            if (existsSync(mysqlSqlPath)) {
+                physicalFiles.mysql_sql = `artifacts/${fileId}/physical/mysql.sql`;
+            }
+            if (existsSync(erdPngPath)) {
+                physicalFiles.erd_png = `artifacts/${fileId}/physical/erd.png`;
+            }
+            if (existsSync(erdSvgPath)) {
+                physicalFiles.erd_svg = `artifacts/${fileId}/physical/erd.svg`;
+            }
+            if (existsSync(execReportPath)) {
+                physicalFiles.executive_report = `artifacts/${fileId}/executive/EXECUTIVE_REPORT.html`;
+            }
+            if (existsSync(interactivePath)) {
+                physicalFiles.interactive = `artifacts/${fileId}/executive/erd_INTERACTIVE.html`;
+            }
+            
+            if (Object.keys(physicalFiles).length === 0) {
+                throw new Error('No physical model files were generated. Check Phase-2 logs.');
+            }
+            
+            results.generated.physical = physicalFiles;
         } catch (error) {
             logger.warn({ error: error.message, fileId }, '⚠️ Physical model generation failed (non-critical)');
             results.errors.push({
