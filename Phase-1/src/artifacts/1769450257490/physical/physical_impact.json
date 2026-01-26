@@ -1,0 +1,843 @@
+{
+  "tables": {
+    "sec_master": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "position": {
+      "dependencies": [
+        "port"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "port": {
+      "dependencies": [],
+      "dependents": [
+        "position",
+        "trade",
+        "port_performance",
+        "asset_allocation_plan",
+        "rebalancing_rule",
+        "port_performance_summary",
+        "performance_attribution",
+        "risk_metrics"
+      ],
+      "canSafelyDrop": false
+    },
+    "holding_balance": {
+      "dependencies": [
+        "account"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "account": {
+      "dependencies": [
+        "bank"
+      ],
+      "dependents": [
+        "holding_balance"
+      ],
+      "canSafelyDrop": false
+    },
+    "valuation": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "holding_transaction": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "prices": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "trade": {
+      "dependencies": [
+        "port"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "fx_ndf": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "fx": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "setlmnt_collat": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "fwd_fx": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "broker": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "charge_rate": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "eq_optn": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "swap": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "fwd": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "bank": {
+      "dependencies": [],
+      "dependents": [
+        "account"
+      ],
+      "canSafelyDrop": false
+    },
+    "advisory_proposal": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "investor_demographic": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "accounts_hierarchy": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "advisor_business_plan_goal": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "advisor_performance": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "client_segmentation": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "client_profitability": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "client_interaction": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "client_communication_preference": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "client_identification": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "client_profile": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "client_contact_details": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "client_risk_profile": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "aml_status": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "KYC_details": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "branch_officer_contribution_monthly_measure": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "branch_officer_contribution_monthly_measure_detail": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "business_plan_activity": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "business_plan_projected_measure": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "business_plan_strategy": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "business_plan_objective": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "client_partnerhsip": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "contact": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Client_Security_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Instrument_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Coupon_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Registration_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Option_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Municipal_Funding_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Market_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Enhancer_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Exercise_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Barrier_Event_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Book_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "BRS_Security_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Transaction_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Price_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Collateral_Exposure_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Broker_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "third_party_repo_collateral_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Foreign_Exchange_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "third_party_repo_coupon_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "account_identifier_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "account_group_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "account_service_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Interaction_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Document_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "contact_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Restriction_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Restrictiontype": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "financial_goal_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Fee_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "order_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "annuity_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "bond_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "due_bill_distribution_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "branch_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "portfolio_investment_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "portfolio_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Benchmark_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Action_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "portfolio_group_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Event_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "Rate_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "currency_exchange_rate": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "country_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "region_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "state_province_type": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "currency": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "investor_financial_goal": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "transaction_history": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "performance_summary": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "fee_charges_summary": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "learning_associate_course_enrollment": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "course_enrollment": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "learning_class": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "learning_course": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "portfolio_screening_criteria": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "esg_screening": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "risk_screening": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "trade_confirmation": {
+      "dependencies": [
+        "trade_order"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "trade_order": {
+      "dependencies": [],
+      "dependents": [
+        "trade_confirmation",
+        "trade_settlement"
+      ],
+      "canSafelyDrop": false
+    },
+    "trade_settlement": {
+      "dependencies": [
+        "trade_order"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "trade_fullfilment": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "prospect_relationship_progression": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "annuity_product": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "annutiy_contract": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "product": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "branch": {
+      "dependencies": [],
+      "dependents": [
+        "branch_officer_performance"
+      ],
+      "canSafelyDrop": false
+    },
+    "branch_visit": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "mutual_fund": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "organization": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "employee": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "port_bmrk": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "port_performance": {
+      "dependencies": [
+        "port"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "port_compliance_rule": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "asset_allocation_plan": {
+      "dependencies": [
+        "port"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "rebalancing_rule": {
+      "dependencies": [
+        "port"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "port_limit": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "port_group": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "port_group_member": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "port_performance_summary": {
+      "dependencies": [
+        "port"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "performance_attribution": {
+      "dependencies": [
+        "port"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "risk_metrics": {
+      "dependencies": [
+        "port"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "bmrk_performance": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "index_analytics": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "branch_officer_performance": {
+      "dependencies": [
+        "branch"
+      ],
+      "dependents": [],
+      "canSafelyDrop": false
+    },
+    "price_source": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "price_security_eod": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "dividend_announcement": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "split_merger": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "corporate_action_calendar": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "index_constituents": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "bmrk": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "exchange_calendar": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "economic_event_calendar": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "corporate_earnings_calendar": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "volatility_metrics": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "market_sentiment_indicators": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "economy_index": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "market_econ_rate_eod": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "strategy": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "stress_test_result": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    },
+    "port_management": {
+      "dependencies": [],
+      "dependents": [],
+      "canSafelyDrop": true
+    }
+  },
+  "foreignKeys": [
+    {
+      "fromTable": "position",
+      "fromColumn": "portfolio_id",
+      "toTable": "port",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "holding_balance",
+      "fromColumn": "account_id",
+      "toTable": "account",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "trade",
+      "fromColumn": "portfolio_id",
+      "toTable": "port",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "account",
+      "fromColumn": "bank_id",
+      "toTable": "bank",
+      "toColumn": "bank_id"
+    },
+    {
+      "fromTable": "trade_confirmation",
+      "fromColumn": "trade_order_id",
+      "toTable": "trade_order",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "trade_settlement",
+      "fromColumn": "trade_order_id",
+      "toTable": "trade_order",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "port_performance",
+      "fromColumn": "portfolio_id",
+      "toTable": "port",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "asset_allocation_plan",
+      "fromColumn": "portfolio_id",
+      "toTable": "port",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "rebalancing_rule",
+      "fromColumn": "portfolio_id",
+      "toTable": "port",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "port_performance_summary",
+      "fromColumn": "portfolio_id",
+      "toTable": "port",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "performance_attribution",
+      "fromColumn": "portfolio_id",
+      "toTable": "port",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "risk_metrics",
+      "fromColumn": "portfolio_id",
+      "toTable": "port",
+      "toColumn": "id"
+    },
+    {
+      "fromTable": "branch_officer_performance",
+      "fromColumn": "branch_id",
+      "toTable": "branch",
+      "toColumn": "branch_number"
+    }
+  ]
+}

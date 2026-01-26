@@ -1,0 +1,2023 @@
+// Logical Data Model (LDM)
+// Database Schema: Real_ingestion-01.csv
+// Generated: 2026-01-26T18:05:55.696Z
+// Entities: 143
+// Attributes: 1560
+// NOTE: This is a LOGICAL model - no physical implementation details
+
+Table sec_master {
+  client_id TEXT [pk, note: 'Unique identifier assigned to a client within the system. Business rule: must be unique, primary identifier']
+  cusip TEXT [note: 'Standardized 9-character security identifier used in North America']
+  sedol TEXT [note: '7-character identifier used for securities in the UK and Ireland']
+  client_security_type_code TEXT [note: 'Classification of the security type from the client\'s perspective']
+  instrument_type_code TEXT [note: 'Code representing the type of financial instrument']
+  desc_instmt TEXT [note: 'Textual description of the financial instrument']
+  country NUMBER [note: 'Country where the security is issued. Business rule: must be > 0']
+  risk_country NUMBER [note: 'Country associated with the risk exposure of the security. Business rule: must be > 0']
+  trading_ccy_type_code TEXT [note: 'Currency in which the security is traded']
+  coup_freq TEXT [note: 'Frequency at which coupon payments are made']
+  prin_freq TEXT [note: 'Frequency at which principal payments are made']
+  coupon NUMBER [note: 'Interest rate paid by the issuer on the security']
+  coupon_type_code TEXT [note: 'Type of coupon payment (e.g., fixed, floating)']
+  accrual_date DATE [note: 'Date from which interest starts accruing on the security']
+  issue_size NUMBER [note: 'Total amount of the security issued']
+  maturity DATE [note: 'Date when the security matures and principal is repaid']
+  ticker TEXT [note: 'Market symbol used to identify the security']
+  price_in_pct NUMBER [note: 'Price of the security expressed as a percentage. Business rule: must be >= 0']
+  date_conv DATE [note: 'Convention used to calculate interest accruals']
+  registration_type_code TEXT [note: 'Type of registration for the security']
+  default_status TEXT [note: 'Indicates whether the security is in default']
+  amortizing TEXT [note: 'Indicates whether the security is amortizing']
+  issuer TEXT [note: 'Name of the entity that issued the security']
+  option_type_code TEXT [note: 'Indicates whether the option is a put or call']
+  index_name TEXT [note: 'Name of the index the security is linked to']
+  bmrk_spread_over_rate NUMBER [note: 'Spread over the benchmark rate']
+  municipal_funding_type_code TEXT [note: 'Type of funding for municipal securities']
+  convertible TEXT [note: 'Flag indicating if the security is convertible']
+  coupon_calc_method NUMBER [note: 'Method used to calculate coupon payments']
+  mult_floater NUMBER [note: 'Indicates if the security has multiple floating rates']
+  suspend_conv DATE [note: 'Convention used for suspension of payments']
+  suspend_days DATE [note: 'Number of days for which payments are suspended']
+  lookback_type_code TEXT [note: 'Type of lookback period used in pricing']
+  tax_status TEXT [note: 'Tax treatment of the security']
+  muni_sector TEXT [note: 'Sector classification for municipal securities']
+  spec_pmt TEXT [note: 'Indicates if special payments are applicable']
+  factor NUMBER [note: 'Factor used to calculate payment amounts']
+  first_cpn_date DATE [note: 'Date of the first coupon payment']
+  pmt_adjust_meth DATE [note: 'Method used to adjust payment dates']
+  first_reset_date DATE [note: 'Date of the first interest rate reset']
+  exp_maturity DATE [note: 'Expected date of maturity for the security']
+  structure TEXT [note: 'Structure of the security (e.g., bullet, amortizing)']
+  market_type_code TEXT [note: 'Type of market where the security is traded']
+  pmt_delay NUMBER [note: 'Number of days payment is delayed']
+  first_prin_date DATE [note: 'Date of the first principal payment']
+  first_settle_dt DATE [note: 'Date of the first settlement']
+  min_trd_size TEXT [note: 'Minimum size for trading the security']
+  min_trd_increment TEXT [note: 'Minimum increment for trading the security']
+  class TEXT [note: 'Class of the security']
+  pmt_cal DATE [note: 'Calendar used for determining payment dates']
+  pmt_end_adj DATE [note: 'Adjustment applied to the end of the payment period']
+  compound TEXT [note: 'Method used for compounding interest']
+  erisa TEXT [note: 'Indicates if the security is ERISA eligible']
+  calculation_type_code TEXT [note: 'Type of calculation used for pricing or valuation']
+  notional_amt NUMBER [note: 'Notional value of the security']
+  reset_freq NUMBER [note: 'Frequency at which interest rates are reset']
+  life_floor NUMBER [note: 'Minimum interest rate over the life of the security']
+  life_cap NUMBER [note: 'Maximum interest rate over the life of the security']
+  multiplier NUMBER [note: 'Multiplier applied to the interest rate']
+  lookback NUMBER [note: 'Period used to determine interest rate resets']
+  reset_cal NUMBER [note: 'Calendar used for interest rate resets']
+  lookback_cal TEXT [note: 'Calendar used for lookback period calculations']
+  lookback_conv TEXT [note: 'Convention used for lookback period']
+  round NUMBER [note: 'Method used to round calculated values']
+  round_precision NUMBER [note: 'Precision used for rounding values']
+  floater_struct NUMBER [note: 'Structure of floating rate securities']
+  enhancer_type_code TEXT [note: 'Type of credit enhancement']
+  enhancer TEXT [note: 'Name of the credit enhancer']
+  enhancer_st_dt DATE [note: 'Start date of the credit enhancement']
+  enhancer_end_dt DATE [note: 'End date of the credit enhancement']
+  enhancer_pct NUMBER [note: 'Percentage of credit enhancement']
+  enhancer_2 NUMBER [note: 'Name of the secondary financial instrument or feature that enhances the security\'s value or performance.']
+  enhancer_st_dt_2 DATE [note: 'The date on which the secondary enhancer becomes effective.']
+  enhancer_end_dt_2 DATE [note: 'The date on which the secondary enhancer ceases to be effective.']
+  enhancer_pct_2 NUMBER [note: 'The percentage value associated with the secondary enhancer\'s contribution.']
+}
+
+Table position {
+  client_security_type_code TEXT [note: 'Classification of the security type from the client\'s perspective']
+  port_id TEXT [note: 'Unique identifier for the investment portfolio.. Business rule: references port']
+  pos_date DATE [note: 'The date on which the position is recorded.']
+  pos_cur_par NUMBER [note: 'Current par value of the financial position held.']
+  pos_face NUMBER [note: 'Face value of the financial position held.']
+  sec_desc TEXT [note: 'Textual description of the financial security.']
+  brs_sec_id TEXT [note: 'Unique identifier assigned to the security by the BRS system.']
+  client_id TEXT [note: 'Unique identifier assigned to a client within the system']
+  cusip TEXT [note: 'Standardized 9-character security identifier used in North America']
+  isin TEXT [note: 'International Securities Identification Number used globally.']
+  lin TEXT [note: 'Local identifier assigned to the financial instrument.']
+  ppn TEXT [note: 'Identifier for securities issued through private placement.']
+  sedol TEXT [note: '7-character identifier used for securities in the UK and Ireland']
+  delivery_date DATE [note: 'Date on which the security is delivered.']
+  expiry_time DATE [note: 'Time at which the security or contract expires.']
+  exercise_type_code TEXT [note: 'Type of option exercise such as American or European.']
+  barrier_event_type_code TEXT [note: 'Type of barrier event associated with the security.']
+  barrier_end NUMBER [note: 'Date on which the barrier event ends.']
+  barrier_lower NUMBER [note: 'Lower threshold value for the barrier event.']
+  barrier_start NUMBER [note: 'Date on which the barrier event starts.']
+  barrier_upper NUMBER [note: 'Upper threshold value for the barrier event.']
+  settle_method DATE [note: 'Method used to settle the financial transaction.']
+  option_strike NUMBER [note: 'Strike price at which the option can be exercised.']
+  option_type_code TEXT [note: 'Indicates whether the option is a put or call']
+  announce_dt DATE [note: 'Date on which the security or event is announced.']
+  desc_instmt TEXT [note: 'Detailed description of the financial instrument.']
+  ccy_type_code TEXT [note: 'Code representing the currency used in the transaction.']
+  sec_ccy_type_code TEXT [note: 'Currency in which the security is denominated.']
+  accrual_date DATE [note: 'Date from which interest or earnings begin to accrue.']
+  accrued_int NUMBER [note: 'Interest accumulated but not yet paid.']
+  base_commitment NUMBER [note: 'Initial committed amount in base currency.']
+  base_contribution NUMBER [note: 'Contribution amount in base currency.']
+  base_ccy_type_code TEXT [note: 'Code representing the base currency.']
+  base_distribution NUMBER [note: 'Distribution amount in base currency.']
+  book_date_2 DATE [note: 'Secondary book date used for valuation or accounting.']
+  book_date_3 DATE [note: 'Tertiary book date used for valuation or accounting.']
+  book_date_4 DATE [note: 'Quaternary book date used for valuation or accounting.']
+  book_date_5 DATE [note: 'Additional book date used for valuation or accounting.']
+  book_price_2 DATE [note: 'Price recorded on secondary book date.']
+  book_price_3 DATE [note: 'Price recorded on tertiary book date.']
+  book_price_4 DATE [note: 'Price recorded on quaternary book date.']
+  book_price_5 DATE [note: 'Price recorded on additional book date.']
+  book_type_code_2 TEXT [note: 'Type of book entry for secondary valuation.']
+  book_type_code_3 TEXT [note: 'Type of book entry for tertiary valuation.']
+  book_type_code_4 TEXT [note: 'Type of book entry for quaternary valuation.']
+  book_type_code_5 TEXT [note: 'Type of book entry for additional valuation.']
+  book_value_2 NUMBER [note: 'Value recorded on secondary book date.']
+  book_value_3 NUMBER [note: 'Value recorded on tertiary book date.']
+  book_value_4 NUMBER [note: 'Value recorded on quaternary book date.']
+  book_value_5 NUMBER [note: 'Value recorded on additional book date.']
+  book_yield NUMBER [note: 'Yield calculated based on book value.']
+  book_yield_2 NUMBER [note: 'Yield calculated on secondary book date.']
+  book_yield_3 NUMBER [note: 'Yield calculated on tertiary book date.']
+  book_yield_4 NUMBER [note: 'Yield calculated on quaternary book date.']
+  book_yield_5 NUMBER [note: 'Yield calculated on additional book date.']
+  instrument_type_code TEXT [note: 'Code representing the type of financial instrument']
+  class TEXT [note: 'Classification of the financial security.']
+  comment TEXT [note: 'Textual comments or notes related to the security.']
+  country NUMBER [note: 'Country where the security is issued. Business rule: must be > 0']
+  coupon NUMBER [note: 'Interest rate paid by the issuer to the bondholder.']
+  current_ownership_status TEXT [note: 'Status indicating current ownership of the security.']
+  exchange TEXT [note: 'Name of the exchange where the security is listed.']
+  exchange_rate NUMBER [note: 'Rate used for converting one currency to another.']
+  invnum NUMBER [note: 'Unique identifier for the investment.']
+  issuer_name TEXT [note: 'Name of the entity that issued the security']
+  issuer_short_name TEXT [note: 'Abbreviated name of the issuer.']
+  local_commitment NUMBER [note: 'Commitment amount in local currency.']
+  local_contribution NUMBER [note: 'Contribution amount in local currency.']
+  maturity DATE [note: 'Date when the security matures and principal is repaid']
+  mkt_price NUMBER [note: 'Current market price of the security.. Business rule: must be >= 0']
+  mkt_value_base NUMBER [note: 'Market value expressed in base currency.']
+  mkt_value_local NUMBER [note: 'Market value expressed in local currency.']
+  mkt_yld NUMBER [note: 'Yield based on current market conditions.']
+  notl_mv_base NUMBER [note: 'Notional value in base currency.']
+  notl_mv_local NUMBER [note: 'Notional value in local currency.']
+  pay_fx_reference TEXT [note: 'Reference used for foreign exchange payment.']
+  pos_start_date DATE [note: 'Start date of the financial position.']
+  pos_stop_date DATE [note: 'End date of the financial position.']
+  price_date NUMBER [note: 'Date on which the price is recorded.. Business rule: must be >= 0']
+  source TEXT [note: 'System from which the data originates.']
+  strategy NUMBER [note: 'Strategy employed for the investment.']
+  ticker TEXT [note: 'Market symbol used to identify the security']
+  total_recallable_distrib NUMBER [note: 'Total amount of distribution that can be recalled.. Business rule: must be >= 0']
+  trd_commission NUMBER [note: 'Commission charged for executing the trade.']
+  trd_coupon NUMBER [note: 'Coupon rate applicable to the trade.']
+  trade_ccy_type_code TEXT [note: 'Currency used in the trade.']
+  trd_factor NUMBER [note: 'Factor used to calculate trade values.']
+  trd_factor_date NUMBER [note: 'Date associated with the trade factor.']
+  trd_interest NUMBER [note: 'Interest amount associated with the trade.']
+  trd_other_fee NUMBER [note: 'Other fees associated with the trade.']
+  units NUMBER [note: 'Number of units held in the position.']
+  base_management_fee NUMBER [note: 'Management fee charged in base currency.']
+  initial_commitment_date DATE [note: 'Date of initial investment commitment.']
+  investment_date DATE [note: 'Date on which the investment was made.']
+  local_distribution NUMBER [note: 'Distribution amount in local currency.']
+  local_management_fee NUMBER [note: 'Management fee charged in local currency.']
+  net_nav NUMBER [note: 'Value of assets minus liabilities.']
+  remaining_commitment NUMBER [note: 'Remaining amount committed to the investment.']
+  brs_sec_group TEXT [note: 'Group classification of the security in BRS.']
+  brs_security_type_code TEXT [note: 'Type classification of the security in BRS.']
+  fixdate DATE [note: 'Date on which the rate or price is fixed.']
+  trd_principal NUMBER [note: 'Principal amount involved in the trade.']
+  ndf_type_code TEXT [note: 'Type of non-deliverable forward contract.']
+  book_date DATE [note: 'Date used for accounting or valuation.']
+  book_fx_rate NUMBER [note: 'Exchange rate used for book valuation.']
+  book_price NUMBER [note: 'Price recorded in the book.. Business rule: must be >= 0']
+  book_type_code TEXT [note: 'Type of book entry.']
+  book_value NUMBER [note: 'Value recorded in the book.']
+  lot_id TEXT [note: 'Unique identifier for the investment lot.']
+  trd_counterparty NUMBER [note: 'Entity on the other side of the trade.. Business rule: must be > 0']
+  trd_price NUMBER [note: 'Price at which the trade was executed.. Business rule: must be >= 0']
+  trd_settle_date DATE [note: 'Date when the trade is settled.']
+  trd_trade_date DATE [note: 'Date when the trade was executed.']
+}
+
+Table holding_balance {
+  balance_id TEXT [pk, note: 'Unique identifier for the balance record. Business rule: must be unique, primary identifier']
+  market_value NUMBER [note: 'Current market value of the holding']
+  accrued_interest NUMBER [note: 'Interest accrued on the holding']
+  holding_master_id TEXT [note: 'Unique identifier for the transaction']
+  portfolio_identifier TEXT
+  account_id TEXT [note: 'Business rule: references account']
+  security_id TEXT
+  as_of_date DATE [note: 'Snapshot date (end-of-day unless stated)']
+  source_system TEXT [note: 'Originating system for the snapshot']
+  ingestion_timestamp NUMBER [note: 'Load timestamp']
+  record_version NUMBER [note: 'Version for SCD/row updates (if used)']
+  units NUMBER [note: 'Units/quantity currently held']
+  units_available NUMBER [note: 'Units available to trade (excl. pledged/blocked)']
+  units_on_loan NUMBER [note: 'Units currently on securities lending']
+  cost_basis_local NUMBER [note: 'Historical cost in security/local currency']
+  cost_basis_base NUMBER [note: 'Cost translated to base currency']
+  cost_basis_method TEXT [note: 'FIFO/LIFO/Average/Specific Lot']
+}
+
+Table valuation {
+  local_market_value NUMBER [note: 'MV in security/local ccy (dirty or clean per flag)']
+  base_market_value NUMBER [note: 'MV in entity/base currency']
+  usd_market_value NUMBER [note: 'MV in USD (if required as a reporting ccy)']
+  clean_market_value_local NUMBER [note: 'MV excl. accrued interest (local)']
+  clean_market_value_base NUMBER [note: 'MV excl. accrued interest (base)']
+  accrued_interest_local NUMBER [note: 'Accrued interest (local)']
+  accrued_interest_base NUMBER [note: 'Accrued interest (base)']
+  price_used NUMBER [note: 'Price used for valuation (mid/close/model). Business rule: must be >= 0']
+  price_source NUMBER [note: 'Vendor/exchange used. Business rule: must be >= 0']
+  price_date_time DATE [note: 'Timestamp of price observation']
+  fx_rate_local_to_base NUMBER [note: 'FX rate applied local?base']
+  fx_rate_local_to_usd NUMBER [note: 'FX rate applied local?USD']
+}
+
+Table holding_transaction {
+  transaction_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  transaction_type_code TEXT
+  transaction_date DATE
+}
+
+Table prices {
+  client_id TEXT [pk, note: 'Unique identifier assigned to a client within the system. Business rule: must be unique, primary identifier']
+  cusip TEXT [note: 'Standardized 9-character security identifier used in North America']
+  isin TEXT [note: 'International Securities Identification Number used globally.']
+  poolnum TEXT [note: 'Identifier for the pool of securities.']
+  sedol TEXT [note: '7-character identifier used for securities in the UK and Ireland']
+  acc_int TEXT [note: 'Interest accumulated but not yet paid.']
+  ask_cost NUMBER [note: 'Cost associated with the ask price.']
+  ask_discount NUMBER [note: 'Discount applied to the ask price.. Business rule: must be > 0']
+  ask_price NUMBER [note: 'Price at which the security is offered for sale.. Business rule: must be >= 0']
+  ask_yield NUMBER [note: 'Yield based on the ask price.']
+  class_shares_out NUMBER [note: 'Number of outstanding shares in the class.']
+  cost NUMBER [note: 'Original value of the investment for tax purposes.']
+  ccy_type_code TEXT [note: 'Code representing the currency used in the transaction.']
+  discount NUMBER [note: 'Rate used to discount future cash flows.. Business rule: must be > 0']
+  div_ret_1d NUMBER [note: 'Dividend return over a one-day period.']
+  high_12m NUMBER [note: 'Highest price in the past 12 months.']
+  index_name TEXT [note: 'Name of the index the security is linked to']
+  index_spread NUMBER [note: 'Spread over the index benchmark.']
+  last_trade_date DATE [note: 'Date of the last trade for the security.']
+  low_12m NUMBER [note: 'Lowest price in the past 12 months.']
+  non_voting_shares NUMBER [note: 'Shares that do not carry voting rights.']
+  prepay_unit TEXT [note: 'Unit used for calculating prepayments.']
+  price_method NUMBER [note: 'Method used to calculate the price.. Business rule: must be >= 0']
+  purpose TEXT [note: 'Purpose for which the investment was made.']
+  price_ask NUMBER [note: 'Ask price of the security.. Business rule: must be >= 0']
+  price_bid NUMBER [note: 'Bid price of the security.. Business rule: must be >= 0']
+  price_high NUMBER [note: 'Highest price recorded.. Business rule: must be >= 0']
+  price_low NUMBER [note: 'Lowest price recorded.. Business rule: must be >= 0']
+  price_open NUMBER [note: 'Opening price of the security.. Business rule: must be >= 0']
+  price_ret_1d NUMBER [note: 'Price return over a one-day period.. Business rule: must be >= 0']
+  settle_date DATE [note: 'Date when the transaction is settled.']
+  shares_outstanding NUMBER [note: 'Total number of shares currently outstanding.']
+  short_interest NUMBER [note: 'Number of shares sold short and not yet covered.']
+  speed NUMBER [note: 'Speed at which prepayments are made.']
+  split_idx_ext NUMBER [note: 'External index used for split calculations.']
+  ttl_ret_10d NUMBER [note: 'Total return over a 10-day period.']
+  ttl_ret_1m NUMBER [note: 'Total return over a one-month period.']
+  ttl_ret_1y NUMBER [note: 'Total return over a one-year period.']
+  ttl_ret_5d NUMBER [note: 'Total return over a 5-day period.']
+  ttl_ret_mtd NUMBER [note: 'Total return from the beginning of the month.']
+  ttl_ret_qtd NUMBER [note: 'Total return from the beginning of the quarter.']
+  ttl_ret_ytd NUMBER [note: 'Total return from the beginning of the year.']
+  volume NUMBER [note: 'Total volume of securities traded.']
+  vol_avg_12m NUMBER [note: 'Average trading volume over 12 months.']
+  vol_avg_1m NUMBER [note: 'Average trading volume over 1 month.']
+  vol_avg_3m NUMBER [note: 'Average trading volume over 3 months.']
+  vol_med_1m NUMBER [note: 'Median trading volume over 1 month.']
+  votes_per_share NUMBER [note: 'Number of votes assigned to each share.']
+  voting_shares NUMBER [note: 'Shares that carry voting rights.']
+  vwap NUMBER [note: 'Average price weighted by trading volume.']
+  yield NUMBER [note: 'Rate of return on the security.']
+}
+
+Table trade {
+  ext_id1 TEXT [pk, note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be uniqu']
+  quantity NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be > 0']
+  settle_date DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  trade_date DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  transaction_type_code TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  factor_date DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  settle_ccy_type_code DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  security_client_id TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  security_cins TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  delivery DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  exec_time_source DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  block_id TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  ord_num TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  price_ccy_pair NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be >= 0']
+  price_type_code TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  deal_nm TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  outside_commitment NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  ext_id2 TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  confirmed_by TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  maturity_date DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_country NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be > 0']
+  third_party_repo_coupon_type_code TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  third_party_repo_ccy_type_code TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_day_convention NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_payment_calendar DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_payment_frequency TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_put_notice_days NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_reset_calendar DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_reset_frequency TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_reset_index TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_settle_date DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_spread NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  tpr_structure TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  strategy NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  trader TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  transfer_extern_account NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be > 0']
+  transfer_port_name TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  transfer_port_code TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  accounting_designation NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be > 0']
+  actual_settle_date DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  comment_bank TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  comment_general TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  comment_special TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  confirmed_with TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  convexity NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  strategy_code TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  suppress_notification TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  td_pct_owned NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  trd_purpose TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  wac NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  wam NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  yield NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  invnum TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  extern_account NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be > 0']
+  port_id TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: references po']
+  port_code TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  collat_security TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  ric TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  security_ccy_pair TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  principal NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  price NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be >= 0']
+}
+
+Table fx_ndf {
+  fx_ndf_base_ccy_type_code TEXT [note: 'Foreign Exchange Non-Deliverable Forward']
+  fx_ndf_contra_ccy_type_code TEXT [note: 'Foreign Exchange Non-Deliverable Forward']
+  fx_ndf_payment_ccy_type_code TEXT [note: 'Foreign Exchange Non-Deliverable Forward']
+  fx_ndf_dealt_ccy_type_code TEXT [note: 'Foreign Exchange Non-Deliverable Forward']
+}
+
+Table fx {
+  foreign_exchange_option_exercise_type_code TEXT [note: 'Foreign Exchange']
+  fx_base_ccy_type_code TEXT [note: 'Foreign Exchange']
+  fx_contra_ccy_type_code TEXT [note: 'Foreign Exchange']
+  fx_dealt_ccy_type_code TEXT [note: 'Foreign Exchange']
+  fx_payment_ccy_type_code TEXT [note: 'Foreign Exchange']
+  foreign_exchange_type_code TEXT [note: 'Foreign Exchange']
+}
+
+Table setlmnt_collat {
+  collateral_exposure_type_code TEXT [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  collat_cash_pct NUMBER [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  collat_price NUMBER [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  setlmnt_instruction TEXT [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  setlmnt_instruction2 TEXT [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  setlmnt_fx_rate NUMBER [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  setlmnt_ccy_type_code TEXT [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  setlmnt_fx_rate_ccy_pair NUMBER [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  collat_pct NUMBER [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  collat_principal NUMBER [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  collat_termination_date DATE [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  collat_termination_effective_date DATE [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+  collat_quantity NUMBER [note: 'Represents the processes and data related to finalizing trade obligations and managing collateral for risk mitigation. Settlement ensures that securities and cash are exchanged accurately and on time,']
+}
+
+Table fwd_fx {
+  port_fx_rate NUMBER [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+  swap_points TEXT [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+  fwd_delivery DATE [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+  fwd_delivery2 DATE [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+  fwd_interest NUMBER [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+  port_fx_rate_ccy_pair NUMBER [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+  fwd_security TEXT [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+  forward_points TEXT [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+  spot_rate NUMBER [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+  fwd_settlement_instruction DATE [note: 'Represents foreign exchange (FX) and forward contracts used in investment order management and execution. These instruments are typically employed for currency conversion, hedging, and managing exposu']
+}
+
+Table broker {
+  extern_ex_broker_id TEXT [pk, note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  ex_broker TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  broker_reason TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  broker TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  executing_desk_type_code TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  quote_offer_broker TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  quote_offer_rate_broker NUMBER [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  quote_offer_spread_broker NUMBER [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  broker_type_code TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  quote_bid_rate_broker NUMBER [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  salesperson TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  quote_bid_spread_broker NUMBER [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  extern_broker_id TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  sub_broker_code TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  quote_bid_broker TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+  ex_sub_broker_code TEXT [note: 'A broker is an authorized intermediary that facilitates the execution of investment orders between buyers and sellers in financial markets. Brokers act on behalf of clients (institutional or retail) t']
+}
+
+Table charge_rate {
+  price_units NUMBER [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+  pricing_index TEXT [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+  pricing_spread NUMBER [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+  reinvestment_rate NUMBER [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+  charge_amt TEXT [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+  coupon_type TEXT [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+  coupon NUMBER [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+  drop_rate NUMBER [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+  interest NUMBER [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+  effective_rate DATE [note: 'Represents the financial costs and pricing structures associated with executing investment orders. This includes brokerage fees, commissions, transaction charges, and applicable rates for services pro']
+}
+
+Table eq_optn {
+  eq_optn_percent_strike_price NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be >= 0']
+  eq_optn_underlying_bloomberg TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  eq_optn_underlying_cusip TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+}
+
+Table swap {
+  third_party_repo_collateral_type_code TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  sw_counterparty_id TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  sw_coup_freq_pay TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  sw_coup_freq_rec TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  swap_ccy_type_code TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  sw_effective_date DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  sw_exchange TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  sw_fixed_rate NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  sw_initial_coupon_pay NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  sw_maturity DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  sw_pmt_delay_pay TEXT [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+}
+
+Table fwd {
+  fwd_price NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be >= 0']
+  fwd_principal NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  fwd_quantity NUMBER [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.. Business rule: must be > 0']
+  fwd_settlement_instruction2 DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  fwd_settle_code1 DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  fwd_settle_code2 DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+  fwd_settle_date DATE [note: 'Trades entity captures all executed transactions for buying or selling securities. It is critical for updating positions, calculating cash flows, and ensuring compliance.']
+}
+
+Table bank {
+  bank_id TEXT [pk, note: 'banking information is captured primarily for client servicing, trade settlement, and cash management. Business rule: must be unique, primary identifier']
+  bank_name TEXT [note: 'banking information is captured primarily for client servicing, trade settlement, and cash management']
+  bank_account_num NUMBER [note: 'banking information is captured primarily for client servicing, trade settlement, and cash management. Business rule: must be > 0']
+  bank_branch_name TEXT [note: 'banking information is captured primarily for client servicing, trade settlement, and cash management']
+  bank_country_code NUMBER [note: 'banking information is captured primarily for client servicing, trade settlement, and cash management. Business rule: must be > 0']
+  bank_city_name TEXT [note: 'banking information is captured primarily for client servicing, trade settlement, and cash management']
+}
+
+Table account {
+  iban TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  bank_id TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: references bank']
+  tax_reporting_contact TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  tax_id TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  tax_exemption_indicator BOOLEAN [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  sweeper_account_indicator BOOLEAN [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  participant_total_quantity NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be >= 0, must be > 0']
+  net_worth_amount NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be >= 0']
+  net_liquid_assets_amount NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be >= 0']
+  net_fixed_assets_amount NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be >= 0']
+  joint_ownership_percent NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  investment_option_account NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be > 0']
+  intrested_party_Quantityt NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be > 0']
+  initial_proposed_transaction_amount NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be >= 0']
+  eligible_to_receive_transfer_on_death_assets_indicator DATE [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  country_code TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  bankruptcy_indicator BOOLEAN [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  annual_income_text NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  annual_fee_date DATE [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_fee_payment_code TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_identifier_type_code TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_type_group_code TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_sub_type_group_code TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_status_code TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_restriciton_indicator BOOLEAN [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_reactivation_date DATE [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_number NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be > 0']
+  account_fee_amount_code TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_close_reason NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be > 0']
+  account_close_date DATE [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  planning_group_identifier TEXT [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties']
+  account_identifier NUMBER [note: 'Establishiing ownership of assets, providing services and recording account activity for benefit of account owners and other authorized parties. Business rule: must be > 0']
+}
+
+Table advisory_proposal {
+  to_account_service_type_description TEXT [note: 'Holds mapping between non advised account id and advisory proposal id']
+  to_account_service_type_code TEXT [note: 'Holds mapping between non advised account id and advisory proposal id']
+  from_account_service_type_description TEXT [note: 'Holds mapping between non advised account id and advisory proposal id']
+  from_account_service_type_code TEXT [note: 'Holds mapping between non advised account id and advisory proposal id']
+  advisory_conversion_status_description NUMBER [note: 'Holds mapping between non advised account id and advisory proposal id']
+  advisory_conversion_status_code NUMBER [note: 'Holds mapping between non advised account id and advisory proposal id']
+  account_proposal_id TEXT [note: 'Holds mapping between non advised account id and advisory proposal id']
+  total_investment_goal_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0']
+  tax_sentive_indicator BOOLEAN [note: 'investment account proposal generated for customer by advisor']
+  primary_trading_indicator BOOLEAN [note: 'investment account proposal generated for customer by advisor']
+  port_goal_objective_code TEXT [note: 'investment account proposal generated for customer by advisor']
+  original_investor_account_proposal_identifier NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be > 0']
+  new_account_asset_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0, must be > 0']
+  net_worth_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0']
+  minimum_investment_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0']
+  investor_account_proposal_name TEXT [note: 'investment account proposal generated for customer by advisor']
+  investor_account_proposal_identifier NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be > 0']
+  investor_account_discount_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0, must be > 0']
+  finance_goal_indentifier TEXT [note: 'investment account proposal generated for customer by advisor']
+  finance_goal_equity_percent NUMBER [note: 'investment account proposal generated for customer by advisor']
+  expected_withdrawal_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0']
+  estimate_account_group_asset_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0, must be > 0']
+  current_goal_asset_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0']
+  average_retirement_age_quantity NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be > 0']
+  applier_version_identifier NUMBER [note: 'investment account proposal generated for customer by advisor']
+  account_value_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0, must be > 0']
+  account_pricing_group_funded_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0, must be > 0']
+  account_pricing_group_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0, must be > 0']
+  account_owner_contact_quantity NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be > 0']
+  account_investment_amount NUMBER [note: 'investment account proposal generated for customer by advisor. Business rule: must be >= 0, must be > 0']
+}
+
+Table investor_demographic {
+  investor_id TEXT [pk, note: 'Unique identifier for investor. Business rule: must be unique, primary identifier']
+  date_of_birth DATE [note: 'Investor�s date of birth']
+  residency_status TEXT [note: 'Resident / Non-resident']
+  tax_status TEXT [note: 'Tax classification']
+  nationality NUMBER [note: 'Country of citizenship']
+  risk_appetite TEXT [note: 'Low / Medium / High']
+  investment_horizon TEXT [note: 'Short / Medium / Long-term']
+  esg_preference TEXT [note: 'Yes / No']
+}
+
+Table accounts_hierarchy {
+  set_contol_value_id TEXT [pk, note: 'High / Medium / Low. Business rule: must be unique, primary identifier']
+  level_2_description NUMBER [note: 'Represents the structured classification of ledger accounts within an account set']
+  level_2_code NUMBER [note: 'Represents the structured classification of ledger accounts within an account set']
+  level_1_description NUMBER [note: 'Represents the structured classification of ledger accounts within an account set']
+  level_1_code NUMBER [note: 'Represents the structured classification of ledger accounts within an account set']
+  ledger_account_number NUMBER [note: 'Represents the structured classification of ledger accounts within an account set. Business rule: must be > 0']
+  hierarchy_name TEXT [note: 'Represents the structured classification of ledger accounts within an account set']
+  account_set_id TEXT [note: 'Represents the structured classification of ledger accounts within an account set']
+}
+
+Table advisor_business_plan_goal {
+  section_code TEXT [note: 'Business plan goal created by advisor for the client']
+  primary_goal_text_sequence_number TEXT [note: 'Business plan goal created by advisor for the client']
+  goal_Quantity NUMBER [note: 'Business plan goal created by advisor for the client. Business rule: must be > 0']
+  goal_code TEXT [note: 'Business plan goal created by advisor for the client']
+  goal_amount NUMBER [note: 'Business plan goal created by advisor for the client. Business rule: must be >= 0']
+  employee_identifier TEXT [note: 'Business plan goal created by advisor for the client']
+  ccy_type_code TEXT [note: 'Business plan goal created by advisor for the client']
+  challenging_indicator BOOLEAN [note: 'Business plan goal created by advisor for the client']
+  business_plan_year NUMBER [note: 'Business plan goal created by advisor for the client']
+  business_plan_identifier TEXT [note: 'Business plan goal created by advisor for the client']
+  financial_advisor_business_plan_goal_hash_identifier TEXT [note: 'Business plan goal created by advisor for the client']
+}
+
+Table advisor_performance {
+  transaction_revenue_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  transaction_revenue_1_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  profitibility_achivement_date DATE [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  profitibility_6_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  profitibility_4_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  profitibility_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  open_accounts_cumulative_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  open_accounts_1_week_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  nps_score_number NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  new_household_standard_percent NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  new_household_standard_adjustment_percent NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  new_household_on_track_code TEXT [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  new_asset_standard_percent NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  new_asset_standard_adjustment_percent NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  new_asset_current_date_cumulative_amount DATE [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  new_asset_bonus_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  new_asset_4_month_average_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  new_asset_4_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  new_asset_1_week_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  new_accounts_12_month_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  new_accounts_1_month_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_household_total_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0, must be > 0']
+  net_new_household_new_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_household_new_4_month_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_household_new_12_month_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_household_net_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_household_net_4_month_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_household_net_12_month_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_household_closed_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_household_closed_4_month_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_household_closed_12_month_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  net_new_asset_as_of_date DATE [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  net_new_asset_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  net_new_asset_4_month_average_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  net_new_asset_4_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  net_new_asset_12_month_new_asset_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  net_new_asset_1_week_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  net_commissions_cumulative_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  net_commissions_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  net_commissions_1_week_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  net_commissions_1_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  location_margin_date DATE [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  location_margin_6_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  location_margin_4_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  location_margin_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  location_margin_1_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  location_gain_achivement_date DATE [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  location_gain_4_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  inactive_household_assets_under_management_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  inactive_householcount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  inactive_account_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  gross_service_fees_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  gross_service_fees_1_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  gross_commission_standard_percentage NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  gross_commission_standard_adjustment_percentage NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  gross_commission_on_track_code TEXT [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  gross_commission_cumulative_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  gross_commission_4_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  gross_commission_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  gross_commission_1_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  gross_commission_1_week_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  first_time_bonus_indicator DATE [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  first_time_bonus_date DATE [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  first_10k_net_commission_month_indicator BOOLEAN [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  first_10k_net_commission_month_date DATE [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  fa_unit_measurement_standard_percent NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  fa_performance_unit_of_measurement_code TEXT [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  fa_asset_under_management_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  employer_id TEXT [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  employee_action_reason_code TEXT [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  deeply_served_standard_percent NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  deeply_served_on_track_code TEXT [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  cumulative_performance_date DATE [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  bonus_eligible_profit_6_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  bonus_eligible_profit_4_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  bonus_eligible_profit_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  bonus_eligible_profit_1_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  bonus_4_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  best_net_commisssion_month_indicator BOOLEAN [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating']
+  asset_other_cumulative_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  asset_less_other_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  asset_less_cumulative_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  asset_less_4_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  asset_cumulative_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  asset_based_revenuw_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  asset_based_revenuw_1_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  asset_12_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  asset_1_month_amount NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0']
+  active_household_count NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  active_account_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be > 0']
+  account_total_quantity NUMBER [note: 'Financial advisors visualise and analyse their key metrics that contribute to their performance rating. Business rule: must be >= 0, must be > 0']
+}
+
+Table client_segmentation {
+  segmentation_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  segment_name TEXT [note: 'Segment name (e.g., High Net Worth)']
+  criteria TEXT [note: 'Basis for segmentation']
+  effective_date DATE
+}
+
+Table client_profitability {
+  profitability_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  client_id TEXT
+  revenue_generated NUMBER
+  cost_to_serve NUMBER
+  profit_margin NUMBER
+  period TEXT
+}
+
+Table client_interaction {
+  interaction_id TEXT [pk, note: 'Unique identifier for the interaction. Business rule: must be unique, primary identifier']
+  client_id TEXT [note: 'Linked client identifier']
+  interaction_type_code TEXT [note: 'Call / Email / Meeting / Chat']
+  interaction_date_time DATE [note: 'Date and time of interaction']
+  channel TEXT [note: 'Phone / Email / In-person / Digital']
+  officer_id TEXT [note: 'Identifier for branch officer or relationship manager']
+  purpose TEXT [note: 'Reason for interaction (e.g., advisory, service request)']
+  outcome TEXT [note: 'Completed / Pending / Follow-up required']
+  notes TEXT [note: 'Additional comments or summary']
+}
+
+Table client_communication_preference {
+  preference_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  client_id TEXT [note: 'Linked client identifier']
+  preferred_channel TEXT [note: 'Email / Phone / SMS / App']
+  consent_flag BOOLEAN [note: 'Marketing consent (Yes/No)']
+  language_preference NUMBER [note: 'Preferred language for communication']
+  frequency_preference TEXT [note: 'Daily / Weekly / Monthly']
+  effective_date DATE [note: 'Start date of preference']
+  expiry_date DATE [note: 'End date of preference (if applicable)']
+}
+
+Table client_identification {
+  identification_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  client_id TEXT [note: 'Linked client identifier']
+  document_type_code TEXT [note: 'Passport / National ID / Driver�s License']
+  document_number NUMBER [note: 'ID number']
+  issue_date DATE [note: 'Date of issue']
+  expiry_date DATE [note: 'Date of expiry']
+  issuing_authority TEXT [note: 'Authority that issued the document']
+  verification_status TEXT [note: 'Verified / Pending / Failed']
+}
+
+Table client_profile {
+  client_profile_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  client_id TEXT [note: 'Linked client identifier']
+  full_name TEXT [note: 'Client�s full name']
+  date_of_birth DATE [note: 'Date of birth']
+  gender DATE [note: '(Optional if allowed)']
+  marital_status TEXT [note: 'Single / Married / Other']
+  nationality NUMBER [note: 'Country of citizenship']
+  residency_status TEXT [note: 'Resident / Non-resident']
+  occupation TEXT [note: 'Profession or job title']
+  annual_income NUMBER [note: 'Income bracket']
+  risk_appetite TEXT [note: 'Low / Medium / High']
+}
+
+Table client_contact_details {
+  contact_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  client_id TEXT
+  contact_type_code TEXT [note: 'Email / Phone']
+  contact_value NUMBER
+  preferred_flag BOOLEAN
+}
+
+Table client_risk_profile {
+  risk_profile_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  client_id TEXT
+  risk_level NUMBER [note: 'Low / Medium / High']
+  assessment_date DATE
+  assessment_method TEXT
+}
+
+Table aml_status {
+  aml_status_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  client_id TEXT [note: 'Linked client identifier']
+  aml_check_date DATE [note: 'Date of AML check']
+  aml_result TEXT [note: 'Pass / Fail / Pending']
+  risk_score TEXT [note: 'Numeric or categorical risk score']
+  sanctions_screening_flag BOOLEAN [note: 'Yes / No']
+  pep_flag BOOLEAN [note: 'Politically Exposed Person indicator']
+  last_updated DATE [note: 'Timestamp of last AML status update']
+}
+
+Table KYC_details {
+  kyc_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  client_id TEXT
+  document_type_code TEXT
+  document_number NUMBER
+  expiry_date DATE
+  status TEXT
+}
+
+Table branch_officer_contribution_monthly_measure {
+  month_end_date DATE [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  measure_total_quantity TEXT [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  measure_quantity TEXT [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  measure_percent TEXT [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  house_account_financial_advisor_number TEXT [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  house_account_financial_advisor_hash_identifier TEXT [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  branch_officer_measure_code TEXT [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  branch_officer_employee_hash_identifier TEXT [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  branch_officer_contribution_monthyl_measure_hash_identifier TEXT [pk, note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures. Business rule: must be unique, primary identifier']
+  branch_officer_employee_identifier TEXT [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  financial_advisor_sequence_number NUMBER [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+  financial_advisor_employee_identifier TEXT [note: 'Month to date results achieved by Branch office administrator/ assistant for a specific Branch office administrator/ assistant measures']
+}
+
+Table branch_officer_contribution_monthly_measure_detail {
+  relationship_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  relationship_hash_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  month_end_date DATE [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  financial_sub_need_code TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  financial_need_code TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  employee_hash_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  document_title_name TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  document_rejected_date TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  document_presentation_method_code TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  content_framework_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  contact_managegement_activity_source_code NUMBER [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  contact_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  contact_hash_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  branch_officer_measure_document_sign_code TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  branch_officer_measure_code TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  branch_officer_measure_actual_activity_date TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  branch_officer_measure_activity_date TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  branch_officer_employee_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  branch_officer_detail_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  branch_officer_contribution_monthly_measure_hash_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  branch_officer_contribution_monthyl_measure_detail_hash_identifier TEXT [pk, note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.. Business rule: must be unique, primary identifier']
+  financial_advisor_sequence_number NUMBER [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  account_number NUMBER [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.. Business rule: must be > 0']
+  account_hash_identifier TEXT [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.']
+  account_iso_country_code NUMBER [note: 'Granular breakdown of the month to date results achieved by a Branch office administrator/ assistant for measure.. Business rule: must be > 0']
+}
+
+Table business_plan_activity {
+  target_completion_date DATE [note: 'Advisor creating business plan and strategy for an year']
+  success_strategy_status_code TEXT [note: 'Advisor creating business plan and strategy for an year']
+  measure_result_text TEXT [note: 'Advisor creating business plan and strategy for an year']
+  local_business_plan_strategy_identifier TEXT [note: 'Advisor creating business plan and strategy for an year']
+  local_business_plan_strategy_code TEXT [note: 'Advisor creating business plan and strategy for an year']
+  local_business_plan_objective_code TEXT [note: 'Advisor creating business plan and strategy for an year']
+  region_business_plan_group_type_code TEXT [note: 'Advisor creating business plan and strategy for an year']
+  local_business_plan_activity_identifier TEXT [note: 'Advisor creating business plan and strategy for an year']
+  local_business_plan_activity_description TEXT [note: 'Advisor creating business plan and strategy for an year']
+  local_business_plan_activity_code TEXT [note: 'Advisor creating business plan and strategy for an year']
+  business_plan_year NUMBER [note: 'Advisor creating business plan and strategy for an year']
+  manual_objective_description TEXT [note: 'Advisor creating business plan and strategy for an year']
+  local_code TEXT [note: 'Advisor creating business plan and strategy for an year']
+  goal_objective_status_description TEXT [note: 'Advisor creating business plan and strategy for an year']
+  goal_objective_status_code TEXT [note: 'Advisor creating business plan and strategy for an year']
+  display_sequence_number NUMBER [note: 'Advisor creating business plan and strategy for an year']
+}
+
+Table business_plan_projected_measure {
+  measure_quantity NUMBER [note: 'Projected value of measure against business plan. Business rule: must be > 0']
+  measure_percent NUMBER [note: 'Projected value of measure against business plan']
+  measure_amount NUMBER [note: 'Projected value of measure against business plan. Business rule: must be >= 0']
+  local_business_plan_measure_description TEXT [note: 'Projected value of measure against business plan']
+  local_business_plan_measure_code TEXT [note: 'Projected value of measure against business plan']
+  ccy_type_code TEXT [note: 'Projected value of measure against business plan']
+  business_plan_year NUMBER [note: 'Projected value of measure against business plan']
+}
+
+Table business_plan_strategy {
+  target_completion_date DATE [note: 'Contains combination of stratergies,objective,results and completion dates']
+  success_strategy_status_description TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+  success_strategy_status_code TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+  strategy_description TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+  measure_result_text TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+  local_business_plan_strategy_description TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+  local_business_plan_objective_identifier TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+  local_business_plan_objective_description TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+  local_business_plan_objective_code TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+  region_business_plan_group_type_code TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+  display_sequence_number NUMBER [note: 'Contains combination of stratergies,objective,results and completion dates']
+  business_plan_year NUMBER [note: 'Contains combination of stratergies,objective,results and completion dates']
+}
+
+Table business_plan_objective {
+  local_business_plan_activity_description TEXT [note: 'Contains combination of stratergies,objective,results and completion dates']
+}
+
+Table client_partnerhsip {
+  source_strategy_code TEXT [note: 'Formal business relationship between wealth management firm and client']
+  partnership_revision_date DATE [note: 'Formal business relationship between wealth management firm and client']
+  partnership_review_plan_date DATE [note: 'Formal business relationship between wealth management firm and client']
+  partnerhsip_name TEXT [note: 'Formal business relationship between wealth management firm and client']
+  partnerhsip_indicator BOOLEAN [note: 'Formal business relationship between wealth management firm and client']
+  partnership_id TEXT [note: 'Formal business relationship between wealth management firm and client']
+  progression_code TEXT [note: 'Formal business relationship between wealth management firm and client']
+  primary_advisor_employee_name TEXT [note: 'Formal business relationship between wealth management firm and client']
+  override_life_stage_code NUMBER [note: 'Formal business relationship between wealth management firm and client']
+  next_quality_contact_date DATE [note: 'Formal business relationship between wealth management firm and client']
+  next_quality_contact_activity_type_code TEXT [note: 'Formal business relationship between wealth management firm and client']
+  last_quality_contact_date DATE [note: 'Formal business relationship between wealth management firm and client']
+  last_quality_contact_activity_type_code TEXT [note: 'Formal business relationship between wealth management firm and client']
+  country_name TEXT [note: 'Formal business relationship between wealth management firm and client']
+  contact_plan_alert_code TEXT [note: 'Formal business relationship between wealth management firm and client']
+  all_account_closure_indicator BOOLEAN [note: 'Formal business relationship between wealth management firm and client']
+  acceleration_code TEXT [note: 'Formal business relationship between wealth management firm and client']
+}
+
+Table contact {
+  tax_rate_percent NUMBER [note: 'Individual or Legal entity information']
+  small_business_owner_indicator BOOLEAN [note: 'Individual or Legal entity information']
+  securities_firm_description TEXT [note: 'Individual or Legal entity information']
+  securities_firm_code TEXT [note: 'Individual or Legal entity information']
+  secondary_telephone_vertification_status_indicator BOOLEAN [note: 'Individual or Legal entity information']
+  secondary_telephone_number TEXT [note: 'Individual or Legal entity information']
+  secondary_telephone_id TEXT [note: 'Individual or Legal entity information']
+  secondary_telephone_description TEXT [note: 'Individual or Legal entity information']
+  secondary_telephone_code TEXT [note: 'Individual or Legal entity information']
+  salesforce_conversion_indicator BOOLEAN [note: 'Individual or Legal entity information']
+  retirement_month_number NUMBER [note: 'Individual or Legal entity information']
+  retire_indicator BOOLEAN [note: 'Individual or Legal entity information']
+  retirement_year_number NUMBER [note: 'Individual or Legal entity information']
+  public_trade_company_description TEXT [note: 'Individual or Legal entity information']
+  public_trade_company_code TEXT [note: 'Individual or Legal entity information']
+  primary_telephone_vertification_status_indicator BOOLEAN [note: 'Individual or Legal entity information']
+  primary_telephone_number TEXT [note: 'Individual or Legal entity information']
+  primary_telephone_id TEXT [note: 'Individual or Legal entity information']
+  primary_telephone_description TEXT [note: 'Individual or Legal entity information']
+  primary_telephone_code TEXT [note: 'Individual or Legal entity information']
+  politically_exposed_person_description TEXT [note: 'Individual or Legal entity information']
+  politically_exposed_person_code TEXT [note: 'Individual or Legal entity information']
+  occupation_group_description TEXT [note: 'Individual or Legal entity information']
+  occupation_group_code TEXT [note: 'Individual or Legal entity information']
+  net_worth_amount NUMBER [note: 'Individual or Legal entity information. Business rule: must be >= 0']
+  net_income_amount NUMBER [note: 'Individual or Legal entity information. Business rule: must be >= 0']
+  military_branch_description TEXT [note: 'Individual or Legal entity information']
+  military_branch_code TEXT [note: 'Individual or Legal entity information']
+  middle_given_name TEXT [note: 'Individual or Legal entity information']
+  marital_status_description TEXT [note: 'Individual or Legal entity information']
+  marital_status_code TEXT [note: 'Individual or Legal entity information']
+  main_family_name TEXT [note: 'Individual or Legal entity information']
+  legal_entity_name TEXT [note: 'Individual or Legal entity information']
+  legal_entity_form_description TEXT [note: 'Individual or Legal entity information']
+  legal_entity_charity_indicator BOOLEAN [note: 'Individual or Legal entity information']
+  investment_experience_code TEXT [note: 'Individual or Legal entity information']
+  industry_classification_code TEXT [note: 'Individual or Legal entity information']
+  incapaciated_indicator BOOLEAN [note: 'Individual or Legal entity information']
+  gender_code DATE [note: 'Individual or Legal entity information']
+  first_given_name TEXT [note: 'Individual or Legal entity information']
+  employer_address_text TEXT [note: 'Individual or Legal entity information']
+  employement_indicator BOOLEAN [note: 'Individual or Legal entity information']
+  employer_name TEXT [note: 'Individual or Legal entity information']
+  employee_quantity NUMBER [note: 'Individual or Legal entity information. Business rule: must be > 0']
+  death_date DATE [note: 'Individual or Legal entity information']
+  controlling_shareholder_description TEXT [note: 'Individual or Legal entity information']
+  controlling_shareholder_code TEXT [note: 'Individual or Legal entity information']
+  contact_type_code TEXT [note: 'Individual or Legal entity information']
+  contact_identifier TEXT [note: 'Individual or Legal entity information']
+  contact_display_name TEXT [note: 'Individual or Legal entity information']
+  birth_date DATE [note: 'Individual or Legal entity information']
+  annual_income_amount NUMBER [note: 'Individual or Legal entity information. Business rule: must be >= 0']
+}
+
+Table Client_Security_type {
+  client_security_type_code TEXT [note: 'High-level client-facing security classification.']
+  client_security_type_description TEXT [note: 'High-level client-facing security classification.']
+}
+
+Table Instrument_type {
+  instrument_type_code TEXT [note: 'Instrument category (alignable to ISO 10962 CFI at top level).']
+  instrument_type_description TEXT [note: 'Instrument category (alignable to ISO 10962 CFI at top level).']
+}
+
+Table Coupon_type {
+  coupon_type_code TEXT [note: 'Coupon rate style for interest-bearing instruments.']
+  coupon_type_description TEXT [note: 'Coupon rate style for interest-bearing instruments.']
+}
+
+Table Registration_type {
+  registeration_type_code TEXT [note: 'How ownership is registered/held.']
+  registeration_type_description TEXT [note: 'How ownership is registered/held.']
+}
+
+Table Option_type {
+  option_type_code TEXT [note: 'Right type of the option.']
+  option_type_description TEXT [note: 'Right type of the option.']
+}
+
+Table Municipal_Funding_type {
+  municipal_funding_type_description TEXT [note: 'Structure of municipal issuance backing.']
+  municipal_funding_type_code TEXT [note: 'Structure of municipal issuance backing.']
+}
+
+Table Market_type {
+  market_type_code TEXT [note: 'Venue or market segment type.']
+  market_type_description TEXT [note: 'Venue or market segment type.']
+}
+
+Table Enhancer_type {
+  enhancer_type_code TEXT [note: 'Credit enhancement method.']
+  enhancer_type_description TEXT [note: 'Credit enhancement method.']
+}
+
+Table Exercise_type {
+  exercise_type_code TEXT [note: 'When an option may be exercised.']
+  exercise_type_description TEXT [note: 'When an option may be exercised.']
+}
+
+Table Barrier_Event_type {
+  barrier_event_type_code TEXT [note: 'Barrier option event style.']
+  barrier_event_type_description TEXT [note: 'Barrier option event style.']
+}
+
+Table Book_type {
+  book_type_code TEXT [note: 'Internal book classification (client-specific).']
+  book_type_descriptio TEXT [note: 'Internal book classification (client-specific).']
+}
+
+Table BRS_Security_type {
+  brs_security_type_code TEXT [note: 'System-specific security taxonomy (BRS placeholder).']
+  brs_security_type_description TEXT [note: 'System-specific security taxonomy (BRS placeholder).']
+}
+
+Table Transaction_type {
+  transaction_type_code TEXT [note: 'Trade intent or lifecycle action.']
+  transaction_type_description TEXT [note: 'Trade intent or lifecycle action.']
+}
+
+Table Price_type {
+  price_type_code TEXT [note: 'Price qualifier.']
+  price_type_description TEXT [note: 'Price qualifier.']
+}
+
+Table Collateral_Exposure_type {
+  collateral_exposure_type_code TEXT [note: 'Type of collateral or exposure class.']
+  collateral_exposure_type_description TEXT [note: 'Type of collateral or exposure class.']
+}
+
+Table Broker_type {
+  broker_service_type_code TEXT [note: 'Brokerage service model.']
+  broker_service_type_description TEXT [note: 'Brokerage service model.']
+}
+
+Table third_party_repo_collateral_type {
+  third_party_repo_collateral_type_code TEXT [note: 'Eligible collateral for 3rd party repo.']
+  third_party_repo_collateral_type_description TEXT [note: 'Eligible collateral for 3rd party repo.']
+}
+
+Table Foreign_Exchange_type {
+  foreign_exchange_type_code TEXT [note: 'Type of FX product.']
+  foreign_exchange_type_description TEXT [note: 'Type of FX product.']
+}
+
+Table third_party_repo_coupon_type {
+  third_party_repo_coupon_type_code TEXT [note: 'Coupon rate style for interest-bearing instruments.']
+  third_party_repo_coupon_type_description TEXT [note: 'Coupon rate style for interest-bearing instruments.']
+}
+
+Table account_identifier_type {
+  account_identifier_type_code TEXT [pk, note: 'Account master type identifier.. Business rule: must be unique, primary identifier']
+  account_identifier_type_description TEXT [note: 'Account master type identifier.']
+}
+
+Table account_group_type {
+  account_group_type_code TEXT [note: 'Grouping and sub group of account types.']
+  account_sub_group_type_code TEXT [note: 'Grouping and sub group of account types.']
+  account_group_type_description TEXT [note: 'Grouping and sub group of account types.']
+  account_sub_group_type_description TEXT [note: 'Grouping and sub group of account types.']
+}
+
+Table account_service_type {
+  account_service_type_code TEXT [note: 'Service type for money/security movements.']
+  account_service_type_description TEXT [note: 'Service type for money/security movements.']
+}
+
+Table Interaction_type {
+  interaction_type_code TEXT [note: 'Client interaction channel/type.']
+  interaction_type_description TEXT [note: 'Client interaction channel/type.']
+}
+
+Table Document_type {
+  document_type_code TEXT [note: 'Document classification.']
+  document_type_description TEXT [note: 'Document classification.']
+}
+
+Table contact_type {
+  contact_type_code TEXT
+  contact_type_description TEXT
+}
+
+Table Restriction_type {
+  restriction_type_code TEXT [note: 'Restriction applied to account/security/country.']
+}
+
+Table Restrictiontype {
+  restriction_type_description TEXT [note: 'Restriction applied to account/security/country.']
+}
+
+Table financial_goal_type {
+  financial_goal_type_code TEXT [note: 'investor goal']
+  financial_sub_goal_type_code TEXT [note: 'investor goal']
+  financial_goal_type_description TEXT [note: 'investor goal']
+  financial_sub_goal_type_description TEXT [note: 'investor goal']
+}
+
+Table Fee_type {
+  fee_type_code TEXT [note: 'Fee category applied to account/investment.']
+  fee_type_description TEXT [note: 'Fee category applied to account/investment.']
+}
+
+Table order_type {
+  order_type_code TEXT [note: 'Order instruction type.']
+  order_type_description TEXT [note: 'Order instruction type.']
+}
+
+Table annuity_type {
+  annuity_type_code TEXT [note: 'Annuity product style.']
+  annuity_type_description TEXT [note: 'Annuity product style.']
+}
+
+Table bond_type {
+  bond_type_code TEXT [note: 'Bond structural type.']
+  bond_type_description TEXT [note: 'Bond structural type.']
+}
+
+Table due_bill_distribution_type {
+  due_bill_distribution_type_code TEXT [note: 'Distribution event type related to due bills.']
+  due_bill_distribution_type_description TEXT [note: 'Distribution event type related to due bills.']
+}
+
+Table branch_type {
+  branch_type_code TEXT [note: 'Branch classification.']
+  branch_type_description TEXT [note: 'Branch classification.']
+}
+
+Table portfolio_investment_type {
+  port_investment_type_code TEXT [note: 'Asset class in portfolio.']
+  port_investment_type_description TEXT [note: 'Asset class in portfolio.']
+}
+
+Table portfolio_type {
+  port_type_code TEXT [note: 'Portfolio management style/ownership.']
+  port_type_description TEXT [note: 'Portfolio management style/ownership.']
+}
+
+Table Benchmark_type {
+  benchmark_type_code TEXT [note: 'Benchmark reference style.']
+  benchmark_type_description TEXT [note: 'Benchmark reference style.']
+}
+
+Table Action_type {
+  action_type_code TEXT [note: 'Portfolio or trading action.']
+  action_type_description TEXT [note: 'Portfolio or trading action.']
+}
+
+Table portfolio_group_type {
+  port_group_type_code TEXT [note: 'Grouping dimension for portfolios.']
+  port_group_type_description TEXT [note: 'Grouping dimension for portfolios.']
+}
+
+Table Event_type {
+  event_type_code TEXT [note: 'Event affecting securities/holders.']
+  event_type_description TEXT [note: 'Event affecting securities/holders.']
+}
+
+Table Rate_type {
+  rate_type_code TEXT [note: 'Type of rate used in calculations.']
+  rate_type_description TEXT [note: 'Type of rate used in calculations.']
+}
+
+Table currency_exchange_rate {
+  to_ccy_type_code TEXT [note: 'rate of conversion for foreign currency to US dollar']
+  from_ccy_type_code TEXT [note: 'rate of conversion for foreign currency to US dollar']
+  exhnage_rate_source_code NUMBER [note: 'rate of conversion for foreign currency to US dollar']
+  ccy_exchange_rate NUMBER [note: 'rate of conversion for foreign currency to US dollar']
+}
+
+Table country_type {
+  country_type_code TEXT [note: 'Country entity standardizes geographical identifiers across systems and processes.']
+  country_type_description TEXT [note: 'Country entity standardizes geographical identifiers across systems and processes.']
+  region_type_code TEXT [note: 'Country entity standardizes geographical identifiers across systems and processes.']
+}
+
+Table region_type {
+  region_type_code TEXT [note: 'A geographic grouping of countries or areas used for reporting, compliance, and operational segmentation.']
+  region_type_description TEXT [note: 'A geographic grouping of countries or areas used for reporting, compliance, and operational segmentation.']
+}
+
+Table state_province_type {
+  state_type_code TEXT [note: 'A sub-national administrative division within a country. Used for client address validation, tax calculations, and jurisdictional compliance.']
+  country_type_code TEXT [note: 'A sub-national administrative division within a country. Used for client address validation, tax calculations, and jurisdictional compliance.']
+  state_type_description TEXT [note: 'A sub-national administrative division within a country. Used for client address validation, tax calculations, and jurisdictional compliance.']
+}
+
+Table currency {
+  ccy_type_code TEXT [note: 'Currency entity standardizes monetary units used in financial transactions, valuations, and reporting. It ensures consistency across systems for pricing, settlement, and regulatory compliance.']
+  ccy_type_description TEXT [note: 'Currency entity standardizes monetary units used in financial transactions, valuations, and reporting. It ensures consistency across systems for pricing, settlement, and regulatory compliance.']
+  country_type_code TEXT [note: 'Currency entity standardizes monetary units used in financial transactions, valuations, and reporting. It ensures consistency across systems for pricing, settlement, and regulatory compliance.']
+}
+
+Table investor_financial_goal {
+  restriction_type_code TEXT [note: 'Sector / Security / Geography']
+  total_retierd_annual_amount NUMBER [note: 'Goal an investor sets revolves around finances. Business rule: must be >= 0']
+  student_name TEXT [note: 'Goal an investor sets revolves around finances']
+  relocate_year_number NUMBER [note: 'Goal an investor sets revolves around finances']
+  relocate_administrative_division_code TEXT [note: 'Goal an investor sets revolves around finances']
+  planner_retirement_year_number NUMBER [note: 'Goal an investor sets revolves around finances']
+  planner_retirement_age_number NUMBER [note: 'Goal an investor sets revolves around finances']
+  planner_planning_age_number NUMBER [note: 'Goal an investor sets revolves around finances']
+  plan_id TEXT [note: 'Goal an investor sets revolves around finances']
+  importance_level_number NUMBER [note: 'Goal an investor sets revolves around finances']
+  importance_level_category_name NUMBER [note: 'Goal an investor sets revolves around finances']
+  goal_update_timestamp DATE [note: 'Goal an investor sets revolves around finances']
+  investor_financial_goal_type_code TEXT [note: 'Goal an investor sets revolves around finances']
+  goal_type_description TEXT [note: 'Goal an investor sets revolves around finances']
+  investor_financial_goal_sub_type_description TEXT [note: 'Goal an investor sets revolves around finances']
+  investor_financial_goal_sub_type_code TEXT [note: 'Goal an investor sets revolves around finances']
+  goal_start_year_number DATE [note: 'Goal an investor sets revolves around finances']
+  goal_id TEXT [note: 'Goal an investor sets revolves around finances']
+  goal_create_timestamp DATE [note: 'Goal an investor sets revolves around finances']
+  goal_amount NUMBER [note: 'Goal an investor sets revolves around finances. Business rule: must be >= 0']
+  education_cost_method_type_name TEXT [note: 'Goal an investor sets revolves around finances']
+  education_cost_amount NUMBER [note: 'Goal an investor sets revolves around finances. Business rule: must be >= 0']
+  co_planner_retirement_year_number NUMBER [note: 'Goal an investor sets revolves around finances']
+  co_planner_retirement_age_number NUMBER [note: 'Goal an investor sets revolves around finances']
+}
+
+Table transaction_history {
+  transaction_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  transaction_type_code TEXT [note: 'Subscription / Redemption / Switch']
+  transaction_date DATE [note: 'Date of transaction']
+  amount NUMBER [note: 'Transaction amount. Business rule: must be >= 0']
+  currency TEXT [note: 'Transaction currency']
+  status TEXT [note: 'Completed / Pending / Failed']
+}
+
+Table performance_summary {
+  performance_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  period TEXT [note: 'Daily / Monthly / Quarterly']
+  return_percentage NUMBER [note: 'Portfolio return for the period']
+  benchmark_return TEXT [note: 'Benchmark return for comparison']
+  alpha TEXT [note: 'Excess return over benchmark']
+}
+
+Table fee_charges_summary {
+  fee_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  fee_type_code TEXT [note: 'Advisory / Transaction / Maintenance']
+  fee_amount NUMBER [note: 'Amount charged. Business rule: must be >= 0']
+  fee_currency TEXT [note: 'Currency of fee']
+  charge_date DATE [note: 'Date fee was applied']
+}
+
+Table learning_associate_course_enrollment {
+  test_score_quantity NUMBER [note: 'Completion of course by associate. Business rule: must be > 0']
+  sequence_number NUMBER [pk, note: 'Completion of course by associate. Business rule: must be unique, primary identifier']
+}
+
+Table course_enrollment {
+  registration_status_description TEXT [note: 'Completion of course by associate']
+  registration_status_code TEXT [note: 'Completion of course by associate']
+  external_transcript_identifier TEXT [note: 'Completion of course by associate']
+  employee_id TEXT [pk, note: 'Completion of course by associate. Business rule: must be unique, primary identifier']
+  drop_date DATE [note: 'Completion of course by associate']
+  course_completion_status_description TEXT [note: 'Completion of course by associate']
+  course_completion_status_code TEXT [note: 'Completion of course by associate']
+  course_completion_due_date DATE [note: 'Completion of course by associate']
+  associate_course_registration_date DATE [note: 'Completion of course by associate']
+  associate_course_completion_date DATE [note: 'Completion of course by associate']
+  associate_class_begin_date DATE [note: 'Completion of course by associate']
+  actual_course_duration_minutes_quantity NUMBER [note: 'Completion of course by associate. Business rule: must be > 0']
+}
+
+Table learning_class {
+  vendor_country_name DATE [note: 'Information for instructor lead courses']
+  registration_open_ntz_timestamp TEXT [note: 'Information for instructor lead courses']
+  registration_closure_ntz_timestamp TEXT [note: 'Information for instructor lead courses']
+  private_class_indicator BOOLEAN [note: 'Information for instructor lead courses']
+  external_vendor_administrative_division_abbrevation_name TEXT [note: 'Information for instructor lead courses']
+  external_class_session_identifier TEXT [note: 'Information for instructor lead courses']
+  external_class_identifier TEXT [note: 'Information for instructor lead courses']
+  course_identifier TEXT [pk, note: 'Information for instructor lead courses. Business rule: must be unique, primary identifier']
+  class_name TEXT [note: 'Information for instructor lead courses']
+  class_maximum_enrolled_quantity TEXT [note: 'Information for instructor lead courses']
+  class_identifier TEXT [pk, note: 'Information for instructor lead courses. Business rule: must be unique, primary identifier']
+  class_end_ntz_timestamp TEXT [note: 'Information for instructor lead courses']
+  class_contact_information_text TEXT [note: 'Information for instructor lead courses']
+  class_begin_ntz_timestamp TEXT [note: 'Information for instructor lead courses']
+  class_associate_enrolled_quantity TEXT [note: 'Information for instructor lead courses']
+}
+
+Table learning_course {
+  external_course_identifier TEXT [pk, note: 'Information about education/training course details. Business rule: must be unique, primary identifier']
+  credit_unit_quantity NUMBER [note: 'Information about education/training course details. Business rule: must be > 0']
+  credit_hour_quantity NUMBER [note: 'Information about education/training course details. Business rule: must be > 0']
+  course_url_text TEXT [note: 'Information about education/training course details']
+  course_type_description TEXT [note: 'Information about education/training course details']
+  course_type_code NUMBER [note: 'Information about education/training course details']
+  course_training_data_source_description TEXT [note: 'Information about education/training course details']
+  course_training_data_source_code TEXT [note: 'Information about education/training course details']
+  course_status_description TEXT [note: 'Information about education/training course details']
+  course_status_code NUMBER [note: 'Information about education/training course details']
+  course_short_description TEXT [note: 'Information about education/training course details']
+  course_name TEXT [note: 'Information about education/training course details']
+  course_identifier TEXT [note: 'Information about education/training course details']
+  course_feedback_type_description TEXT [note: 'Information about education/training course details']
+  course_feedback_type_code NUMBER [note: 'Information about education/training course details']
+  course_duration_minutes_quantity NUMBER [note: 'Information about education/training course details. Business rule: must be > 0']
+  course_description TEXT [note: 'Information about education/training course details']
+  course_certificate_availability_indicator BOOLEAN [note: 'Information about education/training course details']
+  course_category_description TEXT [note: 'Information about education/training course details']
+  course_category_code TEXT [note: 'Information about education/training course details']
+}
+
+Table portfolio_screening_criteria {
+  total_holding_quantity NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0, must be > 0']
+  sell_rated_quantity NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be > 0']
+  sell_rated_holding_percent NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  sell_rated_holding_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  postfolio_screener_scope_code TEXT [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  postfolio_screener_id TEXT [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  maximum_overconcentrated_holding_percent NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  maximum_overconcentrated_holding_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  maximum_overconcentrated_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  intelligence_rated_quantity NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be > 0']
+  intelligence_rate_holding_percent NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  intelligence_rate_holding_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  hide_until_date DATE [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  equity_sector_first_issue_date DATE [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  asset_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  asset_allocation_first_issue_date DATE [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  overconcentrated_holding_percent NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  overconcentrated_holding_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  overconcentrated_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  sell_rate_first_issue_date DATE [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  overconcetration_first_issue_date DATE [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  over_concentration_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  maximum_overconcentration_percent NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  maximum_overconcentration_holding_percent NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  maximum_overconcentration_holding_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  maximum_overconcentration_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  port_screen_goal_attached_ind TEXT [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  financial_planning_goal_code TEXT [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  available_cash_amount NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.. Business rule: must be >= 0']
+  analyser_scope_code TEXT [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  analyser_identifier TEXT [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  advisor_number NUMBER [note: 'Represents a portfolio screening configuration and its associated metrics.']
+  account_service_type_code TEXT [note: 'Represents a portfolio screening configuration and its associated metrics.']
+}
+
+Table esg_screening {
+  screening_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  portfolio_identifier TEXT [note: 'Linked portfolio']
+  esg_score TEXT [note: 'Environmental, Social, Governance score']
+  screening_date DATE [note: 'Date of screening']
+  compliance_status TEXT [note: 'Pass / Fail']
+  notes TEXT [note: 'Additional comments']
+}
+
+Table risk_screening {
+  screening_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  portfolio_identifier TEXT [note: 'Linked portfolio']
+  risk_score TEXT [note: 'Calculated risk score']
+  screening_date DATE [note: 'Date of screening']
+  risk_category TEXT [note: 'Low / Medium / High']
+  compliance_status TEXT [note: 'Pass / Fail']
+}
+
+Table trade_confirmation {
+  confirmation_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  trade_order_id TEXT [note: 'Linked trade order. Business rule: references trade_order']
+  confirmation_date DATE [note: 'Date of confirmation']
+  counterparty_id NUMBER [note: 'Broker or counterparty identifier. Business rule: must be > 0']
+  status TEXT [note: 'Confirmed / Pending / Failed']
+}
+
+Table trade_settlement {
+  settlement_id DATE [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  trade_order_id TEXT [note: 'Linked trade order. Business rule: references trade_order']
+  settlement_date DATE [note: 'Date of settlement']
+  settlement_amount DATE [note: 'Amount settled']
+  currency TEXT [note: 'Settlement currency']
+  settlement_status DATE [note: 'Completed / Pending / Failed']
+}
+
+Table trade_fullfilment {
+  yield_to_worst_value_call_price_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  yield_to_worst_value_call_percent NUMBER [note: 'Execution information associated with and order request']
+  yield_to_worst_value_call_date DATE [note: 'Execution information associated with and order request']
+  yield_to_worst_value_call_calculated_code TEXT [note: 'Execution information associated with and order request']
+  yield_to_sink_percent NUMBER [note: 'Execution information associated with and order request']
+  yield_to_maturity_percent DATE [note: 'Execution information associated with and order request']
+  vendor_fill_id DATE [note: 'Execution information associated with and order request']
+  vendor_commission_amount DATE [note: 'Execution information associated with and order request']
+  unit_invest_trust_override_30_day_discount_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0, must be > 0']
+  unit_invest_trust_breakpoint_level_type_name NUMBER [note: 'Execution information associated with and order request']
+  unit_invest_trust_breakpoint_level_number NUMBER [note: 'Execution information associated with and order request']
+  trade_settlement_date DATE [note: 'Execution information associated with and order request']
+  trade_settlement_code DATE [note: 'Execution information associated with and order request']
+  trade_modifier_code TEXT [note: 'Execution information associated with and order request']
+  trade_execution_code TEXT [note: 'Execution information associated with and order request']
+  syndicate_issue_indicator BOOLEAN [note: 'Execution information associated with and order request']
+  account_type_code TEXT [note: 'Execution information associated with and order request']
+  related_fill_id TEXT [note: 'Execution information associated with and order request']
+  product_trade_code TEXT [note: 'Execution information associated with and order request']
+  pre_refunded_date DATE [note: 'Execution information associated with and order request']
+  par_value_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  non_billed_commission_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  next_possible_call_date DATE [note: 'Execution information associated with and order request']
+  next_call_price_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  group_order_number NUMBER [note: 'Execution information associated with and order request']
+  gain_loss_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  fixed_income_factor_rate NUMBER [note: 'Execution information associated with and order request']
+  fill_unit_quantity NUMBER [note: 'Execution information associated with and order request. Business rule: must be > 0']
+  fill_unit_price_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  fill_type_name TEXT [note: 'Execution information associated with and order request']
+  fill_total_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  fill_reported_price_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  fill_net_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  fill_id TEXT [note: 'Execution information associated with and order request']
+  fill_effective_date DATE [note: 'Execution information associated with and order request']
+  fill_destination_vendor_id DATE [note: 'Execution information associated with and order request']
+  fill_commission_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  fill_commission_tect NUMBER [note: 'Execution information associated with and order request']
+  fill_basis_unit_price_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  executing_broker_sales_rate NUMBER [note: 'Execution information associated with and order request']
+  executing_broker_name TEXT [note: 'Execution information associated with and order request']
+  estimated_long_term_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  cusip_number NUMBER [note: 'Execution information associated with and order request']
+  current_rate_of_retuen_percent NUMBER [note: 'Execution information associated with and order request']
+  calculated_fill_commission_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  broker_discount_percent NUMBER [note: 'Execution information associated with and order request. Business rule: must be > 0']
+  breakpoint_limit_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  branch_number NUMBER [note: 'Execution information associated with and order request']
+  blotter_code TEXT [note: 'Execution information associated with and order request']
+  billed_date DATE [note: 'Execution information associated with and order request']
+  annual_rate_of_return_percent NUMBER [note: 'Execution information associated with and order request']
+  agency_principal_fill_code NUMBER [note: 'Execution information associated with and order request']
+  adp_tag_number NUMBER [note: 'Execution information associated with and order request']
+  adjusted_commission_percent NUMBER [note: 'Execution information associated with and order request']
+  adjusted_commission_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+  Accrued_interest_percent NUMBER [note: 'Execution information associated with and order request']
+  Accrued_interest_amount NUMBER [note: 'Execution information associated with and order request. Business rule: must be >= 0']
+}
+
+Table trade_order {
+  trade_vendor_account_id_type_code DATE [pk, note: 'Information of request to buy or sell and security. Business rule: must be unique, primary identifier']
+  syndicate_issue_indicator BOOLEAN [note: 'Information of request to buy or sell and security']
+  solicated_indicator BOOLEAN [note: 'Information of request to buy or sell and security']
+  security_registered_code TEXT [note: 'Information of request to buy or sell and security']
+  security_medium_code TEXT [note: 'Information of request to buy or sell and security']
+  security_firm_indicator BOOLEAN [note: 'Information of request to buy or sell and security']
+  product_trade_code TEXT [note: 'Information of request to buy or sell and security']
+  product_identification_symbol_code TEXT [note: 'Information of request to buy or sell and security']
+  print_drop_status_code TEXT [note: 'Information of request to buy or sell and security']
+  price_format_code TEXT [note: 'Information of request to buy or sell and security']
+  parent_order_indicator BOOLEAN [note: 'Information of request to buy or sell and security']
+  order_unit_quantity NUMBER [note: 'Information of request to buy or sell and security. Business rule: must be > 0']
+  order_type_code TEXT [note: 'Information of request to buy or sell and security']
+  order_transaction_type_code TEXT [note: 'Information of request to buy or sell and security']
+  order_total_amount NUMBER [note: 'Information of request to buy or sell and security. Business rule: must be >= 0']
+  order_status_code TEXT [note: 'Information of request to buy or sell and security']
+  order_service_originating_code TEXT [note: 'Information of request to buy or sell and security']
+  order_replaced_original_order_id TEXT [note: 'Information of request to buy or sell and security']
+  order_replaced_group_order_number NUMBER [note: 'Information of request to buy or sell and security']
+  order_processing_code TEXT [note: 'Information of request to buy or sell and security']
+  order_proceeds_code TEXT [note: 'Information of request to buy or sell and security']
+  order_original_cusip_number NUMBER [note: 'Information of request to buy or sell and security']
+  order_original_application_code TEXT [note: 'Information of request to buy or sell and security']
+  order_id TEXT [note: 'Information of request to buy or sell and security']
+  order_exchange_indicator BOOLEAN [note: 'Information of request to buy or sell and security']
+  order_entered_person_group_code TEXT [note: 'Information of request to buy or sell and security']
+  order_destination_vendor_id DATE [note: 'Information of request to buy or sell and security']
+  order_destination_program_name TEXT [note: 'Information of request to buy or sell and security']
+  order_communication_text TEXT [note: 'Information of request to buy or sell and security']
+  order_acknowledged_source_vendor_id DATE [note: 'Information of request to buy or sell and security']
+  order_acknowledged_program_name TEXT [note: 'Information of request to buy or sell and security']
+  mutual_fund_order_effective_trade_date DATE [note: 'Information of request to buy or sell and security']
+  mutual_fund_order_registered_date DATE [note: 'Information of request to buy or sell and security']
+  mutual_fund_order_original_letter_of_intent_monetary_amount NUMBER [note: 'Information of request to buy or sell and security. Business rule: must be >= 0']
+  mutual_fund_order_letter_of_intent_number NUMBER [note: 'Information of request to buy or sell and security']
+  mutual_fund_order_letter_of_intent_amount NUMBER [note: 'Information of request to buy or sell and security. Business rule: must be >= 0']
+  mutual_fund_order_expected_price_date DATE [note: 'Information of request to buy or sell and security']
+  mutual_fund_order_earned_amount NUMBER [note: 'Information of request to buy or sell and security. Business rule: must be >= 0']
+  mutual_fund_order_cost_basis_amount NUMBER [note: 'Information of request to buy or sell and security. Business rule: must be >= 0']
+  mutual_fund_family_abbreviate_name TEXT [note: 'Information of request to buy or sell and security']
+  money_market_time_day_code DATE [note: 'Information of request to buy or sell and security']
+  market_code TEXT [note: 'Information of request to buy or sell and security']
+  managed_account_program_firm_id TEXT [note: 'Information of request to buy or sell and security']
+  keep_order_indicator BOOLEAN [note: 'Information of request to buy or sell and security']
+  instrument_maturity_date DATE [note: 'Information of request to buy or sell and security']
+  hold_process_indicator BOOLEAN [note: 'Information of request to buy or sell and security']
+  group_order_number NUMBER [note: 'Information of request to buy or sell and security']
+  fill_status_code TEXT [note: 'Information of request to buy or sell and security']
+  exchange_abbreviated_name TEXT [note: 'Information of request to buy or sell and security']
+  disCreationary_trade_code TEXT [note: 'Information of request to buy or sell and security']
+  direct_investment_code TEXT [note: 'Information of request to buy or sell and security']
+  commission_amount NUMBER [note: 'Information of request to buy or sell and security. Business rule: must be >= 0']
+  cancellation_order_reason_code TEXT [note: 'Information of request to buy or sell and security']
+  associate_pricing_indicator BOOLEAN [note: 'Information of request to buy or sell and security']
+  annuity_company_abbreviated_name TEXT [note: 'Information of request to buy or sell and security']
+}
+
+Table prospect_relationship_progression {
+  relationship_group_id TEXT [pk, note: 'Progression code entered for a prospect by specific advisor.. Business rule: must be unique, primary identifier']
+  current_progression_code TEXT [note: 'Progression code entered for a prospect by specific advisor.']
+  current_progression_description TEXT [note: 'Progression code entered for a prospect by specific advisor.']
+  no_status_progression_timestamp DATE [note: 'Progression code entered for a prospect by specific advisor.']
+  no_relationship_timestamp DATE [note: 'Progression code entered for a prospect by specific advisor.']
+  personal_connect_timestamp DATE [note: 'Progression code entered for a prospect by specific advisor.']
+  value_added_timestamp DATE [note: 'Progression code entered for a prospect by specific advisor.']
+  understanding_situation_timestamp DATE [note: 'Progression code entered for a prospect by specific advisor.']
+  account_opened_timestamp DATE [note: 'Progression code entered for a prospect by specific advisor.']
+  relationship_country_code NUMBER [note: 'Progression code entered for a prospect by specific advisor.. Business rule: must be > 0']
+}
+
+Table annuity_product {
+  symbol_code TEXT [note: 'Contains information of annuities sold by advisor.']
+  issuer_name TEXT [note: 'Contains information of annuities sold by advisor.']
+  company_name TEXT [note: 'Contains information of annuities sold by advisor.']
+  annuity_type_code TEXT [note: 'Contains information of annuities sold by advisor.']
+  proudct_description TEXT [note: 'Contains information of annuities sold by advisor.']
+}
+
+Table annutiy_contract {
+  cusip_number NUMBER [pk, note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment. Business rule: must be unique, primary identifier']
+  account_number NUMBER [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment. Business rule: must be > 0']
+  advisor_number NUMBER [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment']
+  contract_issued_date DATE [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment']
+  fixed_annuity_contract_maturity_date DATE [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment']
+  contract_status_code TEXT [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment']
+  dividend_option_payment_code DATE [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment']
+  fund_transfer_restriction_reason_code TEXT [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment']
+  contract_administrative_division_abbreviation_name TEXT [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment']
+  suppress_statement_indicator BOOLEAN [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment']
+  qualified_longevity_annuity_contract_indicator BOOLEAN [note: 'Contract sold to individual by Insurance company that provides accumulated principal sum of money with agreement that Annuitant receive as payment']
+}
+
+Table product {
+  fund_transfer_restriction_indicator BOOLEAN [note: 'Details of a specific product']
+  accreted_value_amount NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  Accrued_interest_amount NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  Accrued_interest_carry_amount NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  alternative_minimum_tax_indicator BOOLEAN [note: 'Details of a specific product']
+  bank_quantity_indicator BOOLEAN [note: 'Details of a specific product']
+  base_cusip_discrepency_indicator BOOLEAN [note: 'Details of a specific product']
+  base_interest_payment_date DATE [note: 'Details of a specific product']
+  bond_call_date DATE [note: 'Details of a specific product']
+  bond_call_notice_code TEXT [note: 'Details of a specific product']
+  bond_credit_enhancement_program_code TEXT [note: 'Details of a specific product']
+  bond_first_coupon_date DATE [note: 'Details of a specific product']
+  bond_pay_end_of_month_indicator DATE [note: 'Details of a specific product']
+  bond_type_code TEXT [note: 'Details of a specific product']
+  broker_company_number NUMBER [note: 'Details of a specific product']
+  call_price_rate NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  certificate_indicator BOOLEAN [note: 'Details of a specific product']
+  check_digit_number NUMBER [note: 'Details of a specific product']
+  closing_price_amount NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  company_reinvestment_indicator BOOLEAN [note: 'Details of a specific product']
+  conversion_premium_amount NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  conversion_ratio_rate NUMBER [note: 'Details of a specific product']
+  coupan_rate NUMBER [note: 'Details of a specific product']
+  cusip_Creation_date DATE [note: 'Details of a specific product']
+  cusip_creation_terminal_number NUMBER [note: 'Details of a specific product']
+  customer_reinvestment_mfd_quantity NUMBER [note: 'Details of a specific product. Business rule: must be > 0']
+  customer_reinvestment_quantity NUMBER [note: 'Details of a specific product. Business rule: must be > 0']
+  decision_insurance_number NUMBER [note: 'Details of a specific product']
+  declared_dividend_amount DATE [note: 'Details of a specific product']
+  dividend_date DATE [note: 'Details of a specific product']
+  due_bill_activity_code TEXT [note: 'Details of a specific product']
+  due_bill_distribution_type_code TEXT [note: 'Details of a specific product']
+  earnings_per_share_amount NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  eligible_mutual_fund_reinvesment_indicator BOOLEAN [note: 'Details of a specific product']
+  eligible_stock_reinvestment_indicator BOOLEAN [note: 'Details of a specific product']
+  end_offer_date DATE [note: 'Details of a specific product']
+  estate_feature_indicator BOOLEAN [note: 'Details of a specific product']
+  estimated_annual_dividend_rate DATE [note: 'Details of a specific product']
+  exdividend_date DATE [note: 'Details of a specific product']
+  firm_name_eligible_code TEXT [note: 'Details of a specific product']
+  first_interest_accural_date DATE [note: 'Details of a specific product']
+  first_interest_payment_date DATE [note: 'Details of a specific product']
+  first_settlement_date DATE [note: 'Details of a specific product']
+  house_price_amount NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  house_price_update_date DATE [note: 'Details of a specific product']
+  insurance_agency_name NUMBER [note: 'Details of a specific product']
+  interactive_data_corporation_last_update_date DATE [note: 'Details of a specific product']
+  interest_bearer_indicator BOOLEAN [note: 'Details of a specific product']
+  interest_compund_frequency_code TEXT [note: 'Details of a specific product']
+  interest_interchange_indicator BOOLEAN [note: 'Details of a specific product']
+  interest_interval_code TEXT [note: 'Details of a specific product']
+  interest_payment_option_code TEXT [note: 'Details of a specific product']
+  interest_payment_registration_code TEXT [note: 'Details of a specific product']
+  issuer_number NUMBER [note: 'Details of a specific product']
+  isse_class_quantity NUMBER [note: 'Details of a specific product. Business rule: must be > 0']
+  issue_number NUMBER [note: 'Details of a specific product']
+  issue_price_rate NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  issue_yield_percent NUMBER [note: 'Details of a specific product']
+  issing_state_code TEXT [note: 'Details of a specific product']
+  maturity_date DATE [note: 'Details of a specific product']
+  minimum_initial_purchase_quantity NUMBER [note: 'Details of a specific product. Business rule: must be > 0']
+  minimum_order_quantity NUMBER [note: 'Details of a specific product. Business rule: must be > 0']
+  minimum_share_quantity NUMBER [note: 'Details of a specific product. Business rule: must be > 0']
+  minimum_subsequent_purchase_qunaityt TEXT [note: 'Details of a specific product']
+  mortgage_backed_security_factor_date DATE [note: 'Details of a specific product']
+  mortgage_backed_security_factor_rate NUMBER [note: 'Details of a specific product']
+  municple_bond_credit_enhancer_name TEXT [note: 'Details of a specific product']
+  outstanding_share_total_quantity NUMBER [note: 'Details of a specific product. Business rule: must be >= 0, must be > 0']
+  par_call_rate NUMBER [note: 'Details of a specific product']
+  par_value_rate NUMBER [note: 'Details of a specific product']
+  previous_conversion_premium_amount NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  product_characteristic_approval_code TEXT [note: 'Details of a specific product']
+  product_description TEXT [note: 'Details of a specific product']
+  redemption_value_amount NUMBER [note: 'Details of a specific product. Business rule: must be >= 0']
+  reinvestment_fee_percent NUMBER [note: 'Details of a specific product']
+  reinvestment_rate NUMBER [note: 'Details of a specific product']
+  trading_unit_quantity NUMBER [note: 'Details of a specific product. Business rule: must be > 0']
+}
+
+Table branch {
+  branch_number NUMBER [pk, note: 'Contains information of branch offices.. Business rule: must be unique, primary identifier']
+  branch_creation_date DATE [note: 'Contains information of branch offices.']
+  branch_close_date DATE [note: 'Contains information of branch offices.']
+  branch_registration_code TEXT [note: 'Contains information of branch offices.']
+  branch_registration_description TEXT [note: 'Contains information of branch offices.']
+  branch_type_code TEXT [note: 'Contains information of branch offices.']
+  business_telephone_number TEXT [note: 'Contains information of branch offices.']
+  fax_telephone_number TEXT [note: 'Contains information of branch offices.']
+  branch_default_printer_number NUMBER [note: 'Contains information of branch offices.']
+  branch_default_user_id_code TEXT [note: 'Contains information of branch offices.']
+}
+
+Table branch_visit {
+  branch_number NUMBER [pk, note: 'Branch audit visit details. Business rule: must be unique, primary identifier']
+  announced_visit_indicator DATE [note: 'Branch audit visit details']
+  branch_visit_indicator BOOLEAN [note: 'Branch audit visit details']
+  mandatory_visit_indicator BOOLEAN [note: 'Branch audit visit details']
+  manual_assignment_indicator BOOLEAN [note: 'Branch audit visit details']
+  visitor_employee_id TEXT [note: 'Branch audit visit details']
+  visitor_code TEXT [note: 'Branch audit visit details']
+  visit_effective_year_number DATE [note: 'Branch audit visit details']
+  visit_reason_description TEXT [note: 'Branch audit visit details']
+}
+
+Table mutual_fund {
+  cusip_number NUMBER [pk, note: 'Information of mutual fund. Business rule: must be unique, primary identifier']
+  capital_corrected_non_resident_alien_amount NUMBER [note: 'Information of mutual fund. Business rule: must be >= 0']
+  capital_corrected_spillover_amount NUMBER [note: 'Information of mutual fund. Business rule: must be >= 0']
+  capital_corrected_total_amount NUMBER [note: 'Information of mutual fund. Business rule: must be >= 0']
+  capital_non_resident_alient_total_amount NUMBER [note: 'Information of mutual fund. Business rule: must be >= 0']
+  capital_reversed_non_resident_alien_amount NUMBER [note: 'Information of mutual fund. Business rule: must be >= 0']
+  capital_reversed_spillover_amount NUMBER [note: 'Information of mutual fund. Business rule: must be >= 0']
+  capital_reversed_total_amount NUMBER [note: 'Information of mutual fund. Business rule: must be >= 0']
+  capital_total_amount NUMBER [note: 'Information of mutual fund. Business rule: must be >= 0']
+  dividend_corrected_non_resident_alien_amount DATE [note: 'Information of mutual fund']
+  dividend_corrected_spillover_amount DATE [note: 'Information of mutual fund']
+  dividend_corrected_total_amount DATE [note: 'Information of mutual fund']
+  dividend_reversed_spillover_amount DATE [note: 'Information of mutual fund']
+  dividend_reversed_spillover_total_amount DATE [note: 'Information of mutual fund']
+  dividend_total_amount DATE [note: 'Information of mutual fund']
+  sell_eligible_indicator BOOLEAN [note: 'Information of mutual fund']
+}
+
+Table organization {
+  organization_code TEXT [note: 'Various organisation and associates that belong to the teams']
+  organization_name TEXT [note: 'Various organisation and associates that belong to the teams']
+  leader_employee_id TEXT [note: 'Various organisation and associates that belong to the teams']
+  operational_responsibility_description TEXT [note: 'Various organisation and associates that belong to the teams']
+  parent_organisation_code TEXT [note: 'Various organisation and associates that belong to the teams']
+}
+
+Table employee {
+  employee_id TEXT [pk, note: 'Details of person to works in wealth mangement company. Business rule: must be unique, primary identifier']
+  first_name TEXT [note: 'Details of person to works in wealth mangement company']
+  last_name TEXT [note: 'Details of person to works in wealth mangement company']
+  marital_status_code TEXT [note: 'Details of person to works in wealth mangement company']
+  gender_code DATE [note: 'Details of person to works in wealth mangement company']
+  birth_date DATE [note: 'Details of person to works in wealth mangement company']
+  last_fire_date DATE [note: 'Details of person to works in wealth mangement company']
+  termination_date DATE [note: 'Details of person to works in wealth mangement company']
+  last_work_date DATE [note: 'Details of person to works in wealth mangement company']
+  primary_email_address TEXT [note: 'Details of person to works in wealth mangement company. Business rule: valid email format required']
+  job_code TEXT [note: 'Details of person to works in wealth mangement company']
+  job_description TEXT [note: 'Details of person to works in wealth mangement company']
+  management_level_code NUMBER [note: 'Details of person to works in wealth mangement company']
+  title_code TEXT [note: 'Details of person to works in wealth mangement company']
+  position_code TEXT [note: 'Details of person to works in wealth mangement company']
+  work_base_description TEXT [note: 'Details of person to works in wealth mangement company']
+  can_sell_date_contract_date DATE [note: 'Details of person to works in wealth mangement company']
+  in_field_date DATE [note: 'Details of person to works in wealth mangement company']
+  cumulative_performanace_date DATE [note: 'Details of person to works in wealth mangement company']
+  country_code TEXT [note: 'Details of person to works in wealth mangement company']
+  business_telephone_number TEXT [note: 'Details of person to works in wealth mangement company']
+}
+
+Table port {
+  port_name TEXT [note: 'The official name assigned to the portfolio for identification and reporting.']
+  port_source_code TEXT [note: 'Code indicating the source system or application where the portfolio originates.']
+  port_group_ind TEXT [note: 'Flag or indicator specifying whether the portfolio belongs to a group or composite.']
+  port_full_name TEXT [note: 'Complete descriptive name of the portfolio, often used in legal or formal documents.']
+  port_short_name TEXT [note: 'Abbreviated name for the portfolio, used in dashboards or reports.']
+  port_inception_dt DATE [note: 'Date when the portfolio was created or became active.']
+  port_base_ccy_type_code TEXT [note: 'ISO currency code representing the portfolio�s base currency for valuation.']
+  port_country_cd NUMBER [note: 'Country code associated with the portfolio�s domicile or regulatory jurisdiction.. Business rule: must be > 0']
+  port_custody_acct_num NUMBER [note: 'Identifier for the custody account linked to the portfolio for settlement and safekeeping.']
+  port_investment_type_code NUMBER [note: 'Classification of the portfolio based on investment strategy (e.g., equity, fixed income).']
+  port_regulator_name TEXT [note: 'Name of the regulatory authority overseeing the portfolio�s compliance.']
+  port_legal_name TEXT [note: 'Legal name of the portfolio as registered with regulatory bodies.']
+  cusip_id TEXT [note: 'Unique identifier (CUSIP) for securities associated with the portfolio, if applicable.']
+  port_type_code TEXT [note: 'Type of portfolio (e.g., disCreationary, advisory, model).']
+  port_tax_id TEXT [note: 'Tax identification number associated with the portfolio for tax reporting.']
+  port_business_purpose_desc TEXT [note: 'Narrative describing the business purpose or investment objective of the portfolio.']
+  port_termination_dt DATE [note: 'Date when the portfolio is scheduled to close or terminate.']
+}
+
+Table port_bmrk {
+  bmrk_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  bmrk_name TEXT [note: 'Name of benchmark']
+  bmrk_type_code NUMBER [note: 'Price return / Total return']
+  base_ccy_type_code TEXT [note: 'Currency of benchmark']
+  effective_date DATE [note: 'Start date']
+  expiry_date DATE [note: 'End date']
+}
+
+Table port_performance {
+  performance_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  port_id TEXT [note: 'Business rule: references port']
+  period TEXT [note: 'Daily / Monthly / Quarterly']
+  return_pct NUMBER
+  bmrk_return TEXT [note: 'Benchmark return for comparison']
+  alpha TEXT
+  beta TEXT
+  sharpe_ratio TEXT
+  volatility TEXT
+}
+
+Table port_compliance_rule {
+  rule_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  portfolio_identifier TEXT
+  rule_description TEXT
+  effective_date DATE
+  status TEXT
+}
+
+Table asset_allocation_plan {
+  allocation_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  port_id TEXT [note: 'Business rule: references port']
+  asset_class NUMBER [note: 'Equity / Fixed Income / Alternatives']
+  target_weight TEXT
+  current_weight TEXT
+  rebalance_frequency NUMBER
+}
+
+Table rebalancing_rule {
+  rule_id TEXT [pk, note: 'Defines the conditions and thresholds for rebalancing a portfolio to maintain target asset allocation.. Business rule: must be unique, primary identifier']
+  port_id TEXT [note: 'Defines the conditions and thresholds for rebalancing a portfolio to maintain target asset allocation.. Business rule: references port']
+  trigger_condition DATE [note: 'Threshold / Date-based']
+  action_type_code TEXT [note: 'Buy / Sell']
+  effective_date DATE [note: 'Defines the conditions and thresholds for rebalancing a portfolio to maintain target asset allocation.']
+}
+
+Table port_limit {
+  port_alpha_target_pct NUMBER [note: 'Target alpha (excess return) value set for the portfolio, expressed as a percentage or basis points.']
+  port_cashout_num TEXT [note: 'Numeric limit or identifier for cash-out transactions allowed for the portfolio.']
+}
+
+Table port_group {
+  port_group_name TEXT [note: 'Name of the portfolio group for identification.']
+  port_group_full_name TEXT [note: 'Complete descriptive name of the portfolio group.']
+  port_group_type_code DATE [note: 'Classification of the group (e.g., composite, mandate-based).']
+  port_status_cd TEXT [note: 'Current status of the portfolio group (e.g., Active, Inactive).']
+  port_mandate_name DATE [note: 'Name of the investment mandate governing the group.']
+  port_mandate_lvl1_name DATE [note: 'First-level mandate categorization.']
+  port_mandate_lvl2_name DATE [note: 'Second-level mandate categorization.']
+  port_risk_mandate_name DATE [note: 'Risk mandate associated with the group.']
+  port_risk_ind_code TEXT [note: 'Indicator or code representing risk level.']
+  port_attribution_ind_code TEXT [note: 'Indicator for attribution analysis applicability.']
+  port_attribution_composite_ind TEXT [note: 'Indicator for composite attribution reporting.']
+}
+
+Table port_group_member {
+  port_group_member_id TEXT [pk, note: 'Unique identifier for the portfolio group member.. Business rule: must be unique, primary identifier']
+  port_group_member_nm TEXT [note: 'Name of the portfolio within the group.']
+  port_group_member TEXT [note: 'Sequence number for ordering members within the group.']
+}
+
+Table port_performance_summary {
+  performance_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  port_id TEXT [note: 'Linked portfolio. Business rule: references port']
+  period TEXT [note: 'Daily / Monthly / Quarterly / Yearly']
+  start_date DATE [note: 'Start date of performance period']
+  end_date DATE [note: 'End date of performance period']
+  return_pct NUMBER [note: 'Portfolio return for the period']
+  bmrk_return TEXT [note: 'Benchmark return for comparison']
+  alpha TEXT [note: 'Excess return over benchmark']
+  beta TEXT [note: 'Sensitivity to market movements']
+  sharpe_ratio TEXT [note: 'Risk-adjusted return metric']
+  volatility TEXT [note: 'Standard deviation of returns']
+  currency TEXT [note: 'Reporting currency']
+}
+
+Table performance_attribution {
+  attribution_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  port_id TEXT [note: 'Business rule: references port']
+  asset_class NUMBER [note: 'Equity / Fixed Income / Alternatives']
+  contribution_to_return NUMBER [note: 'Percentage contribution']
+  contribution_to_risk NUMBER [note: 'Risk contribution']
+  attribution_date DATE [note: 'Date of calculation']
+}
+
+Table risk_metrics {
+  risk_metric_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  port_id TEXT [note: 'Business rule: references port']
+  var NUMBER [note: 'Value at Risk']
+  cvar NUMBER [note: 'Conditional Value at Risk']
+  stress_test_result TEXT [note: 'Outcome of stress scenarios']
+  liquidity_score TEXT [note: 'Liquidity measure']
+  risk_date DATE [note: 'Date of risk calculation']
+  beta TEXT [note: 'Risk Metrics are quantitative measures used to assess the risk profile of a portfolio or investment strategy. They help in monitoring exposures, compliance with risk limits, and evaluating portfolio r']
+  volatility TEXT [note: 'Risk Metrics are quantitative measures used to assess the risk profile of a portfolio or investment strategy. They help in monitoring exposures, compliance with risk limits, and evaluating portfolio r']
+  duration TEXT [note: 'Risk Metrics are quantitative measures used to assess the risk profile of a portfolio or investment strategy. They help in monitoring exposures, compliance with risk limits, and evaluating portfolio r']
+  exposure_by_asset_class NUMBER [note: 'Risk Metrics are quantitative measures used to assess the risk profile of a portfolio or investment strategy. They help in monitoring exposures, compliance with risk limits, and evaluating portfolio r']
+  concentration_ratio TEXT [note: 'Risk Metrics are quantitative measures used to assess the risk profile of a portfolio or investment strategy. They help in monitoring exposures, compliance with risk limits, and evaluating portfolio r']
+  liquidity_risk_score TEXT [note: 'Risk Metrics are quantitative measures used to assess the risk profile of a portfolio or investment strategy. They help in monitoring exposures, compliance with risk limits, and evaluating portfolio r']
+}
+
+Table bmrk_performance {
+  bmrk_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  bmrk_name TEXT
+  period TEXT
+  bmrk_return TEXT
+  bmrk_volatility TEXT
+  bmrk_currency TEXT
+}
+
+Table index_analytics {
+  index_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  index_name TEXT
+  index_level NUMBER
+  change_pct NUMBER
+  ytd_return TEXT
+}
+
+Table branch_officer_performance {
+  officer_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  branch_id TEXT [note: 'Business rule: references branch']
+  month NUMBER
+  sales_volume NUMBER
+  revenue_generated NUMBER
+  client_acquisition_count NUMBER [note: 'Business rule: must be > 0']
+  performance_score TEXT
+}
+
+Table price_source {
+  price_src_cd NUMBER [note: 'Code identifying the price source system or vendor.. Business rule: must be >= 0']
+  price_src_nm NUMBER [note: 'Name of the price source.. Business rule: must be >= 0']
+  price_src_priority_num NUMBER [note: 'Numeric priority assigned to the price source.. Business rule: must be >= 0']
+  price_src_priority_list NUMBER [note: 'Ordered list of price sources for fallback logic.. Business rule: must be >= 0']
+}
+
+Table price_security_eod {
+  price_mark_asof_dt NUMBER [note: 'Date for which the price mark is applicable. Business rule: must be >= 0']
+  price_src_cd NUMBER [note: 'Code of the source providing the price.. Business rule: must be >= 0']
+  price_purpose_cd NUMBER [note: 'Code indicating the purpose of the price (e.g., valuation, reporting).. Business rule: must be >= 0']
+  price_amt NUMBER [note: 'Actual price value of the security.. Business rule: must be >= 0']
+  accrued_interest_factor_pct NUMBER [note: 'Factor used to calculate accrued interest on the security.']
+}
+
+Table dividend_announcement {
+  corporate_action_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  security_id TEXT [note: 'Linked security']
+  announcement_date DATE [note: 'Date of announcement']
+  record_date DATE [note: 'Date for entitlement determination']
+  ex_date DATE [note: 'Ex-dividend date']
+  pay_date DATE [note: 'Payment date']
+  dividend_amount DATE [note: 'Amount per share']
+  currency TEXT [note: 'Currency of dividend']
+  status TEXT [note: 'Announced / Confirmed / Paid']
+}
+
+Table split_merger {
+  corporate_action_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  security_id TEXT
+  action_type_code TEXT [note: 'Split / Merger / Spin-off']
+  ratio TEXT [note: 'Split or merger ratio']
+  effective_date DATE
+  status TEXT
+}
+
+Table corporate_action_calendar {
+  event_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  event_type_code TEXT [note: 'Dividend / Split / Merger']
+  scheduled_date DATE
+  notes TEXT
+}
+
+Table index_constituents {
+  index_id TEXT [pk, note: 'Identifier for index. Business rule: must be unique, primary identifier']
+  security_id TEXT [note: 'Constituent security']
+  weight TEXT [note: 'Weight in index']
+  effective_date DATE
+  status TEXT [note: 'Active / Removed']
+}
+
+Table bmrk {
+  bmrk_id TEXT [pk, note: 'Unique identifier. Business rule: must be unique, primary identifier']
+  bmrk_name TEXT [note: 'Name of benchmark']
+  description TEXT
+  base_currency_type_code TEXT
+  calculation_method NUMBER [note: 'Price return / Total return']
+}
+
+Table exchange_calendar {
+  exchange_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  holiday_date DATE
+  holiday_name NUMBER
+  trading_status TEXT [note: 'Open / Closed / Half-day']
+}
+
+Table economic_event_calendar {
+  event_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  event_type_code TEXT [note: 'GDP release / Fed meeting / CPI']
+  scheduled_date_time DATE
+  region TEXT [note: 'US / EU / Global']
+  impact_level NUMBER [note: 'High / Medium / Low']
+  actual_value NUMBER
+  forecast_value NUMBER
+  previous_value NUMBER
+}
+
+Table corporate_earnings_calendar {
+  company_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  announcement_date DATE
+  fiscal_period TEXT
+  eps_forecast TEXT
+  eps_actual TEXT
+  revenue_forecast NUMBER
+  revenue_actual NUMBER
+}
+
+Table volatility_metrics {
+  metric_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  security_id TEXT
+  date DATE
+  implied_volatility TEXT
+  historical_volatility TEXT
+  volatility_index TEXT [note: 'e.g., VIX']
+}
+
+Table market_sentiment_indicators {
+  indicator_id TEXT [pk, note: 'Business rule: must be unique, primary identifier']
+  date DATE
+  sentiment_score DATE [note: 'Positive / Negative / Neutral']
+  source TEXT [note: 'News / Social Media / Analyst Reports']
+}
+
+Table economy_index {
+  econ_index_nm TEXT [note: 'Name of the economic index.']
+  econ_index_desc TEXT [note: 'Description of the economic index.']
+  econ_index_src_cd TEXT [note: 'Source or provider of the economic index.']
+}
+
+Table market_econ_rate_eod {
+  econ_index_asof_dt DATE [note: 'Date for which the economic index rate applies.']
+  econ_index_id TEXT [note: 'Unique identifier for the index.']
+  econ_index_category_cd NUMBER [note: 'Category (Inflation, GDP, Interest Rate).']
+  econ_index_frequency_cd TEXT [note: 'Frequency (Daily, Monthly, Quarterly).']
+  econ_index_unit_cd TEXT [note: 'Unit of measure (%, basis points).']
+  econ_index_provider_nm TEXT [note: 'Data provider name.']
+  econ_index_calc_method_cd TEXT [note: 'Calculation method (e.g., weighted average).']
+  econ_index_effective_dt DATE [note: 'Effective date of index definition.']
+  econ_index_status_cd TEXT [note: 'Status (Active, Deprecated).']
+  econ_index_mark_dt DATE [note: 'Date when the economic index was marked or updated.']
+  econ_index_rate_cd NUMBER [note: 'Rate value of the economic index.']
+  rate_type_cd NUMBER [note: 'Type of rate (Spot, Forward, Discount).']
+  rate_unit_cd NUMBER [note: 'Unit (%, bps).']
+  rate_source_cd NUMBER [note: 'Source of the rate.']
+  rate_confidence_score_no NUMBER [note: 'Confidence score for data quality.']
+  rate_update_ts DATE [note: 'Timestamp of last update.']
+  rate_status_cd NUMBER [note: 'Status (Confirmed, Estimated).']
+  rate_comment_txt NUMBER [note: 'Free-text comment for exceptions.']
+}
+
+Table strategy {
+  strategy_id NUMBER [pk, note: 'Unique identifier for the strategy.. Business rule: must be unique, primary identifier']
+  strategy_nm NUMBER [note: 'Name of the investment strategy.']
+  strategy_desc NUMBER [note: 'Detailed description of the strategy.']
+  strategy_code NUMBER [note: 'Short code for the strategy.']
+  strategy_category_cd NUMBER [note: 'Category (Growth, Income, Balanced).']
+  strategy_objective_txt NUMBER [note: 'Investment objective description.']
+  strategy_risk_level_cd NUMBER [note: 'Risk level (Low, Medium, High).']
+  strategy_start_dt DATE [note: 'Start date of the strategy.']
+  strategy_end_dt DATE [note: 'End date (if closed).']
+  strategy_owner_nm NUMBER [note: 'Owner or responsible team.']
+  strategy_status_cd NUMBER [note: 'Status (Active, Inactive).']
+  strategy_benchmark_id TEXT [note: 'Linked benchmark for performance comparison.']
+  strategy_region_cd NUMBER [note: 'Region focus (Global, US, Emerging Markets).']
+}
+
+Table stress_test_result {
+  scenario_name TEXT [note: 'outcomes of risk simulations applied to a portfolio under various hypothetical adverse market conditions']
+  shock_parameters_interest_rate_fx_equity NUMBER [note: 'outcomes of risk simulations applied to a portfolio under various hypothetical adverse market conditions']
+  projected_loss_gain NUMBER [note: 'outcomes of risk simulations applied to a portfolio under various hypothetical adverse market conditions']
+  stress_horizon TEXT [note: 'outcomes of risk simulations applied to a portfolio under various hypothetical adverse market conditions']
+  confidence_level NUMBER [note: 'outcomes of risk simulations applied to a portfolio under various hypothetical adverse market conditions']
+  liquidity_impact TEXT [note: 'outcomes of risk simulations applied to a portfolio under various hypothetical adverse market conditions']
+}
+
+Table port_management {
+  max_exposure_pct NUMBER [note: 'Maximum exposure to a single asset or sector.']
+  min_cash_balance_amt NUMBER [note: 'Minimum cash balance required.']
+  max_leverage_ratio NUMBER [note: 'Maximum leverage allowed.']
+  tracking_error_target_bps TEXT [note: 'Target tracking error in basis points.']
+  volatility_target_pct NUMBER [note: 'Target volatility percentage.']
+  liquidity_threshold_days NUMBER [note: 'Minimum liquidity horizon in days.']
+  limit_effective_dt DATE [note: 'Date when the limit becomes effective.']
+  limit_expiry_dt DATE [note: 'Date when the limit expires.']
+  limit_status_cd TEXT [note: 'Status of the limit (Active, Suspended, Expired).']
+  limit_reason_desc TEXT [note: 'Description of why the limit was set.']
+}
+
+// Relationships:
+Ref: position.port_id <? port.id
+  // Optional relationship: position can exist without port
+Ref: holding_balance.account_id <? account.id
+  // Optional relationship: holding_balance can exist without account
+Ref: trade.port_id <? port.id
+  // Optional relationship: trade can exist without port
+Ref: account.bank_id <? bank.bank_id
+  // Optional relationship: account can exist without bank
+Ref: trade_confirmation.trade_order_id <? trade_order.id
+  // Optional relationship: trade_confirmation can exist without trade_order
+Ref: trade_settlement.trade_order_id <? trade_order.id
+  // Optional relationship: trade_settlement can exist without trade_order
+Ref: port_performance.port_id <? port.id
+  // Optional relationship: port_performance can exist without port
+Ref: asset_allocation_plan.port_id <? port.id
+  // Optional relationship: asset_allocation_plan can exist without port
+Ref: rebalancing_rule.port_id <? port.id
+  // Optional relationship: rebalancing_rule can exist without port
+Ref: port_performance_summary.port_id <? port.id
+  // Optional relationship: port_performance_summary can exist without port
+Ref: performance_attribution.port_id <? port.id
+  // Optional relationship: performance_attribution can exist without port
+Ref: risk_metrics.port_id <? port.id
+  // Optional relationship: risk_metrics can exist without port
+Ref: branch_officer_performance.branch_id <? branch.branch_number
+  // Optional relationship: branch_officer_performance can exist without branch

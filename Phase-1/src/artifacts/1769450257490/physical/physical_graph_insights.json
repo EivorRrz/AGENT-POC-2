@@ -1,0 +1,1739 @@
+{
+  "summary": {
+    "tableCount": 143,
+    "columnCount": 1846,
+    "foreignKeyCount": 13,
+    "issueCount": 83
+  },
+  "perTable": {
+    "sec_master": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "position": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "holding_balance": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "valuation": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "holding_transaction": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "prices": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Column cost should use DECIMAL for monetary values."
+      ]
+    },
+    "trade": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Column quantity should use INT for quantity."
+      ]
+    },
+    "fx_ndf": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "fx": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "setlmnt_collat": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "fwd_fx": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "broker": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "charge_rate": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "eq_optn": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "swap": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "fwd": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "bank": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 1,
+      "issues": []
+    },
+    "account": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 1,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "advisory_proposal": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "investor_demographic": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "accounts_hierarchy": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "advisor_business_plan_goal": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "advisor_performance": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "client_segmentation": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "client_profitability": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "client_interaction": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "client_communication_preference": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "client_identification": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "client_profile": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "client_contact_details": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "client_risk_profile": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "aml_status": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "KYC_details": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "branch_officer_contribution_monthly_measure": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "branch_officer_contribution_monthly_measure_detail": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "business_plan_activity": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "business_plan_projected_measure": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "business_plan_strategy": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "business_plan_objective": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "client_partnerhsip": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "contact": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Client_Security_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Instrument_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Coupon_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Registration_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Option_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Municipal_Funding_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Market_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Enhancer_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Exercise_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Barrier_Event_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Book_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "BRS_Security_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Transaction_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Price_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Collateral_Exposure_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Broker_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "third_party_repo_collateral_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Foreign_Exchange_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "third_party_repo_coupon_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "account_identifier_type": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "account_group_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "account_service_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Interaction_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Document_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "contact_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Restriction_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Restrictiontype": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "financial_goal_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Fee_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "order_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "annuity_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "bond_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "due_bill_distribution_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "branch_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "portfolio_investment_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "portfolio_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Benchmark_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Action_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "portfolio_group_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Event_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "Rate_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "currency_exchange_rate": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "country_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "region_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "state_province_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "currency": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "investor_financial_goal": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "transaction_history": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "performance_summary": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "fee_charges_summary": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "learning_associate_course_enrollment": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "course_enrollment": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "learning_class": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "learning_course": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "portfolio_screening_criteria": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "esg_screening": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "risk_screening": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "trade_confirmation": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "trade_settlement": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "trade_fullfilment": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "trade_order": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 2,
+      "issues": []
+    },
+    "prospect_relationship_progression": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "annuity_product": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "annutiy_contract": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "product": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "branch": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 1,
+      "issues": []
+    },
+    "branch_visit": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "mutual_fund": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "organization": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "employee": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "port": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 8,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "port_bmrk": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "port_performance": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "port_compliance_rule": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "asset_allocation_plan": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "rebalancing_rule": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "port_limit": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "port_group": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "port_group_member": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "port_performance_summary": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "performance_attribution": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "risk_metrics": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "bmrk_performance": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "index_analytics": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "branch_officer_performance": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "price_source": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "price_security_eod": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "dividend_announcement": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "split_merger": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "corporate_action_calendar": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "index_constituents": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "bmrk": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "exchange_calendar": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "economic_event_calendar": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "corporate_earnings_calendar": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "volatility_metrics": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "market_sentiment_indicators": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "economy_index": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "market_econ_rate_eod": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "strategy": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": []
+    },
+    "stress_test_result": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    },
+    "port_management": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": true,
+      "hasUpdatedAt": true,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys."
+      ]
+    }
+  },
+  "issues": [
+    {
+      "table": "position",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "valuation",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "prices",
+      "column": "cost",
+      "type": "type",
+      "message": "Monetary column should use DECIMAL, not other numeric types."
+    },
+    {
+      "table": "trade",
+      "column": "quantity",
+      "type": "type",
+      "message": "Quantity column should use INT."
+    },
+    {
+      "table": "fx_ndf",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "fx",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "setlmnt_collat",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "fwd_fx",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "charge_rate",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "eq_optn",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "swap",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "fwd",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "account",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "advisory_proposal",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "advisor_business_plan_goal",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "advisor_performance",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "business_plan_activity",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "business_plan_projected_measure",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "business_plan_strategy",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "business_plan_objective",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "client_partnerhsip",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "contact",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Client_Security_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Instrument_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Coupon_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Registration_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Option_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Municipal_Funding_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Market_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Enhancer_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Exercise_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Barrier_Event_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Book_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "BRS_Security_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Transaction_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Price_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Collateral_Exposure_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Broker_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "third_party_repo_collateral_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Foreign_Exchange_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "third_party_repo_coupon_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "account_group_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "account_service_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Interaction_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Document_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "contact_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Restriction_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Restrictiontype",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "financial_goal_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Fee_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "order_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "annuity_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "bond_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "due_bill_distribution_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "branch_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "portfolio_investment_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "portfolio_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Benchmark_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Action_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "portfolio_group_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Event_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Rate_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "currency_exchange_rate",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "country_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "region_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "state_province_type",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "currency",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "investor_financial_goal",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "learning_class",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "portfolio_screening_criteria",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "trade_fullfilment",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "annuity_product",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "product",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "organization",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "port",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "port_limit",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "port_group",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "price_source",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "price_security_eod",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "economy_index",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "market_econ_rate_eod",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "stress_test_result",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "port_management",
+      "type": "pk",
+      "message": "Missing or invalid primary key."
+    }
+  ]
+}
