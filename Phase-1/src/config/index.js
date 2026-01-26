@@ -34,6 +34,15 @@ const config = {
         provider: "ollama",
         ollamaUrl: process.env.OLLAMA_URL || "http://localhost:11434",
         model: process.env.OLLAMA_MODEL || "deepseek-r1:7b",
+        // Metadata enhancement settings
+        metadataEnhancement: {
+            enabled: process.env.LLM_ENHANCEMENT_ENABLED !== "false", // Default: true
+            batchSize: parseInt(process.env.LLM_BATCH_SIZE || "50", 10),
+            maxRetries: parseInt(process.env.LLM_MAX_RETRIES || "3", 10),
+            retryDelay: parseInt(process.env.LLM_RETRY_DELAY || "1000", 10),
+            timeout: parseInt(process.env.LLM_TIMEOUT || "30000", 10), // 30 seconds
+            minConfidence: parseFloat(process.env.LLM_MIN_CONFIDENCE || "0.7", 10),
+        }
     }
 }
 

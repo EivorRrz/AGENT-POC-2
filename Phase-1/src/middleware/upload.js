@@ -560,16 +560,61 @@ router.post('/ingest', validateApiKey, (req, res, next) => {
         // Extract fileId from filename (timestamp part before '_&_')
         const fileId = req.file.filename.split('_&_')[0];
         
-        // Transform metadata into table-grouped structure for storage
+        // Transform metadata into hierarchical structure (Domain → Sub-domain → Entity → Attributes)
+        const hierarchicalStructure = {};
         const tablesMap = {};
+        
         metadata.forEach(col => {
+            const domain = col.domain || 'Other';
+            const subDomain = col.subDomain || 'General';
+            const entityName = col.entityName || col.tableName;
+            const entityDesc = col.entityDescription;
+            
+            // Build hierarchical structure
+            if (!hierarchicalStructure[domain]) {
+                hierarchicalStructure[domain] = {};
+            }
+            if (!hierarchicalStructure[domain][subDomain]) {
+                hierarchicalStructure[domain][subDomain] = {};
+            }
+            if (!hierarchicalStructure[domain][subDomain][entityName]) {
+                hierarchicalStructure[domain][subDomain][entityName] = {
+                    entityName: entityName,
+                    entityDescription: entityDesc,
+                    attributes: []
+                };
+            }
+            
+            hierarchicalStructure[domain][subDomain][entityName].attributes.push({
+                attributeName: col.attributeName || col.columnName,
+                attributeDescription: col.attributeDescription || col.description,
+                dataType: col.dataType,
+                isPrimaryKey: col.isPrimaryKey,
+                isForeignKey: col.isForeignKey,
+                referencesTable: col.referencesTable,
+                referencesColumn: col.referencesColumn,
+                nullable: col.nullable,
+                isUnique: col.isUnique,
+                domain: domain,
+                subDomain: subDomain
+            });
+            
+            // Also build backward-compatible table-grouped structure
             if (!tablesMap[col.tableName]) {
                 tablesMap[col.tableName] = {
                     tableName: col.tableName,
+                    entityName: entityName,
+                    entityDescription: entityDesc,
+                    domain: domain,
+                    subDomain: subDomain,
                     columns: []
                 };
             }
-            tablesMap[col.tableName].columns.push(col);
+            tablesMap[col.tableName].columns.push({
+                ...col,
+                attributeName: col.attributeName || col.columnName,
+                attributeDescription: col.attributeDescription || col.description
+            });
         });
         
         // Prepare metadata document
@@ -582,7 +627,8 @@ router.post('/ingest', validateApiKey, (req, res, next) => {
             metadata: {
                 rowCount: metadata.length,
                 tableCount: Object.keys(tablesMap).length,
-                tables: tablesMap
+                tables: tablesMap,
+                hierarchical: hierarchicalStructure  // NEW: Preserve hierarchical structure
             },
             inference,
             llmStatus: getLLMStatus(),

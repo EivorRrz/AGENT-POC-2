@@ -25,6 +25,12 @@ export {
     suggestionRelelationships as suggestRelationships,  // Alias for compatibility
 } from "./pkfkAssist.js";
 
+// Production-Ready Metadata Enhancement
+export {
+    enhanceMetadataWithLLM,
+    enhanceSingleColumn,
+} from "./metadataEnhancer.js";
+
 // Schemas
 export {
     primaryKeySchema,

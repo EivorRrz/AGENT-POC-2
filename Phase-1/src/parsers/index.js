@@ -7,7 +7,7 @@ import logger from "../utils/logger.js";
 import { parseExcel, extractMetaDataFromExcel } from "./excelParser.js";
 import { parseCSV, extractMetaDataFromCSV } from "./csv-parser.js";
 import { inferPKFK } from "../heuristics/index.js";
-import { analyzeMetadata, isLlmReady } from "../llm/index.js";
+import { analyzeMetadata, isLlmReady, enhanceMetadataWithLLM } from "../llm/index.js";
 
 /**
  * Parse file and extract normalized metadata
@@ -70,21 +70,28 @@ export async function parseMetadataFile(filePath, originalName) {
         }
 
         //===========================================
-        // LLM Enhancement (if available)
+        // Production-Ready LLM Enhancement (if available)
         //===========================================
         try {
             if (isLlmReady()) {
-                logger.info("LLM is ready, enhancing with AI analysis...");
-                metadata = await analyzeMetadata(metadata);
-                logger.info("LLM enhancement completed successfully!");
+                logger.info("LLM is ready, performing comprehensive metadata enhancement...");
+                
+                // Step 1: Comprehensive enhancement (data types, names, descriptions, quality)
+                metadata = await enhanceMetadataWithLLM(metadata);
+                
+                // Step 2: PK/FK analysis (if needed, can be skipped if already done well)
+                // metadata = await analyzeMetadata(metadata);
+                
+                logger.info("✅ Production-ready LLM enhancement completed successfully!");
             } else {
                 logger.info("LLM not initialized, using heuristics only");
             }
         } catch (llmError) {
             logger.warn({ 
-                error: llmError.message 
-            }, 'LLM analysis failed, using heuristics only');
-            // Continue with heuristics-only results
+                error: llmError.message,
+                stack: llmError.stack 
+            }, 'LLM enhancement failed, using heuristics-only results (graceful degradation)');
+            // Continue with heuristics-only results (graceful degradation)
         }
 
         logger.info({

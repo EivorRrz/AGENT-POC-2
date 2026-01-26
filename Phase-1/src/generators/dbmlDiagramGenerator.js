@@ -153,7 +153,6 @@ function generatePNGWithTimeout(args, timeout) {
         // Use direct path to dbml2img if available, otherwise use npx
         const isWindows = process.platform === 'win32';
         const dbmlBinPath = path.join(process.cwd(), 'node_modules', '.bin', isWindows ? 'dbml2img.cmd' : 'dbml2img');
-        const { existsSync } = require('fs');
         
         let command;
         let procArgs;
@@ -165,17 +164,10 @@ function generatePNGWithTimeout(args, timeout) {
             // Add the rest of args (skip @dbml/cli and dbml2img)
             procArgs.push(...args.slice(2));
         } else {
-            // @dbml/cli doesn't have dbml2img command - it's not part of the package
-            // We need to use a different approach or skip DBML CLI generation
-            // For now, use npx with array format and let it fail gracefully
-            const dbmlPath = args[2];
-            const outputPath = args[4];
-            const extraArgs = args.slice(5);
-            
-            command = 'npx';
-            // Note: dbml2img doesn't exist in @dbml/cli - this will fail
-            // But we'll catch the error and handle it gracefully
-            procArgs = ['-y', '@dbml/cli', 'dbml2img', dbmlPath, '-o', outputPath, ...extraArgs];
+            // @dbml/cli doesn't have dbml2img command - skip DBML CLI generation
+            // Return error gracefully instead of trying invalid command
+            reject(new Error('DBML CLI diagram generation not available. Please install Graphviz or dbml2img package separately.'));
+            return;
         }
         
         const proc = spawn(command, procArgs, {
@@ -284,14 +276,23 @@ export async function generateDBMLSVG(dbmlPath, outputPath, options = {}) {
 
 function generateSVGWithTimeout(args, timeout) {
     return new Promise((resolve, reject) => {
-        // Use npx with array format (not string command) to avoid path issues
+        // Use direct path to dbml2img if available, otherwise skip
         const isWindows = process.platform === 'win32';
-        const dbmlPath = args[2];
-        const outputPath = args[4];
-        const extraArgs = args.slice(5);
+        const dbmlBinPath = path.join(process.cwd(), 'node_modules', '.bin', isWindows ? 'dbml2img.cmd' : 'dbml2img');
         
-        const command = 'npx';
-        const procArgs = ['-y', '@dbml/cli', 'dbml2img', dbmlPath, '-o', outputPath, ...extraArgs];
+        let command;
+        let procArgs;
+        
+        if (existsSync(dbmlBinPath)) {
+            // Use local binary directly
+            command = isWindows ? dbmlBinPath : 'node';
+            procArgs = isWindows ? [] : [dbmlBinPath];
+            procArgs.push(...args.slice(2));
+        } else {
+            // @dbml/cli doesn't have dbml2img command - skip DBML CLI generation
+            reject(new Error('DBML CLI diagram generation not available. Please install Graphviz or dbml2img package separately.'));
+            return;
+        }
         
         const proc = spawn(command, procArgs, {
             shell: isWindows,
@@ -341,10 +342,20 @@ export async function generateDBMLPDF(dbmlPath, outputPath, options = {}) {
         
         logger.info({ dbmlPath, outputPath }, 'Generating DBML PDF...');
         
-        // Use npx with array format (not string command) to avoid path issues
+        // Use direct path to dbml2img if available, otherwise skip
         const isWindows = process.platform === 'win32';
-        const command = 'npx';
-        const procArgs = ['-y', '@dbml/cli', 'dbml2img', dbmlPath, '-o', outputPath, '--format', 'pdf'];
+        const dbmlBinPath = path.join(process.cwd(), 'node_modules', '.bin', isWindows ? 'dbml2img.cmd' : 'dbml2img');
+        
+        let command;
+        let procArgs;
+        
+        if (existsSync(dbmlBinPath)) {
+            command = isWindows ? dbmlBinPath : 'node';
+            procArgs = isWindows ? [] : [dbmlBinPath];
+            procArgs.push(dbmlPath, '-o', outputPath, '--format', 'pdf');
+        } else {
+            return reject(new Error('DBML CLI diagram generation not available. Please install Graphviz or dbml2img package separately.'));
+        }
         
         const proc = spawn(command, procArgs, {
             shell: isWindows,

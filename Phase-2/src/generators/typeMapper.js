@@ -37,6 +37,12 @@ export function mapToMySQLType(genericType, isPrimaryKey = false) {
     if (!genericType) return 'VARCHAR(255)';
     
     const normalized = String(genericType).toUpperCase().trim();
+    
+    // If it already has precision (e.g. DECIMAL(10,6)), return it as is (but normalize INTEGER -> INT)
+    if (normalized.includes('(')) {
+        return normalized.replace(/\bINTEGER\b/gi, 'INT');
+    }
+
     const baseType = normalized.split('(')[0].trim();
     
     let mysqlType = MYSQL_TYPE_MAP[baseType] || 'VARCHAR(255)';

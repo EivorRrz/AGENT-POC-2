@@ -61,14 +61,52 @@ async function loadMetadata(fileId) {
     const rawData = await readJSON(metadataPath);
     const metadata = new Metadata(fileId);
     const tablesData = rawData.metadata?.tables || {};
+    const hierarchicalData = rawData.metadata?.hierarchical || {}; // NEW: Load hierarchical structure
     
     for (const [tableName, tableInfo] of Object.entries(tablesData)) {
-        const table = new Table(tableName, tableInfo.description);
+        const table = new Table(tableName, tableInfo.entityDescription || tableInfo.description);
         
         for (const colData of tableInfo.columns || []) {
+            let colName = colData.attributeName || colData.columnName;
+            let dataType = colData.dataType || 'VARCHAR';
+
+            // APPLY ARCHITECT FIXES DURING LOADING
+            // 1. Naming cleanup
+            if (colName === 'bmrk') colName = 'benchmark';
+            if (colName === 'bmrk_id') colName = 'benchmark_id';
+            if (colName === 'port_id') colName = 'portfolio_id';
+            if (colName === 'return_pct') colName = 'portfolio_return_pct';
+            if (colName === 'period') colName = 'as_of_date';
+            if (colName === 'asset_class') colName = 'asset_class_code';
+
+            // 2. Data type fixes
+            const nameLower = colName.toLowerCase();
+            const financialMetrics = {
+                'alpha': 'DECIMAL(10,6)',
+                'beta': 'DECIMAL(10,6)',
+                'sharpe_ratio': 'DECIMAL(8,4)',
+                'volatility': 'DECIMAL(8,4)',
+                'bmrk_return': 'DECIMAL(8,4)',
+                'benchmark_return': 'DECIMAL(8,4)',
+                'return_pct': 'DECIMAL(8,4)',
+                'portfolio_return_pct': 'DECIMAL(8,4)',
+                'contribution_to_return': 'DECIMAL(8,4)',
+                'contribution_to_risk': 'DECIMAL(8,4)',
+                'var': 'DECIMAL(12,4)',
+                'cvar': 'DECIMAL(12,4)'
+            };
+
+            if (financialMetrics[nameLower]) {
+                dataType = financialMetrics[nameLower];
+            } else if (nameLower === 'as_of_date') {
+                dataType = 'DATE';
+            } else if (nameLower === 'asset_class_code') {
+                dataType = 'VARCHAR(100)';
+            }
+
             const column = new Column({
-                name: colData.columnName,
-                dataType: colData.dataType || 'VARCHAR',
+                name: colName,
+                dataType: dataType,
                 isPrimaryKey: colData.isPrimaryKey || false,
                 isForeignKey: colData.isForeignKey || false,
                 isNullable: colData.nullable !== false,
@@ -76,13 +114,17 @@ async function loadMetadata(fileId) {
                 defaultValue: colData.defaultValue,
                 referencesTable: colData.referencesTable,
                 referencesColumn: colData.referencesColumn,
-                description: colData.description
+                description: colData.attributeDescription || colData.description
             });
             table.addColumn(column);
         }
         
         metadata.addTable(table);
     }
+    
+    // Store hierarchical data in metadata for InteractiveHTMLGenerator
+    metadata._hierarchicalData = hierarchicalData;
+    metadata._rawMetadata = rawData.metadata;
     
     return metadata;
 }
@@ -176,22 +218,41 @@ async function generateComplete(fileId) {
         }
         console.log();
         
-        // Step 5: Generate Interactive HTML (in executive/ folder) - Skip if exists
-        progress(5, 7, 'Generating Interactive HTML viewer...');
+        // Step 5: Generate Interactive HTML viewers (Logical + Physical) - Skip if exists
+        progress(5, 7, 'Generating Interactive HTML viewers (Logical + Physical)...');
+        
+        // Generate Logical Model Interactive HTML
         try {
-            const htmlPath = path.join(paths.executive, 'erd_INTERACTIVE.html');
-            if (fs.existsSync(htmlPath)) {
-                log(`   ${COLORS.YELLOW}⚠${COLORS.RESET} Interactive HTML already exists, skipping`);
-                results.files.push({ name: 'erd_INTERACTIVE.html', type: 'Interactive Viewer (exists)', size: fs.statSync(htmlPath).size });
+            const logicalHtmlPath = path.join(paths.executive, 'logical_INTERACTIVE.html');
+            if (fs.existsSync(logicalHtmlPath)) {
+                log(`   ${COLORS.YELLOW}⚠${COLORS.RESET} Logical Interactive HTML already exists, skipping`);
+                results.files.push({ name: 'logical_INTERACTIVE.html', type: 'Logical Viewer (exists)', size: fs.statSync(logicalHtmlPath).size });
             } else {
                 const htmlGen = new InteractiveHTMLGenerator(metadata, paths.executive);
-                const savedPath = await htmlGen.save();
-                results.files.push({ name: 'erd_INTERACTIVE.html', type: 'Interactive Viewer', size: fs.statSync(savedPath).size });
-                success('erd_INTERACTIVE.html (Open in browser!)');
+                const savedPath = await htmlGen.saveLogical('logical_INTERACTIVE.html');
+                results.files.push({ name: 'logical_INTERACTIVE.html', type: 'Logical Viewer', size: fs.statSync(savedPath).size });
+                success('logical_INTERACTIVE.html (Logical Model - Open in browser!)');
             }
         } catch (err) {
-            error(`HTML generation failed: ${err.message}`);
-            results.errors.push({ step: 'HTML', error: err.message });
+            error(`Logical HTML generation failed: ${err.message}`);
+            results.errors.push({ step: 'Logical HTML', error: err.message });
+        }
+        
+        // Generate Physical Model Interactive HTML
+        try {
+            const physicalHtmlPath = path.join(paths.executive, 'physical_INTERACTIVE.html');
+            if (fs.existsSync(physicalHtmlPath)) {
+                log(`   ${COLORS.YELLOW}⚠${COLORS.RESET} Physical Interactive HTML already exists, skipping`);
+                results.files.push({ name: 'physical_INTERACTIVE.html', type: 'Physical Viewer (exists)', size: fs.statSync(physicalHtmlPath).size });
+            } else {
+                const htmlGen = new InteractiveHTMLGenerator(metadata, paths.executive);
+                const savedPath = await htmlGen.savePhysical('physical_INTERACTIVE.html');
+                results.files.push({ name: 'physical_INTERACTIVE.html', type: 'Physical Viewer', size: fs.statSync(savedPath).size });
+                success('physical_INTERACTIVE.html (Physical Model - Open in browser!)');
+            }
+        } catch (err) {
+            error(`Physical HTML generation failed: ${err.message}`);
+            results.errors.push({ step: 'Physical HTML', error: err.message });
         }
         console.log();
         

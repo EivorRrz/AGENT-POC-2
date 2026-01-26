@@ -5,14 +5,17 @@
 
 import dotenv from 'dotenv';
 import path from "path";
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
 const config = {
     //Paths..!
     //either get the data from the env file or else create the folder for it..!
-    phase1ArtifactsDir: process.env.PHASE1_ARTIFACTS_DIR || path.resolve(__dirname, '../../Phase-1/artifacts'),
+    phase1ArtifactsDir: process.env.PHASE1_ARTIFACTS_DIR || path.resolve(__dirname, '../../Phase-1/src/artifacts'),
 
 
     //Output-Settings..!
