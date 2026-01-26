@@ -6,11 +6,6 @@ node_modules/
 .env
 **/.env
 
-# Uploads and artifacts
-uploads/
-artifacts/
-**/uploads/
-**/artifacts/
 
 # Logs
 *.log

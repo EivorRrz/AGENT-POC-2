@@ -1,1327 +1,1545 @@
 {
   "summary": {
     "tableCount": 143,
-    "columnCount": 1846,
+    "columnCount": 1560,
     "foreignKeyCount": 13,
-    "issueCount": 83
+    "issueCount": 226
   },
   "perTable": {
     "sec_master": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
-      "issues": []
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
     },
     "position": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 1,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "holding_balance": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 1,
       "incomingFkCount": 0,
-      "issues": []
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
     },
     "valuation": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "holding_transaction": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "prices": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "prices": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing.",
         "Column cost should use DECIMAL for monetary values."
       ]
     },
     "trade": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 1,
       "incomingFkCount": 0,
       "issues": [
+        "Audit fields created_at / updated_at are missing.",
         "Column quantity should use INT for quantity."
       ]
     },
     "fx_ndf": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "fx": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "setlmnt_collat": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "fwd_fx": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "broker": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "charge_rate": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "charge_rate": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "eq_optn": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "swap": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "fwd": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "bank": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 1,
-      "issues": []
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
     },
     "account": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 1,
       "incomingFkCount": 1,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "advisory_proposal": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "investor_demographic": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "accounts_hierarchy": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "advisor_business_plan_goal": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "accounts_hierarchy": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "advisor_business_plan_goal": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "advisor_performance": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "client_segmentation": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "client_profitability": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "client_interaction": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "client_communication_preference": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "client_identification": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "client_profile": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "client_contact_details": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "client_risk_profile": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "aml_status": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "KYC_details": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "branch_officer_contribution_monthly_measure": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "branch_officer_contribution_monthly_measure_detail": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "business_plan_activity": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "client_profitability": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "client_interaction": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "client_communication_preference": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "client_identification": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "client_profile": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "client_contact_details": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "client_risk_profile": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "aml_status": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "KYC_details": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "branch_officer_contribution_monthly_measure": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "branch_officer_contribution_monthly_measure_detail": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "business_plan_activity": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "business_plan_projected_measure": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "business_plan_strategy": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "business_plan_objective": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "client_partnerhsip": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "contact": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Client_Security_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Instrument_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Coupon_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Registration_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Option_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Municipal_Funding_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Market_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Enhancer_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Exercise_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Barrier_Event_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Book_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "BRS_Security_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Transaction_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Price_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Collateral_Exposure_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Broker_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "third_party_repo_collateral_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Foreign_Exchange_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "third_party_repo_coupon_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "account_identifier_type": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "account_group_type": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "account_group_type": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "account_service_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Interaction_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Document_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "contact_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Restriction_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Restrictiontype": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "financial_goal_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Fee_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "order_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "annuity_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "bond_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "due_bill_distribution_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "branch_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "portfolio_investment_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "portfolio_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Benchmark_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Action_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "portfolio_group_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Event_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "Rate_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "currency_exchange_rate": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "country_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "region_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "state_province_type": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "currency": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "investor_financial_goal": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "transaction_history": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "performance_summary": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "fee_charges_summary": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "learning_associate_course_enrollment": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "course_enrollment": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "learning_class": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "performance_summary": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "fee_charges_summary": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "learning_associate_course_enrollment": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "course_enrollment": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "learning_class": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "learning_course": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "portfolio_screening_criteria": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "portfolio_screening_criteria": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "esg_screening": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "risk_screening": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "trade_confirmation": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 1,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "trade_settlement": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 1,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "trade_fullfilment": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "risk_screening": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "trade_confirmation": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "trade_settlement": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "trade_fullfilment": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "trade_order": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 2,
-      "issues": []
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
     },
     "prospect_relationship_progression": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "annuity_product": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "annuity_product": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "annutiy_contract": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "product": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "product": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "branch": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 1,
-      "issues": []
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
     },
     "branch_visit": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "mutual_fund": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "organization": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "mutual_fund": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "organization": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "employee": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
-      "issues": []
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
     },
     "port": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 8,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "port_bmrk": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "port_performance": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 1,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "port_compliance_rule": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "asset_allocation_plan": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 1,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "rebalancing_rule": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 1,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "port_limit": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "port_performance": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "port_compliance_rule": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "asset_allocation_plan": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "rebalancing_rule": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "port_limit": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "port_group": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "port_group_member": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "port_performance_summary": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 1,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "performance_attribution": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 1,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "risk_metrics": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 1,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "bmrk_performance": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "index_analytics": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "branch_officer_performance": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 1,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "price_source": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "port_performance_summary": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "performance_attribution": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "risk_metrics": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "bmrk_performance": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "index_analytics": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "branch_officer_performance": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 1,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "price_source": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "price_security_eod": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "dividend_announcement": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "split_merger": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "corporate_action_calendar": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "index_constituents": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "bmrk": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "exchange_calendar": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "economic_event_calendar": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "corporate_earnings_calendar": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "volatility_metrics": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "market_sentiment_indicators": {
-      "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "economy_index": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "split_merger": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "corporate_action_calendar": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "index_constituents": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "bmrk": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "exchange_calendar": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "economic_event_calendar": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "corporate_earnings_calendar": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "volatility_metrics": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "market_sentiment_indicators": {
+      "hasPrimaryKey": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "economy_index": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "market_econ_rate_eod": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "strategy": {
       "hasPrimaryKey": true,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
-      "fkCount": 0,
-      "incomingFkCount": 0,
-      "issues": []
-    },
-    "stress_test_result": {
-      "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Audit fields created_at / updated_at are missing."
+      ]
+    },
+    "stress_test_result": {
+      "hasPrimaryKey": false,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
+      "fkCount": 0,
+      "incomingFkCount": 0,
+      "issues": [
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     },
     "port_management": {
       "hasPrimaryKey": false,
-      "hasCreatedAt": true,
-      "hasUpdatedAt": true,
+      "hasCreatedAt": false,
+      "hasUpdatedAt": false,
       "fkCount": 0,
       "incomingFkCount": 0,
       "issues": [
-        "Table has no primary key or multiple primary keys."
+        "Table has no primary key or multiple primary keys.",
+        "Audit fields created_at / updated_at are missing."
       ]
     }
   },
   "issues": [
     {
+      "table": "sec_master",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "position",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "position",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "holding_balance",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "valuation",
@@ -1329,10 +1547,30 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "valuation",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "holding_transaction",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "prices",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "prices",
       "column": "cost",
       "type": "type",
       "message": "Monetary column should use DECIMAL, not other numeric types."
+    },
+    {
+      "table": "trade",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "trade",
@@ -1346,9 +1584,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "fx_ndf",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "fx",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "fx",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "setlmnt_collat",
@@ -1356,9 +1604,24 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "setlmnt_collat",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "fwd_fx",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "fwd_fx",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "broker",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "charge_rate",
@@ -1366,9 +1629,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "charge_rate",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "eq_optn",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "eq_optn",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "swap",
@@ -1376,9 +1649,24 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "swap",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "fwd",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "fwd",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "bank",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "account",
@@ -1386,9 +1674,29 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "account",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "advisory_proposal",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "advisory_proposal",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "investor_demographic",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "accounts_hierarchy",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "advisor_business_plan_goal",
@@ -1396,9 +1704,79 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "advisor_business_plan_goal",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "advisor_performance",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "advisor_performance",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "client_segmentation",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "client_profitability",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "client_interaction",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "client_communication_preference",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "client_identification",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "client_profile",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "client_contact_details",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "client_risk_profile",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "aml_status",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "KYC_details",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "branch_officer_contribution_monthly_measure",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "branch_officer_contribution_monthly_measure_detail",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "business_plan_activity",
@@ -1406,9 +1784,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "business_plan_activity",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "business_plan_projected_measure",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "business_plan_projected_measure",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "business_plan_strategy",
@@ -1416,9 +1804,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "business_plan_strategy",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "business_plan_objective",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "business_plan_objective",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "client_partnerhsip",
@@ -1426,9 +1824,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "client_partnerhsip",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "contact",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "contact",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Client_Security_type",
@@ -1436,9 +1844,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Client_Security_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Instrument_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Instrument_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Coupon_type",
@@ -1446,9 +1864,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Coupon_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Registration_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Registration_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Option_type",
@@ -1456,9 +1884,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Option_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Municipal_Funding_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Municipal_Funding_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Market_type",
@@ -1466,9 +1904,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Market_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Enhancer_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Enhancer_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Exercise_type",
@@ -1476,9 +1924,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Exercise_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Barrier_Event_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Barrier_Event_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Book_type",
@@ -1486,9 +1944,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Book_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "BRS_Security_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "BRS_Security_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Transaction_type",
@@ -1496,9 +1964,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Transaction_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Price_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Price_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Collateral_Exposure_type",
@@ -1506,9 +1984,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Collateral_Exposure_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Broker_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Broker_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "third_party_repo_collateral_type",
@@ -1516,9 +2004,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "third_party_repo_collateral_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Foreign_Exchange_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Foreign_Exchange_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "third_party_repo_coupon_type",
@@ -1526,9 +2024,24 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "third_party_repo_coupon_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "account_identifier_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "account_group_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "account_group_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "account_service_type",
@@ -1536,9 +2049,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "account_service_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Interaction_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Interaction_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Document_type",
@@ -1546,9 +2069,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Document_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "contact_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "contact_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Restriction_type",
@@ -1556,9 +2089,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Restriction_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Restrictiontype",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Restrictiontype",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "financial_goal_type",
@@ -1566,9 +2109,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "financial_goal_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Fee_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Fee_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "order_type",
@@ -1576,9 +2129,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "order_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "annuity_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "annuity_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "bond_type",
@@ -1586,9 +2149,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "bond_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "due_bill_distribution_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "due_bill_distribution_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "branch_type",
@@ -1596,9 +2169,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "branch_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "portfolio_investment_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "portfolio_investment_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "portfolio_type",
@@ -1606,9 +2189,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "portfolio_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Benchmark_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Benchmark_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Action_type",
@@ -1616,9 +2209,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Action_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "portfolio_group_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "portfolio_group_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "Event_type",
@@ -1626,9 +2229,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "Event_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "Rate_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "Rate_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "currency_exchange_rate",
@@ -1636,9 +2249,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "currency_exchange_rate",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "country_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "country_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "region_type",
@@ -1646,9 +2269,19 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "region_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "state_province_type",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "state_province_type",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "currency",
@@ -1656,9 +2289,44 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "currency",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "investor_financial_goal",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "investor_financial_goal",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "transaction_history",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "performance_summary",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "fee_charges_summary",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "learning_associate_course_enrollment",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "course_enrollment",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "learning_class",
@@ -1666,9 +2334,44 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "learning_class",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "learning_course",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "portfolio_screening_criteria",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "portfolio_screening_criteria",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "esg_screening",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "risk_screening",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "trade_confirmation",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "trade_settlement",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "trade_fullfilment",
@@ -1676,9 +2379,34 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "trade_fullfilment",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "trade_order",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "prospect_relationship_progression",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "annuity_product",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "annuity_product",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "annutiy_contract",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "product",
@@ -1686,9 +2414,39 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "product",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "branch",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "branch_visit",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "mutual_fund",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "organization",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "organization",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "employee",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "port",
@@ -1696,9 +2454,44 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "port",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "port_bmrk",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "port_performance",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "port_compliance_rule",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "asset_allocation_plan",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "rebalancing_rule",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "port_limit",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "port_limit",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "port_group",
@@ -1706,9 +2499,54 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "port_group",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "port_group_member",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "port_performance_summary",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "performance_attribution",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "risk_metrics",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "bmrk_performance",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "index_analytics",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "branch_officer_performance",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "price_source",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "price_source",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "price_security_eod",
@@ -1716,9 +2554,69 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "price_security_eod",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "dividend_announcement",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "split_merger",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "corporate_action_calendar",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "index_constituents",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "bmrk",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "exchange_calendar",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "economic_event_calendar",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "corporate_earnings_calendar",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "volatility_metrics",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "market_sentiment_indicators",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "economy_index",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "economy_index",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     },
     {
       "table": "market_econ_rate_eod",
@@ -1726,14 +2624,34 @@
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "market_econ_rate_eod",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
+      "table": "strategy",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "stress_test_result",
       "type": "pk",
       "message": "Missing or invalid primary key."
     },
     {
+      "table": "stress_test_result",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
+    },
+    {
       "table": "port_management",
       "type": "pk",
       "message": "Missing or invalid primary key."
+    },
+    {
+      "table": "port_management",
+      "type": "audit",
+      "message": "Audit timestamps (created_at/updated_at) are missing."
     }
   ]
 }

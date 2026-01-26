@@ -905,20 +905,6 @@
             "sourceRow": 76
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -2276,20 +2262,6 @@
             "sourceRow": 189
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -2500,20 +2472,6 @@
             "sourceRow": 206
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -2664,20 +2622,6 @@
             "sourceRow": 218
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -2720,20 +2664,6 @@
             "sourceRow": 221
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -3352,20 +3282,6 @@
             "sourceRow": 272
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -4099,20 +4015,6 @@
             "sourceRow": 413
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -4167,20 +4069,6 @@
             "sourceRow": 343
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -4259,20 +4147,6 @@
             "sourceRow": 348
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -4435,20 +4309,6 @@
             "sourceRow": 412
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -4575,20 +4435,6 @@
             "sourceRow": 325
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -4787,20 +4633,6 @@
             "sourceRow": 315
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -4927,20 +4759,6 @@
             "sourceRow": 339
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -4983,20 +4801,6 @@
             "sourceRow": 342
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -5135,20 +4939,6 @@
             "sourceRow": 358
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -5239,20 +5029,6 @@
             "sourceRow": 396
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -5331,20 +5107,6 @@
             "sourceRow": 419
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -5735,20 +5497,6 @@
             "sourceRow": 451
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -6115,20 +5863,6 @@
             "sourceRow": 913
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -6231,20 +5965,6 @@
             "sourceRow": 466
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -6347,20 +6067,6 @@
             "sourceRow": 475
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -6499,20 +6205,6 @@
             "sourceRow": 486
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -7611,20 +7303,6 @@
             "sourceRow": 578
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -7679,20 +7357,6 @@
             "sourceRow": 582
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -7766,20 +7430,6 @@
           "origin": "unknown",
           "source": null,
           "notes": "Source information not found"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -7894,20 +7544,6 @@
             "sourceRow": 597
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -8010,20 +7646,6 @@
             "sourceRow": 605
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -8126,20 +7748,6 @@
             "sourceRow": 613
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -8278,20 +7886,6 @@
             "sourceRow": 624
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -8358,20 +7952,6 @@
             "sourceRow": 629
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -8438,20 +8018,6 @@
             "sourceRow": 634
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -8554,20 +8120,6 @@
             "sourceRow": 642
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -8646,20 +8198,6 @@
             "sourceRow": 648
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -8810,20 +8348,6 @@
             "sourceRow": 660
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -9130,20 +8654,6 @@
             "sourceRow": 685
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -9342,20 +8852,6 @@
             "sourceRow": 701
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -9446,20 +8942,6 @@
             "sourceRow": 709
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -9610,20 +9092,6 @@
             "sourceRow": 722
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -9642,20 +9110,6 @@
             "sourceRow": 720
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -9866,20 +9320,6 @@
             "sourceRow": 739
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10510,20 +9950,6 @@
             "sourceRow": 791
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10554,20 +9980,6 @@
             "sourceRow": 793
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10598,20 +10010,6 @@
             "sourceRow": 795
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10642,20 +10040,6 @@
             "sourceRow": 797
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10686,20 +10070,6 @@
             "sourceRow": 799
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10730,20 +10100,6 @@
             "sourceRow": 801
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10774,20 +10130,6 @@
             "sourceRow": 803
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10818,20 +10160,6 @@
             "sourceRow": 805
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10862,20 +10190,6 @@
             "sourceRow": 807
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10906,20 +10220,6 @@
             "sourceRow": 809
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10950,20 +10250,6 @@
             "sourceRow": 811
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -10994,20 +10280,6 @@
             "sourceRow": 813
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11038,20 +10310,6 @@
             "sourceRow": 815
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11082,20 +10340,6 @@
             "sourceRow": 817
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11126,20 +10370,6 @@
             "sourceRow": 819
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11170,20 +10400,6 @@
             "sourceRow": 821
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11214,20 +10430,6 @@
             "sourceRow": 823
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11258,20 +10460,6 @@
             "sourceRow": 825
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11302,20 +10490,6 @@
             "sourceRow": 827
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11346,20 +10520,6 @@
             "sourceRow": 829
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11390,20 +10550,6 @@
             "sourceRow": 831
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11458,20 +10604,6 @@
             "sourceRow": 835
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11502,20 +10634,6 @@
             "sourceRow": 837
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11546,20 +10664,6 @@
             "sourceRow": 839
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11590,20 +10694,6 @@
             "sourceRow": 841
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11634,20 +10724,6 @@
             "sourceRow": 843
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11666,20 +10742,6 @@
             "sourceRow": 844
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11698,20 +10760,6 @@
             "sourceRow": 845
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11766,20 +10814,6 @@
             "sourceRow": 849
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11810,20 +10844,6 @@
             "sourceRow": 851
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11854,20 +10874,6 @@
             "sourceRow": 853
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11898,20 +10904,6 @@
             "sourceRow": 855
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11942,20 +10934,6 @@
             "sourceRow": 857
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -11986,20 +10964,6 @@
             "sourceRow": 859
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12030,20 +10994,6 @@
             "sourceRow": 861
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12074,20 +11024,6 @@
             "sourceRow": 863
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12118,20 +11054,6 @@
             "sourceRow": 865
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12162,20 +11084,6 @@
             "sourceRow": 867
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12206,20 +11114,6 @@
             "sourceRow": 869
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12250,20 +11144,6 @@
             "sourceRow": 871
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12294,20 +11174,6 @@
             "sourceRow": 873
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12338,20 +11204,6 @@
             "sourceRow": 875
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12406,20 +11258,6 @@
             "sourceRow": 879
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12462,20 +11300,6 @@
             "sourceRow": 882
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12506,20 +11330,6 @@
             "sourceRow": 884
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12562,20 +11372,6 @@
             "sourceRow": 887
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12618,20 +11414,6 @@
             "sourceRow": 890
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -12926,20 +11708,6 @@
             "sourceRow": 951
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -13018,20 +11786,6 @@
             "sourceRow": 957
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -13093,20 +11847,6 @@
             "sourceRow": 962
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -13173,20 +11913,6 @@
             "sourceRow": 967
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -13217,20 +11943,6 @@
             "sourceRow": 969
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -13381,20 +12093,6 @@
             "sourceRow": 981
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -13581,20 +12279,6 @@
             "sourceRow": 996
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -13841,20 +12525,6 @@
             "sourceRow": 1016
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -14257,20 +12927,6 @@
             "sourceRow": 1052
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -14349,20 +13005,6 @@
             "sourceRow": 1058
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -14441,20 +13083,6 @@
             "sourceRow": 1064
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -14521,20 +13149,6 @@
             "sourceRow": 1069
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -14613,20 +13227,6 @@
             "sourceRow": 1075
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -15317,20 +13917,6 @@
             "sourceRow": 1132
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -15997,20 +14583,6 @@
             "sourceRow": 1187
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -16137,20 +14709,6 @@
             "sourceRow": 1197
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -16217,20 +14775,6 @@
             "sourceRow": 1202
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -16369,20 +14913,6 @@
             "sourceRow": 1213
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -17313,20 +15843,6 @@
             "sourceRow": 1290
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -17453,20 +15969,6 @@
             "sourceRow": 1300
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -17581,20 +16083,6 @@
             "sourceRow": 1309
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -17793,20 +16281,6 @@
             "sourceRow": 1325
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -17873,20 +16347,6 @@
             "sourceRow": 1330
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -18145,20 +16605,6 @@
             "sourceRow": 1351
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -18369,20 +16815,6 @@
             "sourceRow": 1368
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -18456,20 +16888,6 @@
             "sourceRow": 1374
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -18569,20 +16987,6 @@
             "sourceRow": 1383
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -18649,20 +17053,6 @@
             "sourceRow": 1388
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -18731,20 +17121,6 @@
             "sourceRow": 1394
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -18806,20 +17182,6 @@
             "sourceRow": 1399
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -18850,20 +17212,6 @@
             "sourceRow": 1401
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19002,20 +17350,6 @@
             "sourceRow": 1412
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19058,20 +17392,6 @@
             "sourceRow": 1415
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19207,20 +17527,6 @@
             "sourceRow": 1427
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19289,20 +17595,6 @@
             "sourceRow": 1433
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19460,20 +17752,6 @@
             "sourceRow": 1572
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19542,20 +17820,6 @@
             "sourceRow": 1446
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19622,20 +17886,6 @@
             "sourceRow": 1451
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19726,20 +17976,6 @@
             "sourceRow": 1458
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19794,20 +18030,6 @@
             "sourceRow": 1467
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -19874,20 +18096,6 @@
             "sourceRow": 1472
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20002,20 +18210,6 @@
             "sourceRow": 1481
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20094,20 +18288,6 @@
             "sourceRow": 1487
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20162,20 +18342,6 @@
             "sourceRow": 1491
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20242,20 +18408,6 @@
             "sourceRow": 1496
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20317,20 +18469,6 @@
             "sourceRow": 1501
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20385,20 +18523,6 @@
             "sourceRow": 1505
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20501,20 +18625,6 @@
             "sourceRow": 1513
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20605,20 +18715,6 @@
             "sourceRow": 1520
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20697,20 +18793,6 @@
             "sourceRow": 1526
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20765,20 +18847,6 @@
             "sourceRow": 1530
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -20821,20 +18889,6 @@
             "sourceRow": 1533
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -21057,20 +19111,6 @@
             "sourceRow": 1552
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -21233,20 +19273,6 @@
             "sourceRow": 1565
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -21325,20 +19351,6 @@
             "sourceRow": 1578
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     },
@@ -21465,20 +19477,6 @@
             "sourceRow": 1588
           },
           "notes": "Column originated from source metadata"
-        },
-        "created_at": {
-          "physicalName": "created_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
-        },
-        "updated_at": {
-          "physicalName": "updated_at",
-          "physicalType": "TIMESTAMP",
-          "origin": "system_generated",
-          "source": null,
-          "notes": "Added by generator for audit / timestamps"
         }
       }
     }

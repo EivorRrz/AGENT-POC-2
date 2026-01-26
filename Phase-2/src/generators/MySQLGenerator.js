@@ -36,14 +36,14 @@ export class MySQLGenerator extends BaseGenerator {
     let n = this.sanitizeName(String(name || '')).replace(/^_+/, '');
     
     // STEP 7: Naming cleanup
-    if (n === 'bmrk') return 'benchmark';
+    if (n === 'bmrk') return 'benchmark'; // Standardize benchmark naming
     if (n === 'bmrk_id') return 'benchmark_id';
     if (n.startsWith('bmrk_')) n = n.replace('bmrk_', 'benchmark_');
     if (n === 'port_id') return 'portfolio_id';
     if (n === 'return_pct') return 'portfolio_return_pct';
     
     // STEP 2: Period handling
-    if (n === 'period') return 'as_of_date';
+    if (n === 'period') return 'as_of_date'; // Map period to as_of_date
     
     // STEP 3: Asset class
     if (n === 'asset_class') return 'asset_class_code';
@@ -77,7 +77,7 @@ export class MySQLGenerator extends BaseGenerator {
         'sharpe_ratio': 'DECIMAL(8,4)',
         'volatility': 'DECIMAL(8,4)',
         'bmrk_return': 'DECIMAL(8,4)',
-        'benchmark_return': 'DECIMAL(8,4)',
+        'benchmark_return': 'DECIMAL(8,4)', // Consolidate benchmark return definition
         'return_pct': 'DECIMAL(8,4)',
         'portfolio_return_pct': 'DECIMAL(8,4)',
         'contribution_to_return': 'DECIMAL(8,4)',

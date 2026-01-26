@@ -2,16 +2,16 @@
    PHYSICAL MODEL GENERATION - VERIFICATION REPORT
 ═══════════════════════════════════════════════════════
 
-Generated: 2026-01-26T19:41:11.072Z
+Generated: 2026-01-26T20:30:10.187Z
 File ID: 1769450257490
-Generation Time: 0.10s
+Generation Time: 0.09s
 
 ───────────────────────────────────────────────────────
  COMPLETENESS CHECK
 ───────────────────────────────────────────────────────
 
 ✓ Tables Generated: 143
-✓ Columns Captured: 1846
+✓ Columns Captured: 1560
 ✓ Files Created: 9
 ✓ Errors: 0
 
@@ -22,7 +22,7 @@ Generation Time: 0.10s
 ───────────────────────────────────────────────────────
 
   ✓ mysql.sql (0.15 MB)
-    Type: SQL DDL
+    Type: SQL DDL (exists)
 
   ✓ erd.png (0.23 MB)
     Type: Physical ERD PNG (exists)
@@ -39,13 +39,13 @@ Generation Time: 0.10s
   ✓ EXECUTIVE_REPORT.html (0.04 MB)
     Type: Executive Summary (exists)
 
-  ✓ physical_lineage.json (0.46 MB)
+  ✓ physical_lineage.json (0.41 MB)
     Type: Physical Lineage JSON
 
   ✓ physical_impact.json (0.01 MB)
     Type: Physical Impact JSON
 
-  ✓ physical_graph_insights.json (0.03 MB)
+  ✓ physical_graph_insights.json (0.05 MB)
     Type: Physical Graph Insights JSON
 
 ───────────────────────────────────────────────────────

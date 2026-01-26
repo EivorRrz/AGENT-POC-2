@@ -806,14 +806,14 @@ CREATE TABLE `advisor_performance` (
   `new_accounts_1_month_quantity` DECIMAL(10,2),
   `net_new_household_total_quantity` DECIMAL(10,2),
   `net_new_household_new_quantity` DECIMAL(10,2),
-  `net_new_household_new_4_month_quantity` DECIMAL(10,2),
-  `net_new_household_new_12_month_quantity` DECIMAL(10,2),
+  `net_new_household_new_4_month_quantity` DECIMAL(10,2) CHECK (`net_new_household_new_4_month_quantity` >= 0),
+  `net_new_household_new_12_month_quantity` DECIMAL(10,2) CHECK (`net_new_household_new_12_month_quantity` >= 0),
   `net_new_household_net_quantity` DECIMAL(10,2),
-  `net_new_household_net_4_month_quantity` DECIMAL(10,2),
-  `net_new_household_net_12_month_quantity` DECIMAL(10,2),
+  `net_new_household_net_4_month_quantity` DECIMAL(10,2) CHECK (`net_new_household_net_4_month_quantity` >= 0),
+  `net_new_household_net_12_month_quantity` DECIMAL(10,2) CHECK (`net_new_household_net_12_month_quantity` >= 0),
   `net_new_household_closed_quantity` DECIMAL(10,2),
-  `net_new_household_closed_4_month_quantity` DECIMAL(10,2),
-  `net_new_household_closed_12_month_quantity` DECIMAL(10,2),
+  `net_new_household_closed_4_month_quantity` DECIMAL(10,2) CHECK (`net_new_household_closed_4_month_quantity` >= 0),
+  `net_new_household_closed_12_month_quantity` DECIMAL(10,2) CHECK (`net_new_household_closed_12_month_quantity` >= 0),
   `net_new_asset_as_of_date` TIMESTAMP,
   `net_new_asset_amount` DECIMAL(10,2) CHECK (`net_new_asset_amount` >= 0),
   `net_new_asset_4_month_average_amount` DECIMAL(10,2) CHECK (`net_new_asset_4_month_average_amount` >= 0),
@@ -2117,7 +2117,7 @@ CREATE TABLE `port_bmrk` (
 
 CREATE TABLE `port_performance` (
   `performance_id` INT AUTO_INCREMENT,
-  `portfolio_id` INT,
+  `portfolio_id` INT NOT NULL,
   `as_of_date` DATE,
   `portfolio_return_pct` DECIMAL(8,4),
   `benchmark_return` DECIMAL(8,4),
@@ -2199,7 +2199,7 @@ CREATE TABLE `port_group_member` (
 
 CREATE TABLE `port_performance_summary` (
   `performance_id` INT AUTO_INCREMENT,
-  `portfolio_id` INT,
+  `portfolio_id` INT NOT NULL,
   `as_of_date` DATE,
   `start_date` TIMESTAMP,
   `end_date` TIMESTAMP,
@@ -2218,7 +2218,7 @@ CREATE TABLE `port_performance_summary` (
 
 CREATE TABLE `performance_attribution` (
   `attribution_id` INT AUTO_INCREMENT,
-  `portfolio_id` INT,
+  `portfolio_id` INT NOT NULL,
   `asset_class_code` VARCHAR(100) UNIQUE,
   `contribution_to_return` DECIMAL(8,4),
   `contribution_to_risk` DECIMAL(8,4),
@@ -2230,7 +2230,7 @@ CREATE TABLE `performance_attribution` (
 
 CREATE TABLE `risk_metrics` (
   `risk_metric_id` INT AUTO_INCREMENT,
-  `portfolio_id` INT,
+  `portfolio_id` INT NOT NULL,
   `var` DECIMAL(12,4),
   `cvar` DECIMAL(12,4),
   `stress_test_result` VARCHAR(255),
@@ -2496,31 +2496,29 @@ CREATE TABLE `port_management` (
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-ALTER TABLE `position` ADD CONSTRAINT `fk_position_portfolio_id` FOREIGN KEY (`portfolio_id`) REFERENCES `port`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `port_performance`
+MODIFY COLUMN `portfolio_id` INT NOT NULL;
 
-ALTER TABLE `holding_balance` ADD CONSTRAINT `fk_holding_balance_account_id` FOREIGN KEY (`account_id`) REFERENCES `account`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `performance_attribution`
+MODIFY COLUMN `portfolio_id` INT NOT NULL;
 
-ALTER TABLE `trade` ADD CONSTRAINT `fk_trade_portfolio_id` FOREIGN KEY (`portfolio_id`) REFERENCES `port`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `port_performance_summary`
+MODIFY COLUMN `portfolio_id` INT NOT NULL;
 
-ALTER TABLE `account` ADD CONSTRAINT `fk_account_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `bank`(`bank_id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `risk_metrics`
+MODIFY COLUMN `portfolio_id` INT NOT NULL;
 
-ALTER TABLE `trade_confirmation` ADD CONSTRAINT `fk_trade_confirmation_trade_order_id` FOREIGN KEY (`trade_order_id`) REFERENCES `trade_order`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `port_performance`
+ADD CONSTRAINT UNIQUE (`port_id`, `as_of_date`);
 
-ALTER TABLE `trade_settlement` ADD CONSTRAINT `fk_trade_settlement_trade_order_id` FOREIGN KEY (`trade_order_id`) REFERENCES `trade_order`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `performance_attribution`
+ADD CONSTRAINT UNIQUE (`port_id`, `as_of_date`);
 
-ALTER TABLE `port_performance` ADD CONSTRAINT `fk_port_performance_portfolio_id` FOREIGN KEY (`portfolio_id`) REFERENCES `port`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `port_performance_summary`
+ADD CONSTRAINT UNIQUE (`port_id`, `as_of_date`);
 
-ALTER TABLE `asset_allocation_plan` ADD CONSTRAINT `fk_asset_allocation_plan_portfolio_id` FOREIGN KEY (`portfolio_id`) REFERENCES `port`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
-ALTER TABLE `rebalancing_rule` ADD CONSTRAINT `fk_rebalancing_rule_portfolio_id` FOREIGN KEY (`portfolio_id`) REFERENCES `port`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
-ALTER TABLE `port_performance_summary` ADD CONSTRAINT `fk_port_performance_summary_portfolio_id` FOREIGN KEY (`portfolio_id`) REFERENCES `port`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
-ALTER TABLE `performance_attribution` ADD CONSTRAINT `fk_performance_attribution_portfolio_id` FOREIGN KEY (`portfolio_id`) REFERENCES `port`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
-ALTER TABLE `risk_metrics` ADD CONSTRAINT `fk_risk_metrics_portfolio_id` FOREIGN KEY (`portfolio_id`) REFERENCES `port`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
-ALTER TABLE `branch_officer_performance` ADD CONSTRAINT `fk_branch_officer_performance_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branch`(`branch_number`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `risk_metrics`
+ADD CONSTRAINT UNIQUE (`port_id`, `as_of_date`);
 
 CREATE INDEX `idx_sec_master_client_security_type_code` ON `sec_master` (`client_security_type_code`);
 CREATE INDEX `idx_sec_master_instrument_type_code` ON `sec_master` (`instrument_type_code`);
